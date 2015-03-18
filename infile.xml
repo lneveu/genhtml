@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml>
+<resource id="im1" type="image" value="6063737678_fa99951c3e_o.jpg"/>
+<resource id="im2" type="image" value="8349175076_84a7f7ee79_o.png"/>
+<resource id="im3" type="image" value="lev-01.jpg"/>
+
+
+<resource id="titre" type="text">
+<![CDATA[
+LEV MANOVICH Software Guru
+]]></resource>
+
+
+<resource id="par1" type="text">
+<![CDATA[
+Artiste, programmeur, « historien du présent », « théoricien des nouveaux médias », visionnaire des écrans, Lev Manovich est, avec Matthew Fuller, à l’origine des « software studies », groupe de recherche qui étudie les rapports des nouvelles technologies avec l’art et la culture. Prenant de la distance avec un certain nombre de discours technologiques dominants et parfois assourdissants provenant de l’industrie informatique, Manovich confronte les formes numériques de notre quotidien à une perspective culturelle plus large, particulièrement informée par l’histoire de l’art et les sciences humaines.
+]]></resource>
+
+
+<resource id="par2" type="text">
+<![CDATA[
+Ainsi, pour Manovich, l’écran d’ordinateur se voit comparé avec la fenêtre de la perspective renaissante, la réalité augmentée avec l’expérience des églises baroques, la « visualisation de données » opposée à l’idéal de « sublime » chez les artistes romantiques, ou encore la pratique du remix et du sampling affiliée aux expériences des collages Dada et du montage dans le cinéma russe.
+]]></resource>
+
+
+<resource id="par3" type="text">
+<![CDATA[
+Des constructivistes russes aux computers
+]]></resource>
+
+
+<resource id="par4" type="text">
+<![CDATA[
+Formé conjointement aux arts plastiques, à l’architecture et à l’ingénierie informatique (double culture qu’il partage avec l’artiste « numérique » John Maeda) dans l’URSS des années 1970, Lev Manovich émigre ensuite aux États-Unis avant la chute du mur de Berlin. Il y publie en 1993 un recueil de textes russes sur la culture visuelle, puis une thèse en études culturelles et visuelles portant sur les relations entre l’informatique et le mouvement artistique du constructivisme russe (« The Engineering of Vision from Constructivism to Computers »).
+]]></resource>
+
+
+<resource id="par5" type="text">
+<![CDATA[
+À partir de l’œuvre de Dziga Vertov, cinéaste russe des années 1920, Manovich va élaborer une filiation cinématographique des nouveaux médias. L’approche expérimentale de Vertov cherche à définir, notamment dans son célèbre film L’Homme à la caméra, un langage propre au cinéma via un catalogue de procédés et d’effets. Manovich va analyser en designer cette approche à travers diverses expériences de « visualisation » des films du cinéaste russe. En 2002, via le projet Soft Cinema, Manovich remplace le traditionnel appareil de projection cinématographique par un logiciel assemblant spontanément des films sans cesse nouveaux au moyen de séquences piochées dans une base de données selon des règles du jeu complexes. Praticien des objets qu’il décrit, il met ainsi au travail ses hypothèses théoriques.
+]]></resource>
+
+
+<resource id="par6" type="text">
+<![CDATA[
+Paru en 2001 (2010 en France), l’ouvrage Le langage des nouveaux médias a été internationalement salué par la critique. Ce livre fournit une magistrale analyse des spécificités des « nouveaux médias » sous l’angle de leurs relations avec l’histoire culturelle et esthétique occidentale (photographie, cinéma, politique, etc.). En élaborant un lexique et des modes d’articulation (les « opérations ») propres aux logiciels dits de création, Lev Manovich nous donne des clés de lecture essentielles pour comprendre notre époque.
+]]></resource>
+
+
+<resource id="par7" type="text">
+<![CDATA[
+Dans ce livre, Manovich esquisse des éléments de définition de l’appellation « nouveaux médias » qui désignait, déjà à l’époque de sa publication, des artefacts aussi divers que des logiciels de création, des cédéroms culturels, des œuvres issues de l’Art numérique, des jeux vidéos ou des films comportant des images de synthèse. Pour ce faire, il utilise une méthode d’investigation qui va de l’inspection « des fondements matériels des nouveaux médias à l’examen de leur forme » (p. 69).
+]]></resource>
+
+
+<resource id="par8" type="text">
+<![CDATA[
+L’apport principal de l’ouvrage consiste à démontrer que les nouveaux médias ne tirent pas seulement leur origine de l’histoire des machines et des techniques de calcul (fait maintes fois raconté par ailleurs), mais que leur généalogie et leurs propriétés proviennent tout autant de l’histoire des médias et des médiums artistiques – et au premier plan du cinéma et de la photographie.
+]]></resource>
+
+
+<resource id="par9" type="text">
+<![CDATA[
+Il s’agit alors pour l’auteur de refonder notre compréhension des technologies de l’information dans une histoire culturelle et esthétique qui accorde une place importante aux formes et aux modèles culturels hérités des expériences médiatiques antérieures à l’époque informatique.
+]]></resource>
+
+
+<resource id="par10" type="text">
+<![CDATA[
+L’approche conceptuelle de Manovich est aussi liée à la langue dans laquelle elle est développée, puisqu’elle est nourrie continuellement par un jeu avec la double signification du terme anglais de media, qui peut désigner à la fois un canal de communication (un média) et l’ensemble de médiums de création. Cela explique d’ailleurs l’intérêt particulier de Manovich pour les outils numériques de création visuelle dans ses analyses (Photoshop, After Effects et consorts), en tant qu’ils permettent à la fois d’appréhender – comme médiums – comment sont élaborés les objets médiatiques de notre époque et – comme médias – comment sont pratiqués et appréhendés ces derniers.
+]]></resource>
+
+
+<resource id="par11" type="text">
+<![CDATA[
+Dans Le Langage des nouveaux médias, Manovich synthétise en cinq points les propriétés qui permettraient de comprendre en quoi les médias numériques seraient « nouveaux » : représentation numérique (simuler des anciens médias pour les rendre manipulables numériquement), modularité (penser le code sous forme de modules indépendants), automatisation (faire travailler l’ordinateur sans intervention humaine), variabilité (permettre aux objets d’évoluer dans le temps), et transcodage (changer le format d’un média). Dans un deuxième temps, l’auteur tente d’en dessiner les conséquences au travers de notions telles que celles d’interface, d’opération, d’illusion ou de forme. Manovich « boucle » l’ouvrage en interrogeant les transformations induites par les technologies de l’information sur le cinéma, lui-même étant, selon l’auteur, l’ancêtre du numérique.
+]]></resource>
+
+
+<resource id="par12" type="text">
+<![CDATA[
+Vue d’ensemble des « cultural analytics »
+]]></resource>
+
+
+<resource id="par13" type="text">
+<![CDATA[
+Cofondé par Lev Manovich et implanté à San Diego et New York, le groupe de recherche intitulé « Software Studies Initiative » vise à étudier divers aspects de la culture visuelle passée ou actuelle à travers l’élaboration d’outils informatiques d’analyse de données à grande échelle. Exemple de réalisation, les Style Spaces sont un mélange de procédés graphiques et computationnels permettant de générer des visualisations servant à répartir dans un espace d’analyse un grand nombre d’images triées selon leurs caractéristiques visuelles.
+]]></resource>
+
+
+<resource id="par14" type="text">
+<![CDATA[
+Il s’agit ici de visualiser les productions d’un artiste ou d’un groupe de créateurs à une échelle beaucoup plus large que celle des outils d’analyse « traditionnels », qui se limitent généralement à l’interprétation d’un petit nombre de documents. Cette approche complémentaire permet de dégager, grâce à des regroupements dynamiques résultant de la répartition spatiale des images, d’autres connaissances qui sont propres à l’époque du numérique. L’intérêt que porte Manovich à l’histoire de l’art se retrouve ainsi dans les corpus de ses activités de recherche, avec des analyses à grande échelle d’artistes tels que Van Gogh, Mondrian ou Rothko.
+]]></resource>
+
+
+<resource id="par15" type="text">
+<![CDATA[
+Manovich et son équipe s’intéressent également à la culture contemporaine, comme en témoigne la série de visualisation réalisée à partir d’un million de mangas japonais et cherchant à découvrir les tendances visuelles de cette littérature pléthorique – par exemple : lire des familles de styles communs à plusieurs auteurs, apprécier les types de traitement graphique les plus utilisés à une certaine période, ou encore apprécier les trajectoires ou diversités stylistique d’un auteur en particulier - à travers une vision d’ensemble projetée sur des écrans géants.
+]]></resource>
+
+
+<resource id="par16" type="text">
+<![CDATA[
+Les productions les plus récentes de l’équipe cherchent à appréhender l’expression collective d’une sensibilité visuelle en perpétuelle mutation, à travers l’analyse des médias sociaux et des productions photographiques vernaculaires sécrétées par des millions d’utilisateurs sur Instagram (projets Phototrail ou Selfiecity).
+]]></resource>
+
+
+<resource id="par17" type="text">
+<![CDATA[
+Le numérique comme « extensibilité permanente »
+]]></resource>
+
+
+<resource id="par18" type="text">
+<![CDATA[
+Paru en août 2013, le dernier ouvrage de Lev Manovich s’intitule Software Takes Command, en référence au célèbre Mechanization takes Command (La Mécanisation au pouvoir) écrit par Siegfried Giedion en 1948. L’auteur y poursuit l’entreprise de définition initiée dans Le Langage des Nouveaux Médias, en s’intéressant à la relation spécifique des médias au software, terme qu’on peut traduire en français par « programme » ou « logiciel ». Les softwares sont désormais présents dans toutes les strates de nos existences, aussi il est essentiel de comprendre en quoi ils consistent.
+]]></resource>
+
+
+<resource id="par19" type="text">
+<![CDATA[
+À travers une analyse des travaux et écrits fondateurs d’Alan Kay, père de la « programmation orientée objet » et des premières interfaces graphiques, Manovich analyse les transformations induites par le software sur les médias existants. Le software se présente selon Manovich comme un « métamédium » (terme initialement proposé par Alan Kay), qui peut simuler tous les anciens médias, mais qui surtout les enrichit de nouvelles propriétés propres au numérique, telles que la recherche, l’échantillonnage, le redimensionnement, etc. Ces propriétés génériques permettent l’avènement de nouveaux médias hybrides (Photoshop, Acrobat Reader), ou entièrement nouveaux (la navigation 3D). La propriété intrinsèque au numérique serait donc son « extensibilité permanente » (p. 337). Filant la métaphore initiée par Darwin, Manovich voit ainsi les logiciels comme un écosystème peuplé d’êtres complexes en perpétuelle évolution et aux combinaisons infinies.
+]]></resource>
+
+
+<resource id="par20" type="text">
+<![CDATA[
+Faisant le pont entre ses écrits et les expériences de design menées au sein de la Software Studies Initiative, Manovich aborde dans Software Takes Command la notion de « Software Epistemology », qui désigne les implications de ladite « prise de pouvoir » sur l’élaboration des connaissances relatives à notre culture contemporaine et à notre histoire. Selon Manovich, au-delà du champ de l’analyse des médias, la vivacité polymorphe du computer permet de revisiter les savoirs contemporains, mais aussi ceux du passé – étendant de ce fait l’« extensibilité permanente » des formes du software à des jeux de simulation, d’hybridation et d’invention perpétuels, dont nous n’avons expérimenté que les premières combinaisons.
+]]></resource>
+
+
+<resource id="par21" type="text">
+<![CDATA[
+L’ouvrage se termine par une analyse du logiciel Adobe After Effects. Comme il l’avait fait dans Le langage des nouveaux médias, Manovich boucle ainsi sa passion cinématographique par une analyse des conditions contemporaines de production des vidéos.
+]]></resource>
+
+
+<resource id="par22" type="text">
+<![CDATA[
+Patron des patterns
+]]></resource>
+
+
+<resource id="par23" type="text">
+<![CDATA[
+Aujourd’hui, les dits et écrits de ce software guru sont tout autant attendus par les créateurs de tous poils que par les têtes calculantes du secteur informatique toujours à l’affût de nouveaux insights et autres signaux faibles pour leur business : le patron des patterns attire aussi les attentions patronales. Tantôt invité dans des colloques d’histoire de l’art, tantôt sur les plateaux de la presse économique, Manovich incarne une position singulière conjuguant d’une part une forme de circonspection nuancée et savante et d’autre part une certaine dimension prophétique issue de la « What’s next culture » américaine. Une personnalité riche et complexe à suivre, à lire – et à traduire !
+]]></resource>
+
+
+<resource id="parXXX" type="text">
+<![CDATA[
+]]></resource>
+
+<resource id="mv1" type="movie" value="movie.url"/>
+<resource id="ma1" type="map" value="list of markers"/>
+<resource id="st1" type="style" value="description style"/>
+<resource id="pr1" type="processing" value="boite processing"/>
+<resource id="js1" type="js" value="javascript"/>
+</xml>

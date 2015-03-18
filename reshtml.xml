@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xml>
+<!-- PROLOGUE  -->
+<resource id="prologue" type="htmltext"><![CDATA[<html>
+<head>
+<meta charset="UTF-8">
+<title>strabic test</title> 
+<style type="text/css">
+body {
+  width: $1px;
+	height: $2px;
+  font-family: $3;
+  color: $4;
+  background-color: $5;
+
+	/* Grid */
+  background-size: $6px $6px;
+  background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.13) 2px, rgba(0,0,0,0) 2px),
+  -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
+
+  background-image: -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.13) 2px, rgba(0,0,0,0) 2px),
+  -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
+
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px),
+  linear-gradient(90deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
+	
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="libstrabic.js"></script>
+</head>
+<body>
+]]></resource>
+
+<!-- EPILOGUE -->
+<resource id="epilogue" type="htmltext"><![CDATA[
+<script type="text/javascript">
+  /* Scroll middle page */
+ 	var height = $(document).height();
+ 	var width = $(document).width();
+  $(document).scrollTop(height/4);
+  $(document).scrollLeft(width/4);
+</script>
+</body>
+</html>]]></resource>
+
+<!-- DIV NODE ARTICLE -->
+<resource id="nodeStyle" type="boxtemplate"><![CDATA[<style type="text/css">
+.$1 {
+	width:$2px;
+	height:$3px;
+	border: solid 2px black;
+	font-size: 10px;
+	text-align: center;
+	line-height: 70px
+}
+</style>
+]]></resource>
+
+<!-- DIV TITLE -->
+<resource id="titleStyle" type="boxtemplate"><![CDATA[<style type="text/css">
+.$1 {
+	font-size:12px;
+	line-height: normal;
+	font-weight: bold
+}
+</style>
+]]></resource>
+
+<!-- DIV AUTHOR -->
+<resource id="authorStyle" type="boxtemplate"><![CDATA[<style type="text/css">
+.$1 {
+	line-height: normal;
+	color:#2AD1A2
+}
+</style>
+]]></resource>
+</xml>
