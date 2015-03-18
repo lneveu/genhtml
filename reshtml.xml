@@ -60,12 +60,66 @@ body {
 <!-- DIV TITLE -->
 <resource id="titleStyle" type="boxtemplate"><![CDATA[<style type="text/css">
 .$1 {
+  background-color: rgb(255,255,255);
 	font-size:12px;
 	line-height: normal;
 	font-weight: bold
 }
 </style>
 ]]></resource>
+
+<!-- DIV BOTTOM-RIGHT -->
+<resource id="title_brStyle" type="boxtemplate"><![CDATA[<style type="text/css">
+  .$1 {
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    position: absolute;
+    top: 60px;
+    right: -45px;
+    width: 100px;
+  }
+</style>]]></resource>
+
+<!-- DIV BOTTOM-LEFT -->
+<resource id="title_blStyle" type="boxtemplate"><![CDATA[<style type="text/css">
+  .$1 {
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    width: 100px;
+  }
+</style>]]></resource>
+
+<!-- DIV TOP-RIGHT -->
+<resource id="title_trStyle" type="boxtemplate"><![CDATA[<style type="text/css">
+  .$1 {
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    position: absolute;
+    top: -5px;
+    right:-45px;
+    width:100px;
+  }
+</style>]]></resource>
+
+<!-- DIV TOP-LEFT -->
+<resource id="title_tlStyle" type="boxtemplate"><![CDATA[<style type="text/css">
+  .$1 {
+    -webkit-transform: rotate(-35deg);
+    -moz-transform: rotate(-35deg);
+    -o-transform: rotate(-35deg);
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 100px;
+  }
+</style>]]></resource>
+
 
 <!-- DIV AUTHOR -->
 <resource id="authorStyle" type="boxtemplate"><![CDATA[<style type="text/css">

@@ -11,6 +11,7 @@
 #include <stdarg.h>
 #include <igraph.h>
 #include <math.h>
+#include <wchar.h> 
 
 //Some external
 extern char *itoa(int, char *, int);
@@ -28,6 +29,8 @@ unsigned char outstr[MAX_BUFFERSIZE];
 #define STR_DEFAULTBACKGROUNDCOLOR "#FFFFFF"
 #define VAL_DEFAULTPOLICESIZE 12
 #define VAL_DEFAULTGRIDSIZE 200
+#define LEN_MAX_TITLE 25
+
 
 #define STR_RESOURCE "resource"
 #define STR_TYPE "type"
@@ -1048,6 +1051,7 @@ void parseElement(xmlNode * a_node){
 
 void generateGrapheView(){
 	int i;
+
 	// generation HTML nodes
 	for(i=0;i<nb_node;i++){
 		g_node * cur = nodes[i];
@@ -1055,22 +1059,52 @@ void generateGrapheView(){
 		fprintf(outfile,"<div ");
 		fprintf(outfile,"class=\"%s\" ",cur->stylename);
 		fprintf(outfile,"style=\"position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1f\">",cur->x,cur->y,cur->z);
-		//link
+	   
+    //link
 		fprintf(outfile,"<a href=\"%s\" style=\"width:inherit;height:inherit\">",cur->url);
-		//img
+		
+    //img
 		fprintf(outfile,"<img src=\"%s\" alt=\"%s\" style=\"width:inherit;height:inherit\">",
 			  cur->urlImage, cur->name_display);
 		fprintf(outfile,"</a>");
-		//title
-		fprintf(outfile,"<div class=\"title\">");
-		fprintf(outfile,"%s",cur->title);
-		fprintf(outfile,"</div>\n");
+		
 
+    //title  
+    fprintf(outfile,"<div class=\"title ");
+
+    // rotation random du titre
+    int r = rand()%4; // random [0-3]
+    switch(r){
+      case 0 : fprintf(outfile, "top-right"); break;
+      case 1 : fprintf(outfile, "top-left"); break;
+      case 2 : fprintf(outfile, "bottom-right"); break;
+      case 3 : fprintf(outfile, "bottom-left"); break;
+      default: break;
+    }
+		fprintf(outfile,"\">");
+
+
+
+    //minimize title
+    size_t len = strlen(cur->title);
+    if(len > LEN_MAX_TITLE){
+      char * miniTitle = NULL;
+      miniTitle = malloc((LEN_MAX_TITLE+1));
+      strncpy(miniTitle,cur->title,LEN_MAX_TITLE-3);
+      fprintf(outfile,"%s...",miniTitle);
+      free(miniTitle);
+    }else{
+      fprintf(outfile,"%s",cur->title);
+    }
+
+		fprintf(outfile,"</div>\n");
+  
 		//author
-		fprintf(outfile,"<div class=\"author\">");
+		/*fprintf(outfile,"<div class=\"author\">");
 		fprintf(outfile,"%s",cur->author);
-		fprintf(outfile,"</div>\n");
+		fprintf(outfile,"</div>\n");*/
 
+    //end node div
 		fprintf(outfile,"</div>\n");
 
 
@@ -1086,6 +1120,8 @@ void generateGrapheView(){
 			  cur->urlImage, cur->name_display,cur->x,cur->y,cur->z);
 		}*/
 	}
+ 
+
 
 	// generation HTML edges
   
