@@ -1,0 +1,6 @@
+*.html
+*.*~
+*.so
+*.o
+*.exe
+/gauteur.xml
