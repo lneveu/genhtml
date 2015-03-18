@@ -1,0 +1,819 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>strabic test</title> 
+<style type="text/css">
+body {
+  width: 1000px;
+	height: 1000px;
+  font-family: Arial, Verdana, sans-serif;
+  color: #000;
+  background-color: #FFFFFF;
+
+	/* Grid */
+  background-size: 200px 200px;
+  background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.13) 2px, rgba(0,0,0,0) 2px),
+  -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
+
+  background-image: -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.13) 2px, rgba(0,0,0,0) 2px),
+  -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
+
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px),
+  linear-gradient(90deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
+	
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="libstrabic.js"></script>
+</head>
+<body>
+
+<!-- node 3 named box -->
+<style type="text/css">
+.nodeStyle {
+	width:60px;
+	height:60px;
+	border: solid 2px black;
+	font-size: 10px;
+	text-align: center;
+	line-height: 70px
+}
+</style>
+
+<div >
+</div>
+<!-- node 4 named box -->
+<style type="text/css">
+.title {
+	font-size:12px;
+	line-height: normal;
+	font-weight: bold
+}
+</style>
+
+<div >
+</div>
+<!-- node 5 named box -->
+<style type="text/css">
+.author {
+	line-height: normal;
+	color:#2AD1A2
+}
+</style>
+
+<div >
+</div>
+<div class="nodeStyle" style="position:absolute;left:4083.5px;top:1055.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Hype(r)Olds_:_plutôt_geeks_que_mémés" style="width:inherit;height:inherit"></a><div class="title">Hype(r)Olds : plutôt geeks que mémés</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:907.3px;top:4135.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Abribus_abris_russes" style="width:inherit;height:inherit"></a><div class="title">Abribus abris russes</div>
+<div class="author">Léo Benichou</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:384.1px;top:3312.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/08_09.jpg" alt="Will_Eisner_et_le_M16" style="width:inherit;height:inherit"></a><div class="title">Will Eisner et le M16</div>
+<div class="author">Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1103.0px;top:2085.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/AA_Paysage-naturel-_30-05-11_.jpg" alt="Lia_Giraud_:_Algae-graphies" style="width:inherit;height:inherit"></a><div class="title">Lia Giraud : Algae-graphies</div>
+<div class="author">Édith Hallauer, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:322.0px;top:3124.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/arton188.png" alt="La_pensée_à_l’œuvre" style="width:inherit;height:inherit"></a><div class="title">La pensée à l’œuvre</div>
+<div class="author">Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3987.9px;top:1219.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="On_fête_les_cent_ans_de_Finn_Juhl_!" style="width:inherit;height:inherit"></a><div class="title">On fête les cent ans de Finn Juhl !</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:982.6px;top:543.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/skyline-blu-grig_7.jpg" alt="Salone_del_mobile" style="width:inherit;height:inherit"></a><div class="title">Salone del mobile</div>
+<div class="author">Bertrand Gravier, Élise Gabriel, Étienne Pageault, Giulio Giorgi</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3634.0px;top:799.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/unepng8_2.png" alt="«_La_silhouette_sportive,_c’est_le_chic_absolu_»" style="width:inherit;height:inherit"></a><div class="title">« La silhouette sportive, c’est le chic absolu »</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1638.8px;top:4383.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Marion_Fayolle_:_Le_Zoo_d'Abidjan" style="width:inherit;height:inherit"></a><div class="title">Marion Fayolle : Le Zoo d'Abidjan</div>
+<div class="author">Marion Fayolle</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3727.9px;top:4481.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Le_sport_en_salle_:_la_technologie_au_secours_de_l’imaginaire_!" style="width:inherit;height:inherit"></a><div class="title">Le sport en salle : la technologie au secours de l’imaginaire !</div>
+<div class="author">Viviane Kajjaj, Alice Maitre</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1802.4px;top:1151.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt=""Géographie_subjective"" style="width:inherit;height:inherit"></a><div class="title">"Géographie subjective"</div>
+<div class="author">Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3141.8px;top:3471.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Google_Street_Sound,_une_fiction_?" style="width:inherit;height:inherit"></a><div class="title">Google Street Sound, une fiction ?</div>
+<div class="author">Loup Cellard</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2701.4px;top:4855.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Elsa_Fauconnet_:_la_Colline_du_Diable" style="width:inherit;height:inherit"></a><div class="title">Elsa Fauconnet : la Colline du Diable</div>
+<div class="author">Elsa Fauconnet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1487.2px;top:2936.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/TM-City-overview.jpg" alt="Niessen_&_de_Vries" style="width:inherit;height:inherit"></a><div class="title">Niessen & de Vries</div>
+<div class="author">Sophie Cure, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:437.9px;top:1622.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="2" style="width:inherit;height:inherit"></a><div class="title">Patrick Bouchain : ma voisine, cette architecte. 2/2</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1514.9px;top:3867.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/img_7301.jpg" alt="Une_Saison_Graphique" style="width:inherit;height:inherit"></a><div class="title">Une Saison Graphique</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3127.4px;top:3975.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/josephine1.jpg" alt="À_corps_perdus" style="width:inherit;height:inherit"></a><div class="title">À corps perdus</div>
+<div class="author">Emilie Hammen, Emilie Hammen</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4716.4px;top:3833.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Stratigraphie_des_châteaux_de_sable" style="width:inherit;height:inherit"></a><div class="title">Stratigraphie des châteaux de sable</div>
+<div class="author">Astrid de la Chapelle</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2934.3px;top:1023.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/Strip3.jpg" alt="le_Zoo_de_Gaza" style="width:inherit;height:inherit"></a><div class="title">le Zoo de Gaza</div>
+<div class="author">Corentin Perrichot</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4041.0px;top:4280.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/gif/turkish-art-now-une2.gif" alt="Turkish_Art_Now" style="width:inherit;height:inherit"></a><div class="title">Turkish Art Now</div>
+<div class="author">Laura Truxa</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4015.7px;top:2785.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Pourquoi_Lady_Gaga_veut-elle_tellement_être_un_cyborg_?" style="width:inherit;height:inherit"></a><div class="title">Pourquoi Lady Gaga veut-elle tellement être un cyborg ?</div>
+<div class="author">Anaïs Guilet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4471.0px;top:1035.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/toit_fin.jpg" alt="FabLab_Barcelona_:_de_l'école_à_la_smart_city" style="width:inherit;height:inherit"></a><div class="title">FabLab Barcelona : de l'école à la smart city</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3402.6px;top:473.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/image-fond.png" alt="Les_architectes_au_mini-golf" style="width:inherit;height:inherit"></a><div class="title">Les architectes au mini-golf</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1260.9px;top:2346.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Aspen_Interactive_Movie_Map" style="width:inherit;height:inherit"></a><div class="title">Aspen Interactive Movie Map</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3522.7px;top:4657.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Un_livre_:_Design_des_politiques_publiques" style="width:inherit;height:inherit"></a><div class="title">Un livre : Design des politiques publiques</div>
+<div class="author">Perrine Boissier</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2496.0px;top:560.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/DSC_0507.jpg" alt="Marc_Fornes_:_Double_Agent_White" style="width:inherit;height:inherit"></a><div class="title">Marc Fornes : Double Agent White</div>
+<div class="author">Sophie Fétro</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2401.6px;top:4872.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Porno_Panda" style="width:inherit;height:inherit"></a><div class="title">Porno Panda</div>
+<div class="author">Matthias Malingrëy</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1580.8px;top:2580.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/une-edito.jpg" alt="Don’t_panic_!" style="width:inherit;height:inherit"></a><div class="title">Don’t panic !</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1677.2px;top:711.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Jardin,_où_es-tu_?" style="width:inherit;height:inherit"></a><div class="title">Jardin, où es-tu ?</div>
+<div class="author">Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:0.0px;top:3126.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/STRABIC_-_MAJ.jpg" alt="Adobe" style="width:inherit;height:inherit"></a><div class="title">Adobe</div>
+<div class="author">Anthony Masure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3885.1px;top:403.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/chapeau8.png" alt="Le_golfeur_et_la_cheerleader" style="width:inherit;height:inherit"></a><div class="title">Le golfeur et la cheerleader</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:66.5px;top:3458.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Rencontres_de_Lure_2013_:_amateurs_et_typothèses" style="width:inherit;height:inherit"></a><div class="title">Rencontres de Lure 2013 : amateurs et typothèses</div>
+<div class="author">Anthony Masure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4323.2px;top:1634.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Noisebridge_:_les_hackers_de_San_Francisco" style="width:inherit;height:inherit"></a><div class="title">Noisebridge : les hackers de San Francisco</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2863.1px;top:1317.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Véhicule_électrique_vs._smartphone" style="width:inherit;height:inherit"></a><div class="title">Véhicule électrique vs. smartphone</div>
+<div class="author">Selma Fortin, Marie Saarbach, Clément Paurd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3240.4px;top:69.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/no-school-une-motif.jpg" alt="No_school_is_an_island" style="width:inherit;height:inherit"></a><div class="title">No school is an island</div>
+<div class="author">Nidia Linhares</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:489.6px;top:1895.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="2" style="width:inherit;height:inherit"></a><div class="title">Patrick Bouchain : ma voisine, cette architecte. 1/2</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3884.5px;top:2046.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/cassette-muriellecooper-une.png" alt="Muriel_Cooper" style="width:inherit;height:inherit"></a><div class="title">Muriel Cooper</div>
+<div class="author">Nolwenn Maudet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2340.9px;top:4527.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Le_viager,_c'est_risqué" style="width:inherit;height:inherit"></a><div class="title">Le viager, c'est risqué</div>
+<div class="author">Vincent Godeau</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3817.3px;top:689.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/sumoa.png" alt="Sumos_et_robots,_même_combat_?" style="width:inherit;height:inherit"></a><div class="title">Sumos et robots, même combat ?</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1533.8px;top:2268.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/PIGMENT_1-STUDIO-MONSIEUR-copiej.jpg" alt="Studio_Monsieur_:_Pigment_ou_le_règne_du_pastel" style="width:inherit;height:inherit"></a><div class="title">Studio Monsieur : Pigment ou le règne du pastel</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1625.9px;top:2875.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/simpli0d.jpg" alt="Simplicissimus" style="width:inherit;height:inherit"></a><div class="title">Simplicissimus</div>
+<div class="author">Sophie Cure, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1020.9px;top:2612.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Émeric_Lhuisset_et_la_chaise_Kandahar_:_le_confort_du_combattant" style="width:inherit;height:inherit"></a><div class="title">Émeric Lhuisset et la chaise Kandahar : le confort du combattant</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4599.8px;top:4062.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Arthrose_et_ecchymoses" style="width:inherit;height:inherit"></a><div class="title">Arthrose et ecchymoses</div>
+<div class="author">Gala Vanson</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2814.0px;top:15.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Il_y_a_un_soldat_en_chacun_de_nous" style="width:inherit;height:inherit"></a><div class="title">Il y a un soldat en chacun de nous</div>
+<div class="author">Thomas Richou</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1509.7px;top:2107.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/spacesuit-fashioning-apollo-nicholas-de-monchaux---une.jpg" alt="Spacesuit_:_Les_dessous_d’Aldrin" style="width:inherit;height:inherit"></a><div class="title">Spacesuit : Les dessous d’Aldrin</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:616.8px;top:3579.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/01-28.jpg" alt="Expédition_Bodyware" style="width:inherit;height:inherit"></a><div class="title">Expédition Bodyware</div>
+<div class="author">Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4360.3px;top:3075.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Collectif_ETC_:_le_géant,_la_bohème_et_le_coup_de_main" style="width:inherit;height:inherit"></a><div class="title">Collectif ETC : le géant, la bohème et le coup de main</div>
+<div class="author">Mathilde Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3421.4px;top:4883.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="MindMapping" style="width:inherit;height:inherit"></a><div class="title">MindMapping</div>
+<div class="author">Perrine Boissier</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2762.4px;top:3003.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/futur-technologique-yes-couv-2.png" alt="Rutilant_et_doré_notre_futur_technologique_?" style="width:inherit;height:inherit"></a><div class="title">Rutilant et doré notre futur technologique ?</div>
+<div class="author">Loup Cellard, Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1792.7px;top:2202.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="The_Cat,_the_Reverend_and_the_Slave" style="width:inherit;height:inherit"></a><div class="title">The Cat, the Reverend and the Slave</div>
+<div class="author">Juliette Goiffon, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1299.5px;top:332.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="La_Maison_des_(vieux)_artistes" style="width:inherit;height:inherit"></a><div class="title">La Maison des (vieux) artistes</div>
+<div class="author">Léo Delafontaine, Julien Keita</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:596.9px;top:3301.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/bucky.jpg" alt="Buckminster_Fuller" style="width:inherit;height:inherit"></a><div class="title">Buckminster Fuller</div>
+<div class="author">Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4348.0px;top:1444.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/typea_1.jpg" alt="TechShop" style="width:inherit;height:inherit"></a><div class="title">TechShop</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3341.3px;top:1701.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/une-architectura-social.png" alt="Arquitectura_Social" style="width:inherit;height:inherit"></a><div class="title">Arquitectura Social</div>
+<div class="author">Domenico Di Siena, Vincent Gebel</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2210.2px;top:534.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/une-faire-le-mur-2.jpg" alt="Faire_le_mur" style="width:inherit;height:inherit"></a><div class="title">Faire le mur</div>
+<div class="author">Collectif Quatorze</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4953.4px;top:1602.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/d21_00b.jpg" alt="Department_21" style="width:inherit;height:inherit"></a><div class="title">Department 21</div>
+<div class="author">Sophie Demay</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4514.9px;top:1559.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Interfaces_buissonnières" style="width:inherit;height:inherit"></a><div class="title">Interfaces buissonnières</div>
+<div class="author">Camille Bosqué, Mathias Kusnierz</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1589.6px;top:2462.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/lucien-herve_03.jpg" alt="LUCIEN_HERVÉ" style="width:inherit;height:inherit"></a><div class="title">LUCIEN HERVÉ</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4278.2px;top:1106.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/SAM_2094.jpg" alt="Léo_Marius" style="width:inherit;height:inherit"></a><div class="title">Léo Marius</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1915.3px;top:4518.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/02B-2.jpg" alt="Le_consommateur_aux_commandes" style="width:inherit;height:inherit"></a><div class="title">Le consommateur aux commandes</div>
+<div class="author">Arnaud Colin, Vincent Godeau</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1043.4px;top:2501.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/arton211.png" alt="Soft_Manhattan" style="width:inherit;height:inherit"></a><div class="title">Soft Manhattan</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1524.1px;top:2694.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Automation" style="width:inherit;height:inherit"></a><div class="title">Automation</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3722.1px;top:4240.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Espèce_d'espace_public" style="width:inherit;height:inherit"></a><div class="title">Espèce d'espace public</div>
+<div class="author">Viviane Kajjaj</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1761.3px;top:2345.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Stedelijk_:_un_scandale_stylé" style="width:inherit;height:inherit"></a><div class="title">Stedelijk : un scandale stylé</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2728.1px;top:4334.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/alaia-une2.png" alt="Azzedine_Alaïa" style="width:inherit;height:inherit"></a><div class="title">Azzedine Alaïa</div>
+<div class="author">Emilie Hammen</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2877.8px;top:1824.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/une-3.jpg" alt="Vacances_galactiques" style="width:inherit;height:inherit"></a><div class="title">Vacances galactiques</div>
+<div class="author">Juliette Goiffon, Vincent Gebel</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:949.8px;top:4503.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/ultralocal.jpg" alt="ULTRALOCAL" style="width:inherit;height:inherit"></a><div class="title">ULTRALOCAL</div>
+<div class="author">Ultralocal</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3191.3px;top:3281.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/turtle-scouter-une.jpg" alt="WEARABLE_TECH_IS_THE_NEW_CHIC" style="width:inherit;height:inherit"></a><div class="title">WEARABLE TECH IS THE NEW CHIC</div>
+<div class="author">Loup Cellard</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1366.7px;top:2992.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/une3-2.png" alt="Des_couches_minces_dans_l’espace" style="width:inherit;height:inherit"></a><div class="title">Des couches minces dans l’espace</div>
+<div class="author">Léo Benichou, Tony Côme, Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4432.6px;top:1261.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Hackons_Le_musée_!" style="width:inherit;height:inherit"></a><div class="title">Hackons Le musée !</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:957.8px;top:1521.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/ecume_une_nbs.jpg" alt="L’écume_des_villes" style="width:inherit;height:inherit"></a><div class="title">L’écume des villes</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3330.0px;top:4016.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Biceps,_bijoux_et_bord_de_mer" style="width:inherit;height:inherit"></a><div class="title">Biceps, bijoux et bord de mer</div>
+<div class="author">Emilie Hammen, pas d auteur</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4597.8px;top:1190.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/LIMP.jpg" alt="L’Impossible" style="width:inherit;height:inherit"></a><div class="title">L’Impossible</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4614.5px;top:3010.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Guillaume_Greff_:_Jeoffrécourt,_une_ruine_moderne" style="width:inherit;height:inherit"></a><div class="title">Guillaume Greff : Jeoffrécourt, une ruine moderne</div>
+<div class="author">Mathilde Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2777.4px;top:549.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/6448016757_937996c8c0_b.jpg" alt="François_Brument" style="width:inherit;height:inherit"></a><div class="title">François Brument</div>
+<div class="author">Sophie Fétro</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2869.3px;top:4472.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Le_Fashion_Program_du_Palais_de_Tokyo" style="width:inherit;height:inherit"></a><div class="title">Le Fashion Program du Palais de Tokyo</div>
+<div class="author">Emilie Hammen</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2953.2px;top:3619.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Jeux_de_lettres_à_Chaumont" style="width:inherit;height:inherit"></a><div class="title">Jeux de lettres à Chaumont</div>
+<div class="author">Loup Cellard</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4417.6px;top:2503.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Candilis_face_à_la_mer" style="width:inherit;height:inherit"></a><div class="title">Candilis face à la mer</div>
+<div class="author">David Liaudet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:355.4px;top:2950.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Bucky_in_the_Navy" style="width:inherit;height:inherit"></a><div class="title">Bucky in the Navy</div>
+<div class="author">Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1025.7px;top:2374.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Territoire_partagé" style="width:inherit;height:inherit"></a><div class="title">Territoire partagé</div>
+<div class="author">Tony Côme, Alice Lancien, Julien Rodriguez</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:509.0px;top:3123.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/12-2.jpg" alt="100_ans_de_logement_social" style="width:inherit;height:inherit"></a><div class="title">100 ans de logement social</div>
+<div class="author">Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:410.0px;top:1772.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Cartographier_les_interstices_de_la_ville" style="width:inherit;height:inherit"></a><div class="title">Cartographier les interstices de la ville</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1647.7px;top:3759.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/Rietveld_dg-alice.jpg" alt="Gerrit_Rietveld_Academie_:_l'effervescente" style="width:inherit;height:inherit"></a><div class="title">Gerrit Rietveld Academie : l'effervescente</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4884.5px;top:3628.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Object_looking_for_an_old_person" style="width:inherit;height:inherit"></a><div class="title">Object looking for an old person</div>
+<div class="author">Astrid de la Chapelle</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4139.7px;top:1593.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Faclab,_la_fête_à_la_bidouille" style="width:inherit;height:inherit"></a><div class="title">Faclab, la fête à la bidouille</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4913.5px;top:3025.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Devenez_ruches_!" style="width:inherit;height:inherit"></a><div class="title">Devenez ruches !</div>
+<div class="author">Mathilde Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4883.7px;top:2136.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Réalité_augmentée,_humanité_diminuée_?" style="width:inherit;height:inherit"></a><div class="title">Réalité augmentée, humanité diminuée ?</div>
+<div class="author">Pablo Grandjean, Vincent Broquaire</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4868.9px;top:2497.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Madame_rêve_d'aéroport" style="width:inherit;height:inherit"></a><div class="title">Madame rêve d'aéroport</div>
+<div class="author">David Liaudet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3991.9px;top:567.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/n10nnvgx3.jpg" alt="Léotard,_plume_et_coussins_fessiers" style="width:inherit;height:inherit"></a><div class="title">Léotard, plume et coussins fessiers</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4429.7px;top:2244.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Dalida_à_Royan" style="width:inherit;height:inherit"></a><div class="title">Dalida à Royan</div>
+<div class="author">David Liaudet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4282.9px;top:941.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="FabLab_MIT_Norway" style="width:inherit;height:inherit"></a><div class="title">FabLab MIT Norway</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2107.2px;top:4361.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="On_a_testé_pour_vous..._camper_à_la_Grande-Motte" style="width:inherit;height:inherit"></a><div class="title">On a testé pour vous... camper à la Grande-Motte</div>
+<div class="author">Florent Chiappero, Vincent Godeau</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1437.0px;top:2557.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/bmr2.jpg" alt="The_Black_Mountain_Review" style="width:inherit;height:inherit"></a><div class="title">The Black Mountain Review</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2749.9px;top:4128.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/klemens.jpg" alt="Le_design,_c'est_les_autres" style="width:inherit;height:inherit"></a><div class="title">Le design, c'est les autres</div>
+<div class="author">Emilie Hammen</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4597.7px;top:1387.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Make_It_Up_:_Makeathon,_grands_discours_et_petits_projets" style="width:inherit;height:inherit"></a><div class="title">Make It Up : Makeathon, grands discours et petits projets</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1147.8px;top:2284.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/aa4.jpg" alt="Bruno_Munari" style="width:inherit;height:inherit"></a><div class="title">Bruno Munari</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1705.3px;top:986.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Maudit_collectif_?" style="width:inherit;height:inherit"></a><div class="title">Maudit collectif ?</div>
+<div class="author">Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:5068.8px;top:2278.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Vincent_Broquaire_:_Screen_to_screen,_écran_géant_multitouch" style="width:inherit;height:inherit"></a><div class="title">Vincent Broquaire : Screen to screen, écran géant multitouch</div>
+<div class="author">Vincent Broquaire</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1977.0px;top:2490.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Design_par_congrégation" style="width:inherit;height:inherit"></a><div class="title">Design par congrégation</div>
+<div class="author">Tony Côme, Juliette Goiffon, Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2704.5px;top:3659.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/imaginaire-urbain-internet.png" alt="L’imaginaire_urbain_des_internets" style="width:inherit;height:inherit"></a><div class="title">L’imaginaire urbain des internets</div>
+<div class="author">Loup Cellard</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2819.7px;top:3491.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/en-tete-violet.jpg" alt="Couture_Future" style="width:inherit;height:inherit"></a><div class="title">Couture Future</div>
+<div class="author">Emilie Hammen, Charles Beauté, Lou André</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2790.7px;top:2517.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="backoffice_mode_d'emploi" style="width:inherit;height:inherit"></a><div class="title">backoffice mode d'emploi</div>
+<div class="author">Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1719.3px;top:2576.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Boisbuchet_ou_l’aristocratie_du_workshop" style="width:inherit;height:inherit"></a><div class="title">Boisbuchet ou l’aristocratie du workshop</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3500.5px;top:1152.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Célia_Gondol_:_Cages" style="width:inherit;height:inherit"></a><div class="title">Célia Gondol : Cages</div>
+<div class="author">Célia Gondol</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2988.1px;top:2496.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/image-entete.1.png" alt="P.R.O.J.E.T." style="width:inherit;height:inherit"></a><div class="title">P.R.O.J.E.T.</div>
+<div class="author">Jil Daniel, Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3073.1px;top:4822.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="AntiVJ_:_Label_lumière" style="width:inherit;height:inherit"></a><div class="title">AntiVJ : Label lumière</div>
+<div class="author">Cécile Barraud de Lagerie</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3043.1px;top:194.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="L’entre-nous_par_carte" style="width:inherit;height:inherit"></a><div class="title">L’entre-nous par carte</div>
+<div class="author">Nidia Linhares, Jérémy Joncheray</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3056.7px;top:453.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/arton193.png" alt="Concevoir_une_carte_de_l’inconnu" style="width:inherit;height:inherit"></a><div class="title">Concevoir une carte de l’inconnu</div>
+<div class="author">Marine Agogué, Jérémy Joncheray</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1178.4px;top:2029.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="2" style="width:inherit;height:inherit"></a><div class="title">Jean-Yves Jouannais et L’Encyclopédie des guerres 1/2</div>
+<div class="author">Tony Côme, Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4037.2px;top:3201.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/arton464.jpg" alt="Trois_zoos_humains" style="width:inherit;height:inherit"></a><div class="title">Trois zoos humains</div>
+<div class="author">Irène Laplanche</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3075.3px;top:762.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Pop_art_Punjabi" style="width:inherit;height:inherit"></a><div class="title">Pop art Punjabi</div>
+<div class="author">Alice Murie</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2730.9px;top:3164.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/errance3.jpg" alt="Circumnavigations" style="width:inherit;height:inherit"></a><div class="title">Circumnavigations</div>
+<div class="author">Loup Cellard, Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2123.2px;top:4638.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Colle_de_poisson" style="width:inherit;height:inherit"></a><div class="title">Colle de poisson</div>
+<div class="author">Vincent Godeau</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4751.2px;top:3194.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/jpopper_towt_04b.jpg" alt="Joseph_Popper_:_The_One_Way_Ticket" style="width:inherit;height:inherit"></a><div class="title">Joseph Popper : The One Way Ticket</div>
+<div class="author">Mathilde Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3524.3px;top:2295.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/poisson-rouge-id-2.png" alt="Un_journal_à_l'école" style="width:inherit;height:inherit"></a><div class="title">Un journal à l'école</div>
+<div class="author">Jil Daniel</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1952.0px;top:4996.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Vers_un_design_libre" style="width:inherit;height:inherit"></a><div class="title">Vers un design libre</div>
+<div class="author">Christophe André</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2869.3px;top:5068.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="STENOP.ES_:_intérieurs_nuit_pour_scénario_renversé." style="width:inherit;height:inherit"></a><div class="title">STENOP.ES : intérieurs nuit pour scénario renversé.</div>
+<div class="author">Aurore Fouchier</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3508.4px;top:287.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/800px-roller_derby_1950.jpg" alt="Roller_Derbitch" style="width:inherit;height:inherit"></a><div class="title">Roller Derbitch</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4670.4px;top:2369.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="La_Chambre_d'amour_d'Anglet" style="width:inherit;height:inherit"></a><div class="title">La Chambre d'amour d'Anglet</div>
+<div class="author">David Liaudet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3705.8px;top:4833.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="L'acupuncture_du_territoire" style="width:inherit;height:inherit"></a><div class="title">L'acupuncture du territoire</div>
+<div class="author">Perrine Boissier</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1641.9px;top:2360.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/capture_d_ecran_2013-11-07_a_23.58.48.png" alt="Georges_Demenÿ" style="width:inherit;height:inherit"></a><div class="title">Georges Demenÿ</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4633.4px;top:2034.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Journalisme_de_guerre_et_immersion" style="width:inherit;height:inherit"></a><div class="title">Journalisme de guerre et immersion</div>
+<div class="author">Allan Kaval, Vincent Broquaire</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3896.8px;top:3727.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/schemas-etc.png" alt="Collectif_ETC" style="width:inherit;height:inherit"></a><div class="title">Collectif ETC</div>
+<div class="author">pas d auteur</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3712.6px;top:292.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/chapeaunew.png" alt="Typographie_du_skatepark" style="width:inherit;height:inherit"></a><div class="title">Typographie du skatepark</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2542.8px;top:5102.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/Wkman_couv-06.jpg" alt="Werkman_et_The_Next_Call" style="width:inherit;height:inherit"></a><div class="title">Werkman et The Next Call</div>
+<div class="author">Charles Gautier</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1869.3px;top:3620.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Werkplaats_Typografie_:_bien_en_mesure" style="width:inherit;height:inherit"></a><div class="title">Werkplaats Typografie : bien en mesure</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:791.4px;top:1647.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/frank-gilbreth-une8.jpg" alt="La_cuisine_et_l’architecte" style="width:inherit;height:inherit"></a><div class="title">La cuisine et l’architecte</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3747.0px;top:3938.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/tumblr_mol3furfyl1swq1jho2_r1_1280.jpg" alt="Inside_Taksim" style="width:inherit;height:inherit"></a><div class="title">Inside Taksim</div>
+<div class="author">pas d auteur</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1144.5px;top:2416.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Jean_Perdrizet,_deus_ex_machina" style="width:inherit;height:inherit"></a><div class="title">Jean Perdrizet, deus ex machina</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1402.7px;top:2688.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/hors_pistes_studio-monsieur_04-2.jpg" alt="Hors_Pistes" style="width:inherit;height:inherit"></a><div class="title">Hors Pistes</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4158.6px;top:3465.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/arton369.png" alt="Willem_Sandberg" style="width:inherit;height:inherit"></a><div class="title">Willem Sandberg</div>
+<div class="author">Emmanuel Bérard</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2383.2px;top:872.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/une-strabic-mur.jpg" alt="BAZAR_URBAIN" style="width:inherit;height:inherit"></a><div class="title">BAZAR URBAIN</div>
+<div class="author">Bazar Urbain</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:946.0px;top:3705.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="L’esprit_Castor_:_Mythe_et_réalités" style="width:inherit;height:inherit"></a><div class="title">L’esprit Castor : Mythe et réalités</div>
+<div class="author">Caroline Bougourd, Marion Fayolle</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3641.6px;top:526.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/gif/title.gif" alt="Street_Fighter_vs_King_of_Fighter" style="width:inherit;height:inherit"></a><div class="title">Street Fighter vs King of Fighter</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3195.5px;top:5034.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Comment_j’ai_construit_certains_de_mes_vêtements" style="width:inherit;height:inherit"></a><div class="title">Comment j’ai construit certains de mes vêtements</div>
+<div class="author">Léa Gnidzaz</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1493.2px;top:1897.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/kroll-bouchain-une.jpg" alt="Kroll,_Bouchain,_etc" style="width:inherit;height:inherit"></a><div class="title">Kroll, Bouchain, etc</div>
+<div class="author">Margaux Vigne, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:5033.0px;top:3297.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/izmir3.png" alt="Garaj,_Kamyon_&_Kuaför" style="width:inherit;height:inherit"></a><div class="title">Garaj, Kamyon & Kuaför</div>
+<div class="author">Timothée Gouraud</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3085.5px;top:4455.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Le_vieux_est_à_la_mode" style="width:inherit;height:inherit"></a><div class="title">Le vieux est à la mode</div>
+<div class="author">Emilie Hammen, Cécile Barraud de Lagerie, Cécile Barraud de Lagerie</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1305.6px;top:944.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/transhumance1.jpg" alt="La_Folie_Kilomètre" style="width:inherit;height:inherit"></a><div class="title">La Folie Kilomètre</div>
+<div class="author">Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2957.2px;top:4277.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Pascal_Gautrand_:_Do_as_Romans_do_!" style="width:inherit;height:inherit"></a><div class="title">Pascal Gautrand : Do as Romans do !</div>
+<div class="author">Emilie Hammen</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:5133.8px;top:2677.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Rhétorique_de_la_platitude" style="width:inherit;height:inherit"></a><div class="title">Rhétorique de la platitude</div>
+<div class="author">Estelle Berger</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4196.2px;top:4450.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/colak.jpg" alt="Christopher_Çolak" style="width:inherit;height:inherit"></a><div class="title">Christopher Çolak</div>
+<div class="author">Laura Truxa</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3445.1px;top:691.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/1976toppstradedgamble_copie.png" alt="Baseball_cards" style="width:inherit;height:inherit"></a><div class="title">Baseball cards</div>
+<div class="author">4DGM ÉSAP</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4329.5px;top:4059.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/gif/graphik-turkish-une_2.gif" alt="Grafik_Tasarım" style="width:inherit;height:inherit"></a><div class="title">Grafik Tasarım</div>
+<div class="author">Laura Truxa</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3147.3px;top:4190.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="La_Mode_au_Musée_?_Deux_expositions" style="width:inherit;height:inherit"></a><div class="title">La Mode au Musée ? Deux expositions</div>
+<div class="author">Emilie Hammen</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3781.1px;top:2976.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="2525,_if_man_is_still_alive" style="width:inherit;height:inherit"></a><div class="title">2525, if man is still alive</div>
+<div class="author">Pierre Tesson</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3760.0px;top:3295.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/architecture-web2.png" alt="The_architect,_the_web_and_the_chat_room" style="width:inherit;height:inherit"></a><div class="title">The architect, the web and the chat room</div>
+<div class="author">Alexandru Senciuc</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1566.5px;top:2934.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Fanette_Mellier_:_Cosmos,_Carabine_et_Confetti" style="width:inherit;height:inherit"></a><div class="title">Fanette Mellier : Cosmos, Carabine et Confetti</div>
+<div class="author">Sophie Cure, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3973.9px;top:4651.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/philippe-fernandez-une.jpg" alt="Philippe_Fernandez_:_un_univers_en_expansion" style="width:inherit;height:inherit"></a><div class="title">Philippe Fernandez : un univers en expansion</div>
+<div class="author">Pierre Bourdareau</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1471.6px;top:2415.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Les_Archives_Nationales_de_M._Fuksas" style="width:inherit;height:inherit"></a><div class="title">Les Archives Nationales de M. Fuksas</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2933.2px;top:4043.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/04_the-awful-tower3.jpg" alt="Clo’e_Floirat" style="width:inherit;height:inherit"></a><div class="title">Clo’e Floirat</div>
+<div class="author">Emilie Hammen</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:928.7px;top:1363.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Construire_ensemble_le_Grand_Ensemble" style="width:inherit;height:inherit"></a><div class="title">Construire ensemble le Grand Ensemble</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3889.2px;top:1455.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/b-vg-1-algue-marsc.jpg" alt="La_Paillasse" style="width:inherit;height:inherit"></a><div class="title">La Paillasse</div>
+<div class="author">Camille Bosqué, Vincent Gebel</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1503.4px;top:4840.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="L'enseignement_de_la_Seconde_Guerre_mondiale" style="width:inherit;height:inherit"></a><div class="title">L'enseignement de la Seconde Guerre mondiale</div>
+<div class="author">Olympe Rabaté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1842.4px;top:822.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/ufo-icone.png" alt="Collectifs" style="width:inherit;height:inherit"></a><div class="title">Collectifs</div>
+<div class="author">Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2378.0px;top:4195.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="La_mode_sous_l’Occupation" style="width:inherit;height:inherit"></a><div class="title">La mode sous l’Occupation</div>
+<div class="author">Emilie Hammen, Marion Fayolle</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1029.7px;top:2800.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Florent_Chavouet_:_Cartomaniaque" style="width:inherit;height:inherit"></a><div class="title">Florent Chavouet : Cartomaniaque</div>
+<div class="author">Caroline Bougourd, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4231.8px;top:3733.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Cartographier,_le_pouvoir_suprême" style="width:inherit;height:inherit"></a><div class="title">Cartographier, le pouvoir suprême</div>
+<div class="author">Ingrid Saumur</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1595.9px;top:212.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/svoboda.jpg" alt="Dompter_les_fragrances" style="width:inherit;height:inherit"></a><div class="title">Dompter les fragrances</div>
+<div class="author">Lucie Bouyaux</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3078.1px;top:2691.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Design_génératif" style="width:inherit;height:inherit"></a><div class="title">Design génératif</div>
+<div class="author">Noë Brand, Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3492.8px;top:1464.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Hendrik_Sturm,_l’infatigable_marcheur-sculpteur_d’espace" style="width:inherit;height:inherit"></a><div class="title">Hendrik Sturm, l’infatigable marcheur-sculpteur d’espace</div>
+<div class="author">Élise Olmedo</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2604.6px;top:1797.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Anatomie_(en)_plastique" style="width:inherit;height:inherit"></a><div class="title">Anatomie (en) plastique</div>
+<div class="author">Juliette Goiffon</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4817.2px;top:1857.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Peter_Szendy_:_radiographie_de_l'iPod" style="width:inherit;height:inherit"></a><div class="title">Peter Szendy : radiographie de l'iPod</div>
+<div class="author">Mathias Kusnierz, Vincent Broquaire</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3156.7px;top:1425.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Villa_Kujoyama_:_la_Médicis_nippone_?" style="width:inherit;height:inherit"></a><div class="title">Villa Kujoyama : la Médicis nippone ?</div>
+<div class="author">Norent Saray-Delabar</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1282.8px;top:2736.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Felipe_Ribon_:_le_genre_des_objets" style="width:inherit;height:inherit"></a><div class="title">Felipe Ribon : le genre des objets</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1408.4px;top:2302.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/distiller-de-l-espace.jpg" alt="Octave_De_Gaulle_:_Distiller" style="width:inherit;height:inherit"></a><div class="title">Octave De Gaulle : Distiller</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2598.3px;top:1136.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/3-mesures_c.jpg" alt="Le_kayak_anthropométrique" style="width:inherit;height:inherit"></a><div class="title">Le kayak anthropométrique</div>
+<div class="author">Pierre Lambert, Clément Paurd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1302.0px;top:3774.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/arton376.png" alt="KABK_:_l'école_dédale" style="width:inherit;height:inherit"></a><div class="title">KABK : l'école dédale</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1166.1px;top:1318.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/wschema-super-photo.jpg" alt="Le_désOrdre_des_architectes" style="width:inherit;height:inherit"></a><div class="title">Le désOrdre des architectes</div>
+<div class="author">Édith Hallauer, Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1923.4px;top:2636.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/CARPENTIER_Simulacreries_3.jpg" alt="Les_simulacreries" style="width:inherit;height:inherit"></a><div class="title">Les simulacreries</div>
+<div class="author">Charles Beauté, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2147.2px;top:3677.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="L'usager,_cet_autre_concepteur" style="width:inherit;height:inherit"></a><div class="title">L'usager, cet autre concepteur</div>
+<div class="author">Ingi Brown, Vincent Godeau</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1251.5px;top:4339.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Quand_Internet_remplacera_nos_psys" style="width:inherit;height:inherit"></a><div class="title">Quand Internet remplacera nos psys</div>
+<div class="author">Robin De Mourat, Marion Fayolle</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:615.9px;top:1604.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/une-4.jpg" alt="L’architecte_comme_commissaire" style="width:inherit;height:inherit"></a><div class="title">L’architecte comme commissaire</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1450.9px;top:3702.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/arton368.png" alt="ArtEZ_:_plurielle_et_polymorphe" style="width:inherit;height:inherit"></a><div class="title">ArtEZ : plurielle et polymorphe</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2727.7px;top:253.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Granny_City" style="width:inherit;height:inherit"></a><div class="title">Granny City</div>
+<div class="author">Thomas Richou</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1550.2px;top:3561.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/arton472_2.png" alt="3O_ZOO_TYPO" style="width:inherit;height:inherit"></a><div class="title">3O ZOO TYPO</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2156.8px;top:3454.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/aspen_couv_article.jpg" alt="Aspen,_a_multimedia_magazine_in_a_box" style="width:inherit;height:inherit"></a><div class="title">Aspen, a multimedia magazine in a box</div>
+<div class="author">Loup Cellard, Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:463.0px;top:3481.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="De_quelques_clichés_de_la_reconstruction" style="width:inherit;height:inherit"></a><div class="title">De quelques clichés de la reconstruction</div>
+<div class="author">Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:781.5px;top:1295.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Ramy_Fischler_:_une_Villa,_des_inventaires" style="width:inherit;height:inherit"></a><div class="title">Ramy Fischler : une Villa, des inventaires</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1249.1px;top:4718.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/487729-sun-2012-65x50cm.jpg" alt="Vincent_Broquaire" style="width:inherit;height:inherit"></a><div class="title">Vincent Broquaire</div>
+<div class="author">Olympe Rabaté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1281.7px;top:768.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/casa-do-vapor.jpg" alt="Casa_do_vapor" style="width:inherit;height:inherit"></a><div class="title">Casa do vapor</div>
+<div class="author">Margaux Vigne, Julien Keita</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2459.9px;top:2873.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Digital_Folklore_(le_livre)" style="width:inherit;height:inherit"></a><div class="title">Digital Folklore (le livre)</div>
+<div class="author">Ingi Brown, Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1289.9px;top:2232.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/packaging-espace-une2.jpg" alt="Du_packaging_à_l’Agence_Spatiale_Européenne" style="width:inherit;height:inherit"></a><div class="title">Du packaging à l’Agence Spatiale Européenne</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1876.3px;top:76.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/metahaven_7_une.jpg" alt="PrintRoom_invites_you" style="width:inherit;height:inherit"></a><div class="title">PrintRoom invites you</div>
+<div class="author">Lysiane Bollenbach, Sonia Dominguez</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1660.2px;top:2239.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Cluny_III_en_3D" style="width:inherit;height:inherit"></a><div class="title">Cluny III en 3D</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2418.5px;top:3216.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Attoma_:_Cartographier_la_mobilité." style="width:inherit;height:inherit"></a><div class="title">Attoma : Cartographier la mobilité.</div>
+<div class="author">Loup Cellard, Ingi Brown</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3654.8px;top:1847.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Terrain_d'entente" style="width:inherit;height:inherit"></a><div class="title">Terrain d'entente</div>
+<div class="author">Méryl Septier</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4090.5px;top:1415.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/mel-king-une.jpg" alt="Mel_King" style="width:inherit;height:inherit"></a><div class="title">Mel King</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1030.7px;top:2143.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="2" style="width:inherit;height:inherit"></a><div class="title">Jean-Yves Jouannais et L’Encyclopédie des guerres 2/2</div>
+<div class="author">Édith Hallauer, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1426.4px;top:2168.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/alessandro-poli_-_autoportrait-avec-reflet-d_autoroute-terre-lune_-alessandro-poli_photo--antonio-quattrone2.jpg" alt="Autres_odyssées_de_l’espace" style="width:inherit;height:inherit"></a><div class="title">Autres odyssées de l’espace</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1618.5px;top:2137.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Chaumont_2012" style="width:inherit;height:inherit"></a><div class="title">Chaumont 2012</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3284.9px;top:4311.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/hyeres-2.png" alt="mode_et_photographie_à_Hyères" style="width:inherit;height:inherit"></a><div class="title">mode et photographie à Hyères</div>
+<div class="author">Emilie Hammen, Mathieu Goulmant, Joanna Levas, Viviane Kajjaj</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2414.1px;top:2633.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/03-10.jpg" alt="Mathématiques_et_Architecture" style="width:inherit;height:inherit"></a><div class="title">Mathématiques et Architecture</div>
+<div class="author">Ingi Brown</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:510.1px;top:1471.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/arton160.png" alt="La_Gaîté_:_du_lyrique_au_numérique." style="width:inherit;height:inherit"></a><div class="title">La Gaîté : du lyrique au numérique.</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:627.4px;top:1361.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Bêtes_de_guerres,_un_inventaire_illustré" style="width:inherit;height:inherit"></a><div class="title">Bêtes de guerres, un inventaire illustré</div>
+<div class="author">Édith Hallauer, Camille Lelinceul</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2467.4px;top:237.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/ishigami-rodolphe-escher.jpg" alt="Little_is_more" style="width:inherit;height:inherit"></a><div class="title">Little is more</div>
+<div class="author">Julie Kervégan, Thomas Richou</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1285.2px;top:2614.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/boot_couv.jpg" alt="Spacewalk" style="width:inherit;height:inherit"></a><div class="title">Spacewalk</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1221.2px;top:2510.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="California_Design" style="width:inherit;height:inherit"></a><div class="title">California Design</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2543.2px;top:0.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="URBA(SIO)NISME_ou_l'architecture_au_profit_de_la_guerre" style="width:inherit;height:inherit"></a><div class="title">URBA(SIO)NISME ou l'architecture au profit de la guerre</div>
+<div class="author">Thomas Richou, Andrea & Magda</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1517.7px;top:1073.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/commun.jpg" alt="Commun,_commune,_communauté" style="width:inherit;height:inherit"></a><div class="title">Commun, commune, communauté</div>
+<div class="author">Pauline Roman, Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1453.6px;top:683.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/sceno-petrole.jpg" alt="Retours_d'Oslo" style="width:inherit;height:inherit"></a><div class="title">Retours d'Oslo</div>
+<div class="author">Margaux Vigne, Giulio Giorgi</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4399.0px;top:2849.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="La_théorie_des_complices" style="width:inherit;height:inherit"></a><div class="title">La théorie des complices</div>
+<div class="author">Mathilde Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4379.8px;top:4294.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/sozdinger-une.jpg" alt="Sarp_Sozdinler" style="width:inherit;height:inherit"></a><div class="title">Sarp Sozdinler</div>
+<div class="author">Laura Truxa</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1739.9px;top:2464.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Un_abri_antiatomique_bien_familial" style="width:inherit;height:inherit"></a><div class="title">Un abri antiatomique bien familial</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3233.3px;top:1068.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Debord(er)_la_carte" style="width:inherit;height:inherit"></a><div class="title">Debord(er) la carte</div>
+<div class="author">Emmanuel Guy</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:5085.4px;top:1952.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/aurelien-froment-une.jpg" alt="Aurélien_Froment" style="width:inherit;height:inherit"></a><div class="title">Aurélien Froment</div>
+<div class="author">Claire Kueny</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2690.8px;top:802.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Outils_numériques_artisanalement_modifiés" style="width:inherit;height:inherit"></a><div class="title">Outils numériques artisanalement modifiés</div>
+<div class="author">Sophie Fétro</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1797.5px;top:3793.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Typographie_et_Langage" style="width:inherit;height:inherit"></a><div class="title">Typographie et Langage</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4182.4px;top:2091.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/cap-canaveral-une.jpg" alt="Cape_Canaveral_:_L’attraction_spatiale" style="width:inherit;height:inherit"></a><div class="title">Cape Canaveral : L’attraction spatiale</div>
+<div class="author">Doriane Hugues</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2451.6px;top:1586.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Street_Views_-_où_sont_passées_les_Google_cars_?" style="width:inherit;height:inherit"></a><div class="title">Street Views - où sont passées les Google cars ?</div>
+<div class="author">Juliette Goiffon</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1527.1px;top:864.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/colleges-une.png" alt="Vers_un_collège_collégial_?" style="width:inherit;height:inherit"></a><div class="title">Vers un collège collégial ?</div>
+<div class="author">Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1233.1px;top:2891.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/golvellius-emulation.png" alt="L’émulation,_c’est_pas_un_peu_vieux_jeu_?" style="width:inherit;height:inherit"></a><div class="title">L’émulation, c’est pas un peu vieux jeu ?</div>
+<div class="author">Tony Côme, Ingi Brown, Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1896.1px;top:334.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Appel_à_projection" style="width:inherit;height:inherit"></a><div class="title">Appel à projection</div>
+<div class="author">Lucile Sauzet, Carol Landriot</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1298.8px;top:3590.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Dixlexies_(parce_que_onze_c'est_trop_!)" style="width:inherit;height:inherit"></a><div class="title">Dixlexies (parce que onze c'est trop !)</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4628.4px;top:2769.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Le_mont_Fuji_n’existe_pas" style="width:inherit;height:inherit"></a><div class="title">Le mont Fuji n’existe pas</div>
+<div class="author">Mathilde Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1342.0px;top:2453.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/speed_sm.jpg" alt="Il_était_une_fois…_Fritz_Kahn" style="width:inherit;height:inherit"></a><div class="title">Il était une fois… Fritz Kahn</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2204.6px;top:5045.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/boulard-le-fur_mince.jpg" alt="Pour_une_éthique_du_corps_visqueux" style="width:inherit;height:inherit"></a><div class="title">Pour une éthique du corps visqueux</div>
+<div class="author">Léopold Lambert, Jérémy Boulard Le Fur</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3859.1px;top:2330.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/bach-y-rita-une2.jpg" alt="Bach-y-Rita" style="width:inherit;height:inherit"></a><div class="title">Bach-y-Rita</div>
+<div class="author">Nolwenn Maudet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1741.1px;top:3527.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/moon_near-side-1100.jpg" alt="Les_États_de_la_Lune" style="width:inherit;height:inherit"></a><div class="title">Les États de la Lune</div>
+<div class="author">Sophie Cure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1662.2px;top:2682.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Graphmique_-_Collusion_n°_2" style="width:inherit;height:inherit"></a><div class="title">Graphmique - Collusion n° 2</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3347.9px;top:2057.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/formesvives_strabic_3-2.jpg" alt="Cohabitation_des_sens" style="width:inherit;height:inherit"></a><div class="title">Cohabitation des sens</div>
+<div class="author">Jil Daniel</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1133.1px;top:2603.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/126_vanity_01.jpg_projectimage.jpg" alt="Hans_Hollein" style="width:inherit;height:inherit"></a><div class="title">Hans Hollein</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4698.0px;top:3488.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/tenten18_une.jpg" alt="Les_Aventurques_de_Tenten" style="width:inherit;height:inherit"></a><div class="title">Les Aventurques de Tenten</div>
+<div class="author">Timothée Gouraud</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2219.4px;top:10.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Un_livre_:_Une_histoire_du_bombardement" style="width:inherit;height:inherit"></a><div class="title">Un livre : Une histoire du bombardement</div>
+<div class="author">Matthieu Duperrex</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:63.5px;top:2341.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Le_dessous_des_cartes" style="width:inherit;height:inherit"></a><div class="title">Le dessous des cartes</div>
+<div class="author">Julien Rodriguez</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1308.7px;top:2119.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="1024_architecture,_in_between" style="width:inherit;height:inherit"></a><div class="title">1024 architecture, in between</div>
+<div class="author">Ingi Brown, Tony Côme, Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4091.5px;top:2492.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/ya_k-workshop.jpg" alt="YA+K,_workshoppers" style="width:inherit;height:inherit"></a><div class="title">YA+K, workshoppers</div>
+<div class="author">Collectif YA+K </div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2908.9px;top:3085.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/une_quantified-self.png" alt="Show_me_your_body_Show_me_your_data" style="width:inherit;height:inherit"></a><div class="title">Show me your body Show me your data</div>
+<div class="author">Loup Cellard, Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3667.0px;top:3633.7px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="J’ai_testé_pour_vous…_le_recrutement_dans_la_Marine_nationale" style="width:inherit;height:inherit"></a><div class="title">J’ai testé pour vous… le recrutement dans la Marine nationale</div>
+<div class="author">pas d auteur</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1935.3px;top:1008.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="La_vieille_femme_et_l'artiste" style="width:inherit;height:inherit"></a><div class="title">La vieille femme et l'artiste</div>
+<div class="author">Margaux Vigne</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:617.9px;top:1776.0px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/sg101898.jpg" alt="Ce_qu'on_va_voir" style="width:inherit;height:inherit"></a><div class="title">Ce qu'on va voir</div>
+<div class="author">Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4496.5px;top:3683.2px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Space_Solids" style="width:inherit;height:inherit"></a><div class="title">Space Solids</div>
+<div class="author">Astrid de la Chapelle</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1761.1px;top:4848.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Cartes_d’atmosphères" style="width:inherit;height:inherit"></a><div class="title">Cartes d’atmosphères</div>
+<div class="author">Amandine Maria</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4210.4px;top:1275.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Henri_le_hacker" style="width:inherit;height:inherit"></a><div class="title">Henri le hacker</div>
+<div class="author">Camille Bosqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4094.9px;top:4043.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/fondokay2.jpg" alt="Okay_Karadayilar" style="width:inherit;height:inherit"></a><div class="title">Okay Karadayilar</div>
+<div class="author">Laura Truxa</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:516.8px;top:4014.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/manovich.jpg" alt="Lev_Manovich" style="width:inherit;height:inherit"></a><div class="title">Lev Manovich</div>
+<div class="author">Anthony Masure, Robin De Mourat</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:725.1px;top:3439.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/castors_photos_selvon2.jpg" alt="Les_Castors" style="width:inherit;height:inherit"></a><div class="title">Les Castors</div>
+<div class="author">Caroline Bougourd</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1465.2px;top:4477.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Marion_Fayolle_:_panser_l'après-guerre" style="width:inherit;height:inherit"></a><div class="title">Marion Fayolle : panser l'après-guerre</div>
+<div class="author">Marion Fayolle</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3644.8px;top:2661.6px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="MetaDeSIGN" style="width:inherit;height:inherit"></a><div class="title">MetaDeSIGN</div>
+<div class="author">Noë Brand</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1157.2px;top:2713.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/AA_life-19-july-1948b.jpg" alt="La_Pelouse_américaine_en_guerre" style="width:inherit;height:inherit"></a><div class="title">La Pelouse américaine en guerre</div>
+<div class="author">Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4846.2px;top:2834.4px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="JOSÉPHINE_IS_SURFING" style="width:inherit;height:inherit"></a><div class="title">JOSÉPHINE IS SURFING</div>
+<div class="author">Mathilde Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4504.3px;top:3252.1px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/slave-city---exhibition-view-1.jpg" alt="bienvenue_à_SLAVE_CITY" style="width:inherit;height:inherit"></a><div class="title">bienvenue à SLAVE CITY</div>
+<div class="author">Mathilde Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:894.6px;top:2400.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Immersion_à_l'ENSCI_:_le_grand_déballage" style="width:inherit;height:inherit"></a><div class="title">Immersion à l'ENSCI : le grand déballage</div>
+<div class="author">Caroline Bougourd, Tony Côme, Édith Hallauer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2819.4px;top:2716.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/motif-rayures.png" alt="1_société,_100_écoles" style="width:inherit;height:inherit"></a><div class="title">1 société, 100 écoles</div>
+<div class="author">Eva Ruaut, Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1410.6px;top:2903.3px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/cccp-une.jpg" alt="Архитектура_СССР" style="width:inherit;height:inherit"></a><div class="title">Архитектура СССР</div>
+<div class="author">Sophie Cure, Tony Côme</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2148.7px;top:258.8px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg" alt="Des_militaires_à_l'ESADSE" style="width:inherit;height:inherit"></a><div class="title">Des militaires à l'ESADSE</div>
+<div class="author">Lucile Sauzet</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3008.1px;top:2851.5px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/png/IMAGE-ILLUS-EDITO.png" alt="Villa_Médicis" style="width:inherit;height:inherit"></a><div class="title">Villa Médicis</div>
+<div class="author">Charles Beauté</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:763.7px;top:1473.9px;z-index:10.0"><a href="http://www.strabic.fr" style="width:inherit;height:inherit"><img src="http://strabic.fr/IMG/jpg/ok.jpg" alt="Du_corps_visiteur" style="width:inherit;height:inherit"></a><div class="title">Du corps visiteur</div>
+<div class="author">Édith Hallauer</div>
+</div>
+
+<script type="text/javascript">
+  /* Scroll middle page */
+ 	var height = $(document).height();
+ 	var width = $(document).width();
+  $(document).scrollTop(height/4);
+  $(document).scrollLeft(width/4);
+</script>
+</body>
+</html>
