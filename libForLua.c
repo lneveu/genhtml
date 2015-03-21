@@ -189,7 +189,7 @@ void generateCoordinates(){
 	igraph_real_t coolexp = 1.5;
 	igraph_real_t maxdelta = nb_node;
   // espacement des noeuds dans un cluster
-	igraph_real_t area = (nb_node * nb_node)*1.2;
+	igraph_real_t area = (nb_node * nb_node)*1.3;
   // espacement des clusters
 	igraph_real_t repulserad = 600000;
 
