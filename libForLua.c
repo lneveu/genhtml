@@ -186,11 +186,11 @@ void generateCoordinates(){
 
 	// Paramètres de l'algorithme
 	igraph_integer_t niter = 1000;
-	igraph_real_t sigma = nb_node / 4;
 	igraph_real_t coolexp = 1.5;
 	igraph_real_t maxdelta = nb_node;
-	igraph_real_t area = nb_node * nb_node;
-	//igraph_real_t repulserad = nb_node * (area/6);
+  // espacement des noeuds dans un cluster
+	igraph_real_t area = (nb_node * nb_node)*1.2;
+  // espacement des clusters
 	igraph_real_t repulserad = 600000;
 
 	// Vecteur coordonnées mini
