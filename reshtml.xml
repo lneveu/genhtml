@@ -13,30 +13,14 @@ body {
   color: $4;
   background-color: $5;
 
-	 /* Grid */
-  background-image: 
-    -moz-linear-gradient(rgba(255, 255, 255, 1) 9px, rgba(0, 0, 0, 0) 0px), 
-    -moz-linear-gradient(90deg, rgba(255, 255, 255, 1) 9px, rgba(168, 0, 0, 0) 6px), 
-    -moz-linear-gradient(rgba(0, 0, 255, 1) 1px, rgba(0, 0, 0, 0) 2px), 
-    -moz-linear-gradient(90deg, rgba(0, 0, 255, 1) 1px, rgba(0,0,0,0) 2px);
-  background-image: 
-    -webkit-linear-gradient(rgba(255, 255, 255, 1) 9px, rgba(0, 0, 0, 0) 0px), 
-    -webkit-linear-gradient(90deg, rgba(255, 255, 255, 1) 9px, rgba(168, 0, 0, 0) 6px), 
-    -webkit-linear-gradient(rgba(0, 0, 255, 1) 1px, rgba(0, 0, 0, 0) 2px), 
-    -webkit-linear-gradient(90deg, rgba(0, 0, 255, 1) 1px, rgba(0,0,0,0) 2px);
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 1) 9px, rgba(0, 0, 0, 0) 0px), 
-    linear-gradient(90deg, rgba(255, 255, 255, 1) 9px, rgba(168, 0, 0, 0) 6px), 
-    linear-gradient(rgba(0, 0, 255, 1) 1px, rgba(0, 0, 0, 0) 2px), 
-    linear-gradient(90deg, rgba(0, 0, 255, 1) 1px, rgba(0,0,0,0) 2px);
-  
-  background-size: 1px 10px, 10px 1px, 1px 200px, 200px 200px;
-  background-position: 1px 1px, 1px 0px, 0px 0px, 0px 0px;
+	/* Grid */
+  background-image: url("ressources/bg_grid.png");
+  background-size: 200px 200px;
 	
 }
 </style>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="libstrabic.js"></script>
+<script src="ressources/libstrabic.js"></script>
 </head>
 <body>
 ]]></resource>

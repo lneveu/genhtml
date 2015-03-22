@@ -1,4 +1,4 @@
-window.onload = function () {
+/*window.onload = function () {
 	$( "img" ).bind( "mouseover", function() {
 		$(this).parent().parent().find(".author, .title").hide();
 		this.style.width = 200;
@@ -11,4 +11,4 @@ window.onload = function () {
 		$(this).parent().parent().css('zIndex',100);
 		$(this).parent().parent().find(".author, .title").show();
 	});
-}
+}*/
