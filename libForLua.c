@@ -73,14 +73,14 @@ void generateGrapheView();
 // Library GRAPHE
 typedef struct g_node{
 	int id;
-	char * name;
-	char * name_display;
+	xmlChar * name;
+	xmlChar * name_display;
 
 	//html display
-	char * urlImage;
-	char * title;
-	char * author;
-	char * url;
+	xmlChar * urlImage;
+	xmlChar * title;
+	xmlChar * author;
+	xmlChar * url;
 	
 	//coords	
 	float x;
@@ -88,7 +88,7 @@ typedef struct g_node{
 	float z;
 
 	//style
-	char * stylename;
+	xmlChar * stylename;
 } g_node;
 
 typedef struct g_edge{
@@ -137,11 +137,11 @@ g_edge * newG_edge(int id){
 }
 
 // get g_node by name
-g_node * getG_nodeByName(char * name){
+g_node * getG_nodeByName(xmlChar * name){
 	int i;
 	for(i=0; i< nb_node ; i++){
 		g_node * cur = nodes[i];
-		if( !strcmp(cur->name,name) ) return cur;
+		if( !xmlStrcmp(cur->name,name) ) return cur;
 	}
 
 	return NULL;
@@ -186,11 +186,11 @@ void generateCoordinates(){
 
 	// Paramètres de l'algorithme
 	igraph_integer_t niter = 1000;
-	igraph_real_t sigma = nb_node / 4;
 	igraph_real_t coolexp = 1.5;
 	igraph_real_t maxdelta = nb_node;
-	igraph_real_t area = nb_node * nb_node;
-	//igraph_real_t repulserad = nb_node * (area/6);
+  // espacement des noeuds dans un cluster
+	igraph_real_t area = (nb_node * nb_node)*1.3;
+  // espacement des clusters
 	igraph_real_t repulserad = 600000;
 
 	// Vecteur coordonnées mini
@@ -981,7 +981,7 @@ void parseElement(xmlNode * a_node){
 					xmlChar* value = xmlNodeListGetString(cur_node->doc,attribute->children,1);	
 					if(	!strcmp(attribute->name,"id") ){			
 						g_node * n = newG_node(nb_node);
-						n->name = (char *)value;
+						n->name = value;
 						n->stylename= "nodeStyle";
 						nodes[nb_node]=n;
 					}			
@@ -1019,23 +1019,23 @@ void parseElement(xmlNode * a_node){
 					xmlChar* parent = xmlNodeListGetString(cur_node->doc,cur_node->parent->properties->children,1);
 					g_node * p = getG_nodeByName(parent);
 					
-					if( !strcmp(key,"name")){
+					if( !xmlStrcmp(key,"name")){
 						p->name_display = value;
 						//TODO Default URL
 						p->url = "http://www.strabic.fr";	
 					}
-					if( !strcmp(key,"image")){
+					if( !xmlStrcmp(key,"image")){
 						//TODO Default img
-						if(!strcmp(value,"http://strabic.fr/IMG/")){
+						if(!xmlStrcmp(value,"http://strabic.fr/IMG/")){
 							p->urlImage = "http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg";
 						}else{
 							p->urlImage = value;
 						}
 					}
-					if( !strcmp(key,"titre")){
+					if( !xmlStrcmp(key,"titre")){
 						p->title = value;
 					}
-					if( !strcmp(key,"auteur")){
+					if( !xmlStrcmp(key,"auteur")){
 						p->author = value;
 					}
 				}
@@ -1084,21 +1084,20 @@ void generateGrapheView(){
 		fprintf(outfile,"\">");
 
 
-
-    //minimize title
-    size_t len = strlen(cur->title);
+    // if title > 25 char = keep 22 char + "..."
+    int len = xmlStrlen(cur->title);
+    xmlChar *  miniTitle = NULL;
     if(len > LEN_MAX_TITLE){
-      char * miniTitle = NULL;
-      miniTitle = malloc((LEN_MAX_TITLE+1));
-      strncpy(miniTitle,cur->title,LEN_MAX_TITLE-3);
-      fprintf(outfile,"%s...",miniTitle);
-      free(miniTitle);
+      miniTitle = xmlStrncatNew(xmlStrsub(cur->title,0,LEN_MAX_TITLE-3),xmlCharStrdup("..."),-1);      
     }else{
-      fprintf(outfile,"%s",cur->title);
+      miniTitle = cur->title;
     }
 
+    fprintf(outfile,"%s",miniTitle);
 		fprintf(outfile,"</div>\n");
-  
+    
+    free(miniTitle);
+
 		//author
 		/*fprintf(outfile,"<div class=\"author\">");
 		fprintf(outfile,"%s",cur->author);

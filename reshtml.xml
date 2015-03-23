@@ -14,20 +14,13 @@ body {
   background-color: $5;
 
 	/* Grid */
-  background-size: $6px $6px;
-  background-image: -webkit-linear-gradient(90deg, rgba(0, 0, 0, 0.13) 2px, rgba(0,0,0,0) 2px),
-  -webkit-linear-gradient(0deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
-
-  background-image: -moz-linear-gradient(0deg, rgba(0, 0, 0, 0.13) 2px, rgba(0,0,0,0) 2px),
-  -moz-linear-gradient(90deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
-
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px),
-  linear-gradient(90deg, rgba(0, 0, 0, 0.13) 1px, rgba(0,0,0,0) 2px);
+  background-image: url("ressources/bg_grid.png");
+  background-size: 200px 200px;
 	
 }
 </style>
 <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="libstrabic.js"></script>
+<script src="ressources/libstrabic.js"></script>
 </head>
 <body>
 ]]></resource>
