@@ -16,7 +16,13 @@
 //Some external
 extern char *itoa(int, char *, int);
 
-//A set of constant and global variable
+
+/*******************************************/
+/*                                         */
+/*      CONSTANT & GLOBAL VARIABLES        */
+/*                                         */
+/*******************************************/
+
 #define MAX_BUFFERSIZE 1000000
 #define MAX_VARG 9
 #define LEN 1000 // used for temp string
@@ -24,6 +30,7 @@ extern char *itoa(int, char *, int);
 #define TRUE 1
 unsigned char outstr[MAX_BUFFERSIZE];
 
+// HTML Generation
 #define STR_DEFAULTPOLICE "Arial, Verdana, sans-serif"
 #define STR_DEFAULTCOLOR "#000"
 #define STR_DEFAULTBACKGROUNDCOLOR "#FFFFFF"
@@ -31,7 +38,7 @@ unsigned char outstr[MAX_BUFFERSIZE];
 #define VAL_DEFAULTGRIDSIZE 200
 #define LEN_MAX_TITLE 25
 
-
+// Graph & Tree
 #define STR_RESOURCE "resource"
 #define STR_TYPE "type"
 #define STR_ID "id"
@@ -55,22 +62,33 @@ int notInLua = 0;
 xmlNode *root_element_resHTML = NULL;
 xmlNode *root_element_Content = NULL;
 int fileNameIncrement =0;
+
 //output file specification
 #define NOM_FICHIER_OUT "outfile.html"
 const char * outfile_name = NULL;
 FILE *outfile =NULL;
+
 //input file specification
 #define NOM_FICHIER_IN "infile.xml"
 FILE *infile =NULL;
 xmlDocPtr doc = NULL; //building the XML file tree for the infile
+
 //input file with html resources ($i are parameters)
 #define NOM_FICHIER_RES "reshtml.xml"
 FILE *resfile =NULL;
 xmlDocPtr resdoc = NULL; 
+
 void parseElement(xmlNode * a_node);
 void generateGrapheView();
 
-// Library GRAPHE
+
+/*******************************************/
+/*                                         */
+/*  Graph library (structures & functions) */
+/*                                         */
+/*******************************************/
+
+// Graph node g_node
 typedef struct g_node{
 	int id;
 	xmlChar * name;
@@ -108,35 +126,36 @@ int pos_edge = 0;
 // iGraphe
 igraph_t graphe;
 
-// new g_node
+// Create g_node
 g_node * newG_node(int id){
   g_node * n = (g_node *) malloc(sizeof(g_node));
   n->id = id;
   n->name = NULL;
   n->name_display=NULL;
   n->urlImage = NULL;
-	n->title = NULL;
-	n->author = NULL;
-	n->url = NULL;
+  n->title = NULL;
+  n->author = NULL;
+  n->url = NULL;
   n->x = 0;
   n->y = 0;
   n->z = 0;
   n->stylename = NULL;
+
   return n;
 }
 
-// new g_edge
+// Create g_edge
 g_edge * newG_edge(int id){
   g_edge * e = (g_edge *) malloc(sizeof(g_edge));
   e->id = id;
-	e->source = NULL;
-	e->target = NULL;
-	e->weight = 0;
+  e->source = NULL;
+  e->target = NULL;
+  e->weight = 0;
 
   return e;
 }
 
-// get g_node by name
+// Get g_node by name
 g_node * getG_nodeByName(xmlChar * name){
 	int i;
 	for(i=0; i< nb_node ; i++){
@@ -147,7 +166,7 @@ g_node * getG_nodeByName(xmlChar * name){
 	return NULL;
 }
 
-// display all g_node
+// Display all g_node
 void displayG_node(){
 	int i;
 	for(i=0; i< nb_node ; i++){
@@ -156,7 +175,7 @@ void displayG_node(){
 	}
 }
 
-// display all g_edge
+// Display all g_edge
 void displayG_edge(){
 	int i;
 	for(i=0; i< nb_edge ; i++){
@@ -165,7 +184,14 @@ void displayG_edge(){
 	}
 }
 
-// create array edges {1,2,1,3, etc}
+
+/*******************************************/
+/*                                         */
+/*            Graph generation             */
+/*                                         */
+/*******************************************/
+
+// Create array edges {1,2,1,3, etc}
 void createArrayEdges(igraph_real_t *tab){
 	int i;
 	int j=0;
@@ -177,7 +203,11 @@ void createArrayEdges(igraph_real_t *tab){
 	}
 }	
 
-// generate coordinates
+
+/* 
+  - Generate coordinates for each node with the fruchterman_reingold algorithm 
+  - Rescale & adjust the graph
+*/
 void generateCoordinates(){
 	
 	// Matrice des coordonées
@@ -201,6 +231,7 @@ void generateCoordinates(){
 		tabzero[i]=(igraph_real_t)0;
 	}
 
+  // Vector init
 	igraph_vector_init_copy(&min,tabzero,nb_node);
 	
 	// Algo Fruchterman-Reingold
@@ -213,6 +244,7 @@ void generateCoordinates(){
 		MATRIX(m_coord,i,1) *= (igraph_real_t)35.0;
 	}
 
+  // Adjust graph by removing extra margin
 	removeExtraMargin(&m_coord);
 
 	// Association des coordonées aux nodes
@@ -261,11 +293,180 @@ void removeExtraMargin(const igraph_matrix_t * m){
 
 }
 
-//
-// My small tree library
-//
+// Parse XML file (create nodes & edges)
+void parseElement(xmlNode * a_node){
+  xmlNode *cur_node = NULL;
+
+  for (cur_node = a_node; cur_node; cur_node = cur_node->next) {
+    if(cur_node->type == XML_ELEMENT_NODE){
+      
+      // NODE
+      if( !strcmp(cur_node->name,"node") ){
+        for(xmlAttrPtr attribute = cur_node->properties; attribute != NULL; attribute = attribute->next){
+          xmlChar* value = xmlNodeListGetString(cur_node->doc,attribute->children,1); 
+          if( !strcmp(attribute->name,"id") ){      
+            g_node * n = newG_node(nb_node);
+            n->name = value;
+            n->stylename= "nodeStyle";
+            nodes[nb_node]=n;
+          }     
+        }
+        nb_node = nb_node + 1;
+      }
+
+      // EDGE
+      if( !strcmp(cur_node->name,"edge") ){
+        g_edge * e = newG_edge(nb_edge);
+
+        for(xmlAttrPtr attribute = cur_node->properties; attribute != NULL; attribute = attribute->next){
+          xmlChar* value = xmlNodeListGetString(cur_node->doc,attribute->children,1);  
+          if(  !strcmp(attribute->name,"source") ){          
+            e->source = getG_nodeByName(value);           
+          }
+
+          if( !strcmp(attribute->name,"target") ){
+            e->target = getG_nodeByName(value);           
+          }     
+        }
+
+        edges[nb_edge]= e;
+        nb_edge = nb_edge + 1;
+      }
+
+      // DATA
+      if( !strcmp(cur_node->name,"data")){
+        for(xmlAttrPtr attribute = cur_node->properties; attribute != NULL; attribute = attribute->next){
+          xmlChar* key = xmlNodeListGetString(cur_node->doc,attribute->children,1);
+          xmlChar* value = xmlNodeListGetString(cur_node->doc,cur_node->children,1);
+          xmlChar* parent = xmlNodeListGetString(cur_node->doc,cur_node->parent->properties->children,1);
+          g_node * p = getG_nodeByName(parent);
+
+          if( !xmlStrcmp(key,"name")){
+            p->name_display = value;
+            //TODO Default URL
+            p->url = "http://www.strabic.fr"; 
+          }
+
+          if( !xmlStrcmp(key,"image")){
+            //TODO Default img
+            if(!xmlStrcmp(value,"http://strabic.fr/IMG/")){
+              p->urlImage = "http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg";
+            }else{
+              p->urlImage = value;
+            }
+          }
+
+          if( !xmlStrcmp(key,"titre")){
+            p->title = value;
+          }
+
+          if( !xmlStrcmp(key,"auteur")){
+            p->author = value;
+          }
+        }
+      }
+
+      parseElement(cur_node->children);
+    }
+  }
+}
+
+// Generate constellation (html file)
+void generateGrapheView(){
+  int i;
+
+  // generation HTML nodes
+  for(i=0;i<nb_node;i++){
+    g_node * cur = nodes[i];
+
+    fprintf(outfile,"<div ");
+    fprintf(outfile,"class=\"%s\" ",cur->stylename);
+    fprintf(outfile,"style=\"position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1f\">",cur->x,cur->y,cur->z);
+
+    //link
+    fprintf(outfile,"<a href=\"%s\" style=\"width:inherit;height:inherit\">",cur->url);
+    
+    //img
+    fprintf(outfile,"<img src=\"%s\" alt=\"%s\" style=\"width:inherit;height:inherit\">",
+     cur->urlImage, cur->name_display);
+    fprintf(outfile,"</a>");
+    
+
+    //title  
+    fprintf(outfile,"<div class=\"title ");
+
+    // rotation random du titre
+    int r = rand()%4; // random [0-3]
+    switch(r){
+      case 0 : fprintf(outfile, "top-right"); break;
+      case 1 : fprintf(outfile, "top-left"); break;
+      case 2 : fprintf(outfile, "bottom-right"); break;
+      case 3 : fprintf(outfile, "bottom-left"); break;
+      default: break;
+    }
+    fprintf(outfile,"\">");
+
+
+    // if title > 25 char = keep 22 char + "..."
+    int len = xmlStrlen(cur->title);
+    xmlChar *  miniTitle = NULL;
+    if(len > LEN_MAX_TITLE){
+      miniTitle = xmlStrncatNew(xmlStrsub(cur->title,0,LEN_MAX_TITLE-3),xmlCharStrdup("..."),-1);      
+    }else{
+      miniTitle = cur->title;
+    }
+
+    fprintf(outfile,"%s",miniTitle);
+    fprintf(outfile,"</div>\n");
+    
+    free(miniTitle);
+
+    //author
+    /*fprintf(outfile,"<div class=\"author\">");
+    fprintf(outfile,"%s",cur->author);
+    fprintf(outfile,"</div>\n");*/
+
+    //end node div
+    fprintf(outfile,"</div>\n");
+
+
+    /*if (!cur->urlImage){
+      fprintf(outfile,"<div ");
+      fprintf(outfile,"class=\"%s\" ",cur->stylename);
+      fprintf(outfile,"style=\"position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1f\">",cur->x,cur->y,cur->z);
+      fprintf(outfile,"%s",cur->name_display);
+      fprintf(outfile,"</div>\n");
+    } else {
+      //FB
+      fprintf(outfile,"<img src=\"%s\" alt=\"%s\" style=\"width:80px;height:80;position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1fx\">",
+        cur->urlImage, cur->name_display,cur->x,cur->y,cur->z);
+    }*/
+}
+  // generation HTML edges
+
+  /*fprintf(outfile,"<svg height=\"10000\" width=\"10000\">");
+  for(i=0;i<nb_edge;i++){
+    g_edge * cur = edges[i];
+    float x1 = (float)(cur->source->x +30);
+    float y1 = (float)(cur->source->y +30);
+    float x2 = (float)(cur->target->x +30);
+    float y2 = (float)(cur->target->y +30);
+  
+    fprintf(outfile,"<line x1=%0.2f y1=%0.2f x2=%0.2f y2=%0.2f stroke=\"white\" stroke-width=\"3\"/>",x1,y1,x2,y2);
+  } 
+  fprintf(outfile,"</svg>");*/
+}
+
+
+/*******************************************/
+/*                                         */
+/*          Small Tree Library             */
+/*                                         */
+/*******************************************/
+
 #define MAXCHILDREN 100
 int idTreeNode = 0;
+
 typedef struct tn{
   int id;
   char *name;
@@ -295,6 +496,23 @@ typedef struct tn{
   struct contextInformation *localContext;
 } treenode;
 
+//
+// the context information for the page definition and layout
+// right now this is in prologue information.
+// later on this will be modifiable from the lua code
+//
+struct contextInformation {
+  int sizeX;
+  int sizeY;
+  char *defaultPolice;
+  char *defaultPoliceColor;
+  char *backgroundColor;
+  int  gridSize;
+  double defaultPoliceSize;
+  treenode *root;
+} pageContext;
+
+// Create new node
 treenode *newNode(treenode *parent, char *name){
   treenode *n = (treenode *) malloc(sizeof(treenode));
   if (parent) {
@@ -323,7 +541,7 @@ treenode *newNode(treenode *parent, char *name){
   n->processing =NULL;
   n->localContext =NULL;
   for (int i = 0; i < MAXCHILDREN; i++)  n->children[i] = NULL;
-  return n;
+    return n;
 }
 
 //TODO to unlink node if already linked....
@@ -357,23 +575,6 @@ xmlChar * nodeGetContent(treenode *n){
  return  n->content;
 }
 
-//
-// the context information for the page definition and layout
-// right now this is in prologue information.
-// later on this will be modifiable from the lua code
-//
-struct contextInformation {
-  int sizeX;
-  int sizeY;
-  char *defaultPolice;
-  char *defaultPoliceColor;
-  char *backgroundColor;
-  int  gridSize;
-	double defaultPoliceSize;
-  treenode *root;
-} pageContext;
-
-
 treenode * getNodeWithId(treenode *n, int id){
   if (!n) return NULL;
   if (n->id == id) return n;
@@ -383,34 +584,6 @@ treenode * getNodeWithId(treenode *n, int id){
   }
   return NULL;
 }
-
-
-int genhtml_parent(lua_State *L){
-  int id = luaL_checkinteger(L,1); // get the first argument
-  treenode *n = getNodeWithId(pageContext.root,id);
-  if (n && n->parent) {
-    lua_pushnumber(L,n->parent->id);
-  } else { // return itself in this case so it can be detected there is an issue.
-    if (n) lua_pushnumber(L,n->id);
-    else return 0;
-  }
-  return 1;
-}
-
-int genhtml_children(lua_State *L){
-  int id = luaL_checkinteger(L,1); // get the node id
-  int c = luaL_checkinteger(L,2); // get the child number
-  treenode *n = getNodeWithId(pageContext.root,id);
-  if (n && (c >= 0) && (c <MAXCHILDREN) && n->children[c]) {
-    lua_pushnumber(L,n->children[c]->id);
-  } else { // return itself in this case so it can be detected there is an issue.
-    if (n) lua_pushnumber(L,n->id);
-    else return 0;
-  }
-  return 1;
-}
-
-
 
 treenode * getNodeWithName(treenode *n, char *name){
   if (!n || !name) return NULL;
@@ -446,34 +619,33 @@ int computePxHeigthOfaTextBox(int id, int textHeight){
   return height;
 }
 
-
 void treeBoxEmit(treenode *n){
   if (!n) return;
   if (n->hidden) return;
   if (!strcmp(n->name,STR_BOX)){
-      fprintf(outfile,"<!-- node %i named %s -->\n", n->id,n->name);
-      if (n->style) fprintf(outfile,"%s\n",n->style);
-      fprintf(outfile,"<div ");
-      if (n->stylename) {
-	fprintf(outfile,"class=\"%s\" ",n->stylename);
-      } 
-      if (n->xsize && n->ysize){
-	fprintf(outfile,"style=\"position:absolute;width:%dpx;height:%dpx;left:%dpx;top:%dpx;z-index:%d\"",
-		n->xsize,n->ysize,n->xcoord,n->ycoord,n->zcoord);
-      }
-      fprintf(outfile,">\n");
-      if (n->content) fprintf(outfile,"%s\n",n->content);
-      fprintf(outfile,"</div>\n");
-  } else if (!strcmp(n->name,STR_IMAGE) || !strcmp(n->name,STR_POVRAY)){
-      fprintf(outfile,"<!-- node %i named %s -->\n", n->id,n->name);
-      if (n->style) fprintf(outfile,"%s\n",n->style);
-      if (n->stylename) fprintf(outfile,"<div class=\"%s\">\n",n->stylename);
+    fprintf(outfile,"<!-- node %i named %s -->\n", n->id,n->name);
+    if (n->style) fprintf(outfile,"%s\n",n->style);
+    fprintf(outfile,"<div ");
+    if (n->stylename) {
+     fprintf(outfile,"class=\"%s\" ",n->stylename);
+   } 
+   if (n->xsize && n->ysize){
+     fprintf(outfile,"style=\"position:absolute;width:%dpx;height:%dpx;left:%dpx;top:%dpx;z-index:%d\"",
+      n->xsize,n->ysize,n->xcoord,n->ycoord,n->zcoord);
+   }
+   fprintf(outfile,">\n");
+   if (n->content) fprintf(outfile,"%s\n",n->content);
+   fprintf(outfile,"</div>\n");
+ } else if (!strcmp(n->name,STR_IMAGE) || !strcmp(n->name,STR_POVRAY)){
+  fprintf(outfile,"<!-- node %i named %s -->\n", n->id,n->name);
+  if (n->style) fprintf(outfile,"%s\n",n->style);
+  if (n->stylename) fprintf(outfile,"<div class=\"%s\">\n",n->stylename);
       // FB
-      if (n->imagefile) fprintf(outfile,"<img src=\"%s\" style=\"position:absolute;width:%dpx;height:%dpx;left:%dpx;top:%dpx;z-index:%d\"/>\n",
-				n->imagefile,n->xsize,n->ysize,n->xcoord,n->ycoord,n->zcoord);
-      if (n->stylename) fprintf(outfile,"</div>\n");
-  } 
-  for (int i = 0; i < n->nbchildren; i++)  treeBoxEmit(n->children[i]);
+  if (n->imagefile) fprintf(outfile,"<img src=\"%s\" style=\"position:absolute;width:%dpx;height:%dpx;left:%dpx;top:%dpx;z-index:%d\"/>\n",
+    n->imagefile,n->xsize,n->ysize,n->xcoord,n->ycoord,n->zcoord);
+  if (n->stylename) fprintf(outfile,"</div>\n");
+} 
+for (int i = 0; i < n->nbchildren; i++)  treeBoxEmit(n->children[i]);
 }
 
 //support function to replace $i parameters in a string. Generate a new string. 
@@ -506,17 +678,15 @@ unsigned char *insertParam(const unsigned char *str, int nbarg, ...){
       if ((j> nbarg) || (j<1)) return outstr;
       s = args[j-1];
       if (s){
-	for (; (cpt < MAX_BUFFERSIZE) && (*s != '\0') ; cpt++, s++) {
-	  outstr[cpt] = *s;
-	}
-      }
-    }
-  }
-  va_end(argp);
-  return outstr;
+       for (; (cpt < MAX_BUFFERSIZE) && (*s != '\0') ; cpt++, s++) {
+         outstr[cpt] = *s;
+       }
+     }
+   }
+ }
+ va_end(argp);
+ return outstr;
 }
-
-
 
 //example fonction for XML tree
 static void
@@ -528,22 +698,22 @@ print_element_names(xmlNode * a_node)
     if (cur_node->type == XML_ELEMENT_NODE) {
       printf("node type: Element, name: %s\n", cur_node->name);
       if (!strcmp((const char *) cur_node->name, STR_RESOURCE)){
-	xmlChar* content = xmlNodeGetContent(cur_node);
-	if (content){
-	  printf("\tcontent: %s\n",insertParam(content,3,"param 1","param 2 é è §","last param"));     
-	}
-      }
-    }
-    xmlAttr* attribute = cur_node->properties;
-    while(attribute && attribute->name && attribute->children){
-	xmlChar* value = xmlNodeListGetString(cur_node->doc, attribute->children, 1);
-	printf("\tattribute: %s \t%s\n",attribute->name,value);
+       xmlChar* content = xmlNodeGetContent(cur_node);
+       if (content){
+         printf("\tcontent: %s\n",insertParam(content,3,"param 1","param 2 é è §","last param"));     
+       }
+     }
+   }
+   xmlAttr* attribute = cur_node->properties;
+   while(attribute && attribute->name && attribute->children){
+     xmlChar* value = xmlNodeListGetString(cur_node->doc, attribute->children, 1);
+     printf("\tattribute: %s \t%s\n",attribute->name,value);
 	//do something with value
-	xmlFree(value); 
-	attribute = attribute->next;
-    }
-    print_element_names(cur_node->children);
-  }
+     xmlFree(value); 
+     attribute = attribute->next;
+   }
+   print_element_names(cur_node->children);
+ }
 }
 
 //look for an element value in an XML tree
@@ -557,26 +727,60 @@ get_element_value(xmlNode * a_node, const char *id){
   for (cur_node = a_node; cur_node; cur_node = cur_node->next) {
     if (cur_node->type == XML_ELEMENT_NODE) {
       if (!strcmp((const char *) cur_node->name, STR_RESOURCE)){
-	xmlChar* content = xmlNodeGetContent(cur_node);
+       xmlChar* content = xmlNodeGetContent(cur_node);
 	//if (content){
 	//  printf("\tcontent: %s\n",insertParam(content,3,"param 1","param 2 é è §","last param"));     
 	//}
-	xmlAttr* attribute = cur_node->properties;
-	while(attribute && attribute->name && attribute->children){
-	  xmlChar* value = xmlNodeListGetString(cur_node->doc, attribute->children, 1);
+       xmlAttr* attribute = cur_node->properties;
+       while(attribute && attribute->name && attribute->children){
+         xmlChar* value = xmlNodeListGetString(cur_node->doc, attribute->children, 1);
 	  //printf("\tattribute: %s \t%s\n",attribute->name,value);
-	  if (!strcmp((const char *) attribute->name, STR_ID) && value && !strcmp((const char *)value,id)) {
-	    xmlFree(value);
-	    return content;
-	  }
-	  attribute = attribute->next;
-	}
-      }
-    }
-    res = get_element_value(cur_node->children,id);
-    if (res) return res;
+         if (!strcmp((const char *) attribute->name, STR_ID) && value && !strcmp((const char *)value,id)) {
+           xmlFree(value);
+           return content;
+         }
+         attribute = attribute->next;
+       }
+     }
+   }
+   res = get_element_value(cur_node->children,id);
+   if (res) return res;
+ }
+ return NULL;
+}
+
+
+
+/*******************************************/
+/*                                         */
+/*  GenHTML functions (callable via lua)   */
+/*                                         */
+/*******************************************/
+
+
+int genhtml_parent(lua_State *L){
+  int id = luaL_checkinteger(L,1); // get the first argument
+  treenode *n = getNodeWithId(pageContext.root,id);
+  if (n && n->parent) {
+    lua_pushnumber(L,n->parent->id);
+  } else { // return itself in this case so it can be detected there is an issue.
+    if (n) lua_pushnumber(L,n->id);
+    else return 0;
   }
-  return NULL;
+  return 1;
+}
+
+int genhtml_children(lua_State *L){
+  int id = luaL_checkinteger(L,1); // get the node id
+  int c = luaL_checkinteger(L,2); // get the child number
+  treenode *n = getNodeWithId(pageContext.root,id);
+  if (n && (c >= 0) && (c <MAXCHILDREN) && n->children[c]) {
+    lua_pushnumber(L,n->children[c]->id);
+  } else { // return itself in this case so it can be detected there is an issue.
+    if (n) lua_pushnumber(L,n->id);
+    else return 0;
+  }
+  return 1;
 }
 
 
@@ -608,19 +812,19 @@ int genhtml_resource(lua_State *L){
     if (r) {
       //printf("%s\n",r);
       lua_pushstring(L, (const char *) r);
-       return 1;
+      return 1;
     } else {
       r = get_element_value(root_element_resHTML,s);
       if (r) {
 	//printf("%s\n",r);
-	lua_pushstring(L, (const char *) r);
-	return 1;
-      } else 
-	printf("Resource not found\n");
-    }
-    return 0;
-  } else {
-    printf("Resource not found\n");
+       lua_pushstring(L, (const char *) r);
+       return 1;
+     } else 
+     printf("Resource not found\n");
+   }
+   return 0;
+ } else {
+  printf("Resource not found\n");
     return 0; // how many things on the stack when returning
   }
 }
@@ -640,7 +844,6 @@ int genhtml_visible(lua_State *L){
   if (n) n->hidden = FALSE;
   return 0;
 }
-
 
 //create a generic box to display on the page
 // must be attached to a node, root is the default
@@ -667,7 +870,6 @@ int genhtml_createscene(lua_State *L){
   lua_pushnumber(L,n->id);
   return 1;
 }
-
 
 //place the box in the space X,Y,Z
 int genhtml_place(lua_State *L){
@@ -748,9 +950,9 @@ int genhtml_start(lua_State *L){
 	const char *out_name = luaL_checkstring(L,1);
 	if(out_name){
 		outfile_name = out_name;
- 	}else{
-		outfile_name = NOM_FICHIER_OUT;
-	}
+  }else{
+    outfile_name = NOM_FICHIER_OUT;
+  }
 
   printf("Opening output file\n");
   if (outfile == NULL){
@@ -766,10 +968,9 @@ int genhtml_start(lua_State *L){
     nodeSetContent(nprologue,prologue);
     //treeDisplay(pageContext.root);
   } else 
-    printf("already started\n");
+  printf("already started\n");
   return 0; 
 }
-
 
 int genhtml_finish(lua_State *L){
   if (outfile != NULL){
@@ -783,21 +984,21 @@ int genhtml_finish(lua_State *L){
     xmlChar *content = nodeGetContent(nprologue);
     if (content){
       char w[LEN];
-			char h[LEN];
-			char gridX[LEN];
+      char h[LEN];
+      char gridX[LEN];
       // first parameter is the width in px
       snprintf(w, LEN, "%d", pageContext.sizeX);
-			snprintf(h, LEN, "%d", pageContext.sizeY);
-			snprintf(gridX, LEN, "%d", pageContext.gridSize);
+      snprintf(h, LEN, "%d", pageContext.sizeY);
+      snprintf(gridX, LEN, "%d", pageContext.gridSize);
       fprintf(outfile,"%s\n",insertParam(content,7,w,h,STR_DEFAULTPOLICE,STR_DEFAULTCOLOR,STR_DEFAULTBACKGROUNDCOLOR,gridX));
     }
 
     //body generation
     treeBoxEmit(pageContext.root);
 
-		// Graphe generation
-		generateGrapheView();
-		
+		// Graphe generation (html file)
+    generateGrapheView();
+
     //generate epilogue
     treenode *nepilogue = getNodeWithName(pageContext.root,STR_EPILOGUE);
     if (!nepilogue) printf("Epilogue node not found\n");
@@ -810,11 +1011,10 @@ int genhtml_finish(lua_State *L){
     outfile = NULL;
 
 		// Destruction du graphe
-  	igraph_destroy(&graphe);
+    igraph_destroy(&graphe);
   }
   return 0; 
 }
-
 
 int genhtml_setboxcontent(lua_State *L){
   int id = luaL_checkinteger(L,1); // get the first argument
@@ -848,7 +1048,6 @@ int genhtml_setboxstyle(lua_State *L){
   }
   return 0;
 }
-
 
 int genhtml_setpovray(lua_State *L){
   int id = luaL_checkinteger(L,1); // get the first argument
@@ -899,15 +1098,15 @@ int genhtml_instanciate(lua_State *L){
   }
   
   switch(nium){
-  case 1: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,1,p[0]))); return 1;
-  case 2: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,2,p[0],p[1]))); return 1;
-  case 3: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,3,p[0],p[1],p[2]))); return 1;
-  case 4: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,4,p[0],p[1],p[2],p[3]))); return 1;
-  case 5: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,5,p[0],p[1],p[2],p[3],p[4]))); return 1;
-  case 6: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,6,p[0],p[1],p[2],p[3],p[4],p[5]))); return 1;
-  case 7: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,7,p[0],p[1],p[2],p[3],p[4],p[5],p[6]))); return 1;
-  case 8: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,8,p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7]))); return 1;
-  case 9: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,9,p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7],p[8]))); return 1;
+    case 1: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,1,p[0]))); return 1;
+    case 2: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,2,p[0],p[1]))); return 1;
+    case 3: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,3,p[0],p[1],p[2]))); return 1;
+    case 4: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,4,p[0],p[1],p[2],p[3]))); return 1;
+    case 5: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,5,p[0],p[1],p[2],p[3],p[4]))); return 1;
+    case 6: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,6,p[0],p[1],p[2],p[3],p[4],p[5]))); return 1;
+    case 7: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,7,p[0],p[1],p[2],p[3],p[4],p[5],p[6]))); return 1;
+    case 8: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,8,p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7]))); return 1;
+    case 9: lua_pushstring(L,strdup((const char *) insertParam((const unsigned char *) s,9,p[0],p[1],p[2],p[3],p[4],p[5],p[6],p[7],p[8]))); return 1;
   }
   lua_pushstring(L,s);
   return 1;
@@ -923,223 +1122,57 @@ int genhtml_boxheight(lua_State *L){
   int h = computePxHeigthOfaTextBox(id,pageContext.defaultPoliceSize);
   lua_pushnumber(L, h);
   return 1;
- }
+}
 
-
-///////////// GRAPHE
-
+// Generate the graph
 int genhtml_generateconstellation(lua_State *L){
 	const char *Filename = luaL_checkstring(L,1); // get the graphe file
 	xmlDoc *doc = NULL;
 	xmlNode *root_element = NULL; 
   doc = xmlReadFile(Filename, NULL, 0);
-	
-	if (doc == NULL){
-		printf("error: could not parse file %s\n", Filename);
-  }else{
-	  root_element = xmlDocGetRootElement(doc);
 
-		
-		// parse le gml, instancie les treenode, met à jour le vecteur edge
-		printf("Creating nodes...\n");
- 		parseElement(root_element);
-		
+  if (doc == NULL){
+    printf("error: could not parse file %s\n", Filename);
+  }else{
+    root_element = xmlDocGetRootElement(doc);
+    
+    // parse le gml, instancie les treenode, met à jour le vecteur edge
+    printf("Creating nodes...\n");
+    parseElement(root_element);
+
 		//displayG_node();
 		//displayG_edge();
-		printf("Done!\n");
+    printf("Done!\n");
 
 		// initialise le tableau d'arretes pour la création du graph
-		igraph_real_t array_edges[nb_edge*2];
-		createArrayEdges(array_edges);
+    igraph_real_t array_edges[nb_edge*2];
+    createArrayEdges(array_edges);
 
-		igraph_vector_t v_edges;
-		igraph_vector_view(&v_edges,array_edges,nb_edge*2);
-		igraph_create(&graphe,&v_edges,nb_node,IGRAPH_UNDIRECTED);
-		
+    igraph_vector_t v_edges;
+    igraph_vector_view(&v_edges,array_edges,nb_edge*2);
+    
+    // creation du graph
+    igraph_create(&graphe,&v_edges,nb_node,IGRAPH_UNDIRECTED);
+
 		// generation des coordonées
-		generateCoordinates();
+    generateCoordinates();
 
 		// génère graph html dans finish()
 
     xmlFreeDoc(doc);
-  }
+ }
 
   xmlCleanupParser();
-	return 0;
-}
-
-void parseElement(xmlNode * a_node){
-	xmlNode *cur_node = NULL;
- 
-	for (cur_node = a_node; cur_node; cur_node = cur_node->next) {
-		if(cur_node->type == XML_ELEMENT_NODE){
-			
-			// NODE
-			if( !strcmp(cur_node->name,"node") ){
-
-				for(xmlAttrPtr attribute = cur_node->properties; attribute != NULL; attribute = attribute->next){
-					xmlChar* value = xmlNodeListGetString(cur_node->doc,attribute->children,1);	
-					if(	!strcmp(attribute->name,"id") ){			
-						g_node * n = newG_node(nb_node);
-						n->name = value;
-						n->stylename= "nodeStyle";
-						nodes[nb_node]=n;
-					}			
-
-				}
-				nb_node = nb_node + 1;
-     	}
-
-			// EDGE
-			if( !strcmp(cur_node->name,"edge") ){
-				g_edge * e = newG_edge(nb_edge);
-
-				for(xmlAttrPtr attribute = cur_node->properties; attribute != NULL; attribute = attribute->next){
-					xmlChar* value = xmlNodeListGetString(cur_node->doc,attribute->children,1);	
-					treenode * n = NULL;					
-					if(	!strcmp(attribute->name,"source") ){					
-						e->source = getG_nodeByName(value); 					
-					}
-
-					if(	!strcmp(attribute->name,"target") ){
-						e->target = getG_nodeByName(value); 					
-					}			
-				}
-
-				edges[nb_edge]= e;
-				nb_edge = nb_edge + 1;
-			}
-
-			// DATA
-			if( !strcmp(cur_node->name,"data")){
-				for(xmlAttrPtr attribute = cur_node->properties; attribute != NULL; attribute = attribute->next){
-					xmlChar* key = xmlNodeListGetString(cur_node->doc,attribute->children,1);
-					
-					xmlChar* value = xmlNodeListGetString(cur_node->doc,cur_node->children,1);
-					xmlChar* parent = xmlNodeListGetString(cur_node->doc,cur_node->parent->properties->children,1);
-					g_node * p = getG_nodeByName(parent);
-					
-					if( !xmlStrcmp(key,"name")){
-						p->name_display = value;
-						//TODO Default URL
-						p->url = "http://www.strabic.fr";	
-					}
-					if( !xmlStrcmp(key,"image")){
-						//TODO Default img
-						if(!xmlStrcmp(value,"http://strabic.fr/IMG/")){
-							p->urlImage = "http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg";
-						}else{
-							p->urlImage = value;
-						}
-					}
-					if( !xmlStrcmp(key,"titre")){
-						p->title = value;
-					}
-					if( !xmlStrcmp(key,"auteur")){
-						p->author = value;
-					}
-				}
-
-				
-			}
-
-        parseElement(cur_node->children);
-    }
-	}
+  return 0;
 }
 
 
-void generateGrapheView(){
-	int i;
+/*******************************************/
+/*                                         */
+/*       Initialisation task (lua)         */
+/*                                         */
+/*******************************************/
 
-	// generation HTML nodes
-	for(i=0;i<nb_node;i++){
-		g_node * cur = nodes[i];
-	
-		fprintf(outfile,"<div ");
-		fprintf(outfile,"class=\"%s\" ",cur->stylename);
-		fprintf(outfile,"style=\"position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1f\">",cur->x,cur->y,cur->z);
-	   
-    //link
-		fprintf(outfile,"<a href=\"%s\" style=\"width:inherit;height:inherit\">",cur->url);
-		
-    //img
-		fprintf(outfile,"<img src=\"%s\" alt=\"%s\" style=\"width:inherit;height:inherit\">",
-			  cur->urlImage, cur->name_display);
-		fprintf(outfile,"</a>");
-		
-
-    //title  
-    fprintf(outfile,"<div class=\"title ");
-
-    // rotation random du titre
-    int r = rand()%4; // random [0-3]
-    switch(r){
-      case 0 : fprintf(outfile, "top-right"); break;
-      case 1 : fprintf(outfile, "top-left"); break;
-      case 2 : fprintf(outfile, "bottom-right"); break;
-      case 3 : fprintf(outfile, "bottom-left"); break;
-      default: break;
-    }
-		fprintf(outfile,"\">");
-
-
-    // if title > 25 char = keep 22 char + "..."
-    int len = xmlStrlen(cur->title);
-    xmlChar *  miniTitle = NULL;
-    if(len > LEN_MAX_TITLE){
-      miniTitle = xmlStrncatNew(xmlStrsub(cur->title,0,LEN_MAX_TITLE-3),xmlCharStrdup("..."),-1);      
-    }else{
-      miniTitle = cur->title;
-    }
-
-    fprintf(outfile,"%s",miniTitle);
-		fprintf(outfile,"</div>\n");
-    
-    free(miniTitle);
-
-		//author
-		/*fprintf(outfile,"<div class=\"author\">");
-		fprintf(outfile,"%s",cur->author);
-		fprintf(outfile,"</div>\n");*/
-
-    //end node div
-		fprintf(outfile,"</div>\n");
-
-
-		/*if (!cur->urlImage){
-		  fprintf(outfile,"<div ");
-		  fprintf(outfile,"class=\"%s\" ",cur->stylename);
-		  fprintf(outfile,"style=\"position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1f\">",cur->x,cur->y,cur->z);
-		  fprintf(outfile,"%s",cur->name_display);
-		  fprintf(outfile,"</div>\n");
-		} else {
-		  //FB
-		  fprintf(outfile,"<img src=\"%s\" alt=\"%s\" style=\"width:80px;height:80;position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1fx\">",
-			  cur->urlImage, cur->name_display,cur->x,cur->y,cur->z);
-		}*/
-	}
- 
-
-
-	// generation HTML edges
-  
-	/*fprintf(outfile,"<svg height=\"10000\" width=\"10000\">");
-	for(i=0;i<nb_edge;i++){
-		g_edge * cur = edges[i];
-		float x1 = (float)(cur->source->x +30);
-		float y1 = (float)(cur->source->y +30);
-		float x2 = (float)(cur->target->x +30);
-		float y2 = (float)(cur->target->y +30);
-	
-		fprintf(outfile,"<line x1=%0.2f y1=%0.2f x2=%0.2f y2=%0.2f stroke=\"white\" stroke-width=\"3\"/>",x1,y1,x2,y2);
-	} 
-	fprintf(outfile,"</svg>");*/
-}
-
-
-
-/////////// INITIALISATION TASK
 static const struct luaL_reg genhtmllib[] ={
   {"add1", genhtml_add1},
   {"start", genhtml_start},
@@ -1165,9 +1198,9 @@ static const struct luaL_reg genhtmllib[] ={
   {"parent",genhtml_parent},
   {"children",genhtml_children},
   {"setpagewidth",genhtml_setpagewidth},
-	{"setpageheight",genhtml_setpageheight},
+  {"setpageheight",genhtml_setpageheight},
   {"boxheight",genhtml_boxheight},
-	{"generateConstellation",genhtml_generateconstellation},
+  {"generateConstellation",genhtml_generateconstellation},
   {NULL,NULL}
 };
 
@@ -1208,7 +1241,7 @@ int luaopen_genhtml(lua_State *L){
   pageContext.backgroundColor = NULL;
   pageContext.defaultPoliceColor = NULL;
   pageContext.defaultPoliceSize = VAL_DEFAULTPOLICESIZE;
-	pageContext.gridSize = VAL_DEFAULTGRIDSIZE;
+  pageContext.gridSize = VAL_DEFAULTGRIDSIZE;
   pageContext.root = newNode(NULL,STR_ROOTNAME);
 
   return 1;
