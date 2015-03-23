@@ -91,7 +91,6 @@ int main(int argc, char *argv[])
 		{
 			// Download the image
 			downloadImg(imgPath);
-			cout << imgPath.substr(imgPath.find_last_of(".") + 1) << endl;
 			// Processing the image
 			if((string) imgPath.substr(imgPath.find_last_of(".") + 1) != "gif")
 			{
@@ -99,7 +98,7 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
-				cout << "Sorry can't process 'gif' files !";
+				cout << "Sorry can't process 'gif' files !" << endl;
 			}
 		}
 		cout << "Download succesfully done !" << endl;

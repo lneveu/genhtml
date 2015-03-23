@@ -1,0 +1,4 @@
+imgProcessing need a tmp/ and a img/ directory in the current directory !
+Please be sure to create theses directories before launching the software.
+
+There is also a know issues with gif format. OpenCV isn't compatible with the gif format.
