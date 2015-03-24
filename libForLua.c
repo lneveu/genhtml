@@ -11,7 +11,7 @@
 #include <stdarg.h>
 #include <igraph.h>
 #include <math.h>
-#include <wchar.h> 
+#include <stdbool.h>
 
 //Some external
 extern char *itoa(int, char *, int);
@@ -54,6 +54,10 @@ unsigned char outstr[MAX_BUFFERSIZE];
 #define POVRAY_CMD   "povray"
 #define POVRAY_PRF   "/tmp/scene"
 #define STR_NODE "node"
+
+// Graph generation
+#define IMG_FOLDER "img/"
+#define NAME_FILE_SEASONS "saisons_url.txt"
 
 // global flag for debug
 int notInLua = 0;
@@ -99,6 +103,7 @@ typedef struct g_node{
 	xmlChar * title;
 	xmlChar * author;
 	xmlChar * url;
+  xmlChar * urlSaison;
 	
 	//coords	
 	float x;
@@ -136,6 +141,7 @@ g_node * newG_node(int id){
   n->title = NULL;
   n->author = NULL;
   n->url = NULL;
+  n->urlSaison = NULL;
   n->x = 0;
   n->y = 0;
   n->z = 0;
@@ -343,17 +349,11 @@ void parseElement(xmlNode * a_node){
 
           if( !xmlStrcmp(key,"name")){
             p->name_display = value;
-            //TODO Default URL
-            p->url = "http://www.strabic.fr"; 
+            p->urlImage = xmlStrcat(xmlCharStrdup(IMG_FOLDER),value);
           }
 
-          if( !xmlStrcmp(key,"image")){
-            //TODO Default img
-            if(!xmlStrcmp(value,"http://strabic.fr/IMG/")){
-              p->urlImage = "http://strabic.fr/IMG/jpg/maudit-collectif-2.jpg";
-            }else{
-              p->urlImage = value;
-            }
+          if( !xmlStrcmp(key,"url")){
+            p->url = value;
           }
 
           if( !xmlStrcmp(key,"titre")){
@@ -362,6 +362,10 @@ void parseElement(xmlNode * a_node){
 
           if( !xmlStrcmp(key,"auteur")){
             p->author = value;
+          }
+
+          if( !xmlStrcmp(key,"saison")){
+            p->urlSaison = value;
           }
         }
       }
@@ -457,6 +461,35 @@ void generateGrapheView(){
   fprintf(outfile,"</svg>");*/
 }
 
+/* Check if value is in array */
+bool isValueInArray(xmlChar * val, xmlChar **array, int size){
+  int i = 0;
+  for(i=0; i < size; i++){
+    if( !xmlStrcmp(val,*array) ) return true;
+    array++;
+  }
+  return false;
+}
+
+void createSeasonsURLFile(){
+  xmlChar * seasonsURL[MAX_BUFFERSIZE];
+  int i;
+  int nbSeason = 0;
+
+  FILE * fileSeasons = fopen(NAME_FILE_SEASONS, "wb");
+
+  for(i=0; i< nb_node ; i++){
+    g_node * cur = nodes[i];
+    xmlChar * urlSeason = cur->urlSaison;
+    // add season in the array & write in file
+    if( !isValueInArray(urlSeason,&seasonsURL,nbSeason) ){
+      seasonsURL[nbSeason] = urlSeason;
+      nbSeason++;
+      fprintf(fileSeasons, "%s\n",urlSeason);
+    }
+  }
+  fclose(fileSeasons);
+}
 
 /*******************************************/
 /*                                         */
@@ -995,6 +1028,12 @@ int genhtml_finish(lua_State *L){
 
     //body generation
     treeBoxEmit(pageContext.root);
+
+
+    // Create Seasons URL file
+    createSeasonsURLFile();
+
+    // Retrieve thumb img
 
 		// Graphe generation (html file)
     generateGrapheView();
