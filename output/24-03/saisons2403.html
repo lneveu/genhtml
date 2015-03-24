@@ -1,0 +1,561 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>strabic test</title> 
+<style type="text/css">
+body {
+  width: 1000px;
+	height: 1000px;
+  font-family: Arial, Verdana, sans-serif;
+  color: #000;
+  background-color: #FFFFFF;
+
+	/* Grid */
+  background-image: url("ressources/bg_grid.png");
+  background-size: 200px 200px;
+	
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="ressources/libstrabic.js"></script>
+</head>
+<body>
+
+<!-- node 3 named box -->
+<style type="text/css">
+.nodeStyle {
+	width:80px;
+	height:80px;
+	font-size: 10px;
+	text-align: center;
+	line-height: 70px
+}
+</style>
+
+<div >
+</div>
+<!-- node 4 named box -->
+<style type="text/css">
+.title {
+  background-color: rgb(255,255,255);
+	font-size:12px;
+	line-height: normal;
+	font-weight: bold;
+  color: rgb(0,0,255)
+}
+</style>
+
+<div >
+</div>
+<!-- node 5 named box -->
+<style type="text/css">
+  .top-right {
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    position: absolute;
+    top: -5px;
+    right:-45px;
+    width:100px;
+  }
+</style>
+<div >
+</div>
+<!-- node 6 named box -->
+<style type="text/css">
+  .top-left {
+    -webkit-transform: rotate(-35deg);
+    -moz-transform: rotate(-35deg);
+    -o-transform: rotate(-35deg);
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    width: 100px;
+  }
+</style>
+<div >
+</div>
+<!-- node 7 named box -->
+<style type="text/css">
+  .bottom-right {
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+    position: absolute;
+    top: 60px;
+    right: -45px;
+    width: 100px;
+  }
+</style>
+<div >
+</div>
+<!-- node 8 named box -->
+<style type="text/css">
+  .bottom-left {
+    -webkit-transform: rotate(35deg);
+    -moz-transform: rotate(35deg);
+    -o-transform: rotate(35deg);
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    width: 100px;
+  }
+</style>
+<div >
+</div>
+<!-- node 9 named box -->
+<style type="text/css">
+.author {
+	line-height: normal;
+	color:#2AD1A2
+}
+</style>
+
+<div >
+</div>
+<div class="nodeStyle" style="position:absolute;left:1915.7px;top:-0.0px;z-index:10.0"><a href="http://strabic.fr/Freinet_le_journal_scolaire" style="width:inherit;height:inherit"><img src="img/Le_Journal_scolaire" alt="Le_Journal_scolaire" style="width:inherit;height:inherit"></a><div class="title bottom-left">Le Journal scolaire</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2530.8px;top:4679.6px;z-index:10.0"><a href="http://strabic.fr/quantified-self_open-data" style="width:inherit;height:inherit"><img src="img/Show_me_your_body_Show_me_your_data" alt="Show_me_your_body_Show_me_your_data" style="width:inherit;height:inherit"></a><div class="title bottom-right">Show me your body Show...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3225.1px;top:258.5px;z-index:10.0"><a href="http://strabic.fr/Les-yeux-derriere-la-tete" style="width:inherit;height:inherit"><img src="img/Les_yeux_derrière_la_tête" alt="Les_yeux_derrière_la_tête" style="width:inherit;height:inherit"></a><div class="title top-left">Les yeux derrière la ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2356.5px;top:4502.6px;z-index:10.0"><a href="http://strabic.fr/A-corps-perdus" style="width:inherit;height:inherit"><img src="img/À_corps_perdus" alt="À_corps_perdus" style="width:inherit;height:inherit"></a><div class="title bottom-left">À corps perdus</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:238.0px;top:1261.4px;z-index:10.0"><a href="http://strabic.fr/L-acuponcture-du-territoire" style="width:inherit;height:inherit"><img src="img/L'acupuncture_du_territoire" alt="L'acupuncture_du_territoire" style="width:inherit;height:inherit"></a><div class="title top-left">L'acupuncture du terri...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1485.0px;top:4280.5px;z-index:10.0"><a href="http://strabic.fr/Edito-10-Zoo-Simulator" style="width:inherit;height:inherit"><img src="img/Édito_#10_:_Zoo_Simulator" alt="Édito_#10_:_Zoo_Simulator" style="width:inherit;height:inherit"></a><div class="title bottom-left">Édito #10 : Zoo Simul...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1531.3px;top:759.1px;z-index:10.0"><a href="http://strabic.fr/The-architect-the-web-and-the-chat" style="width:inherit;height:inherit"><img src="img/The_architect,_the_web_and_the_chat_room" alt="The_architect,_the_web_and_the_chat_room" style="width:inherit;height:inherit"></a><div class="title bottom-right">The architect, the web...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4132.9px;top:3836.9px;z-index:10.0"><a href="http://strabic.fr/Beatriz-Colomina-La-Pelouse-en-guerre" style="width:inherit;height:inherit"><img src="img/La_Pelouse_américaine_en_guerre" alt="La_Pelouse_américaine_en_guerre" style="width:inherit;height:inherit"></a><div class="title top-right">La Pelouse américaine...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1388.7px;top:1428.8px;z-index:10.0"><a href="http://strabic.fr/Collectif-ETC" style="width:inherit;height:inherit"><img src="img/Collectif_ETC" alt="Collectif_ETC" style="width:inherit;height:inherit"></a><div class="title top-left">Collectif ETC</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2483.4px;top:3741.6px;z-index:10.0"><a href="http://strabic.fr/Les-Aventurques-de-Tenten" style="width:inherit;height:inherit"><img src="img/Les_Aventurques_de_Tenten" alt="Les_Aventurques_de_Tenten" style="width:inherit;height:inherit"></a><div class="title top-left">Les Aventurques de Tenten</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2387.6px;top:4903.5px;z-index:10.0"><a href="http://strabic.fr/mobilier-musees-penser-l-espace-museal" style="width:inherit;height:inherit"><img src="img/Du_corps_visiteur" alt="Du_corps_visiteur" style="width:inherit;height:inherit"></a><div class="title bottom-right">Du corps visiteur</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2956.5px;top:545.1px;z-index:10.0"><a href="http://strabic.fr/Tema-La-Vache" style="width:inherit;height:inherit"><img src="img/Téma_La_Vache" alt="Téma_La_Vache" style="width:inherit;height:inherit"></a><div class="title bottom-left">Téma La Vache</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4018.2px;top:3718.6px;z-index:10.0"><a href="http://strabic.fr/Un-abri-antiatomique-bien-familial" style="width:inherit;height:inherit"><img src="img/Un_abri_antiatomique_bien_familial" alt="Un_abri_antiatomique_bien_familial" style="width:inherit;height:inherit"></a><div class="title bottom-right">Un abri antiatomique b...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4265.5px;top:1167.3px;z-index:10.0"><a href="http://strabic.fr/Baseball-cards" style="width:inherit;height:inherit"><img src="img/Baseball_cards" alt="Baseball_cards" style="width:inherit;height:inherit"></a><div class="title bottom-left">Baseball cards</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4510.9px;top:1149.0px;z-index:10.0"><a href="http://strabic.fr/Leotard-plume-et-coussins-fessiers" style="width:inherit;height:inherit"><img src="img/Léotard,_plume_et_coussins_fessiers" alt="Léotard,_plume_et_coussins_fessiers" style="width:inherit;height:inherit"></a><div class="title bottom-left">Léotard, plume et cou...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3760.1px;top:4001.1px;z-index:10.0"><a href="http://strabic.fr/De-quelques-cliches-de-la" style="width:inherit;height:inherit"><img src="img/De_quelques_clichés_de_la_reconstruction" alt="De_quelques_clichés_de_la_reconstruction" style="width:inherit;height:inherit"></a><div class="title bottom-right">De quelques clichés d...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1673.1px;top:6.6px;z-index:10.0"><a href="http://strabic.fr/Aurelien-Froment" style="width:inherit;height:inherit"><img src="img/Aurélien_Froment" alt="Aurélien_Froment" style="width:inherit;height:inherit"></a><div class="title top-right">Aurélien Froment</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1225.2px;top:263.0px;z-index:10.0"><a href="http://strabic.fr/Un-journal-a-l-ecole" style="width:inherit;height:inherit"><img src="img/Un_journal_à_l'école" alt="Un_journal_à_l'école" style="width:inherit;height:inherit"></a><div class="title bottom-right">Un journal à l'école</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3125.2px;top:408.1px;z-index:10.0"><a href="http://strabic.fr/Lecture-s" style="width:inherit;height:inherit"><img src="img/Lecture(s)" alt="Lecture(s)" style="width:inherit;height:inherit"></a><div class="title top-right">Lecture(s)</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1125.9px;top:4162.2px;z-index:10.0"><a href="http://strabic.fr/Biceps-bijoux-et-bord-de-mer-La" style="width:inherit;height:inherit"><img src="img/Biceps,_bijoux_et_bord_de_mer" alt="Biceps,_bijoux_et_bord_de_mer" style="width:inherit;height:inherit"></a><div class="title top-right">Biceps, bijoux et bord...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2790.9px;top:264.3px;z-index:10.0"><a href="http://strabic.fr/Jungle-Food" style="width:inherit;height:inherit"><img src="img/Jungle_Food" alt="Jungle_Food" style="width:inherit;height:inherit"></a><div class="title bottom-left">Jungle Food</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:444.8px;top:1387.6px;z-index:10.0"><a href="http://strabic.fr/Construire-Ensemble-le-grand-ensemble" style="width:inherit;height:inherit"><img src="img/Construire_ensemble_le_Grand_Ensemble" alt="Construire_ensemble_le_Grand_Ensemble" style="width:inherit;height:inherit"></a><div class="title top-right">Construire ensemble le...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2061.9px;top:1914.6px;z-index:10.0"><a href="http://strabic.fr/Villa-Kujoyama-la-Medicis-nippone" style="width:inherit;height:inherit"><img src="img/Villa_Kujoyama_:_la_Médicis_nippone_?" alt="Villa_Kujoyama_:_la_Médicis_nippone_?" style="width:inherit;height:inherit"></a><div class="title bottom-left">Villa Kujoyama : la M�...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4242.4px;top:2150.6px;z-index:10.0"><a href="http://strabic.fr/Immersion-a-l-ENSCI-Objets-infinis" style="width:inherit;height:inherit"><img src="img/Immersion_à_l'ENSCI_:_le_grand_déballage" alt="Immersion_à_l'ENSCI_:_le_grand_déballage" style="width:inherit;height:inherit"></a><div class="title top-left">Immersion à l'ENSCI :...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1626.7px;top:4494.6px;z-index:10.0"><a href="http://strabic.fr/Marion-Fayolle-Le-Zoo-d-Abidjan" style="width:inherit;height:inherit"><img src="img/Marion_Fayolle_:_Le_Zoo_d'Abidjan" alt="Marion_Fayolle_:_Le_Zoo_d'Abidjan" style="width:inherit;height:inherit"></a><div class="title bottom-right">Marion Fayolle : Le Zo...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2946.3px;top:2223.6px;z-index:10.0"><a href="http://strabic.fr/Astrid-de-la-Chapelle-Space-Solids" style="width:inherit;height:inherit"><img src="img/Space_Solids" alt="Space_Solids" style="width:inherit;height:inherit"></a><div class="title bottom-right">Space Solids</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:273.1px;top:2273.0px;z-index:10.0"><a href="http://strabic.fr/KABK-le-dedale" style="width:inherit;height:inherit"><img src="img/KABK_:_l'école_dédale" alt="KABK_:_l'école_dédale" style="width:inherit;height:inherit"></a><div class="title bottom-right">KABK : l'école dédale</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:422.4px;top:2488.9px;z-index:10.0"><a href="http://strabic.fr/ArtEZ-plurielle-et-polymorphe" style="width:inherit;height:inherit"><img src="img/ArtEZ_:_plurielle_et_polymorphe" alt="ArtEZ_:_plurielle_et_polymorphe" style="width:inherit;height:inherit"></a><div class="title bottom-left">ArtEZ : plurielle et p...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1598.5px;top:2457.9px;z-index:10.0"><a href="http://strabic.fr/Cartographier-les-interstices-de" style="width:inherit;height:inherit"><img src="img/Cartographier_les_interstices_de_la_ville" alt="Cartographier_les_interstices_de_la_ville" style="width:inherit;height:inherit"></a><div class="title bottom-left">Cartographier les inte...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2291.9px;top:4721.7px;z-index:10.0"><a href="http://strabic.fr/Expedition-Bodyware" style="width:inherit;height:inherit"><img src="img/Expédition_Bodyware" alt="Expédition_Bodyware" style="width:inherit;height:inherit"></a><div class="title bottom-left">Expédition Bodyware</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1574.3px;top:1490.9px;z-index:10.0"><a href="http://strabic.fr/collectifs_edito" style="width:inherit;height:inherit"><img src="img/Collectifs" alt="Collectifs" style="width:inherit;height:inherit"></a><div class="title top-left">Collectifs</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3300.9px;top:941.6px;z-index:10.0"><a href="http://strabic.fr/Voyageurs-amnesiques" style="width:inherit;height:inherit"><img src="img/Voyageurs_amnésiques" alt="Voyageurs_amnésiques" style="width:inherit;height:inherit"></a><div class="title bottom-right">Voyageurs amnésiques</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4386.6px;top:1463.0px;z-index:10.0"><a href="http://strabic.fr/Roller-Derbitch" style="width:inherit;height:inherit"><img src="img/Roller_Derbitch" alt="Roller_Derbitch" style="width:inherit;height:inherit"></a><div class="title bottom-right">Roller Derbitch</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4119.8px;top:2258.3px;z-index:10.0"><a href="http://strabic.fr/Comment-j-ai-construit-certains-de" style="width:inherit;height:inherit"><img src="img/Comment_j’ai_construit_certains_de_mes_vêtements" alt="Comment_j’ai_construit_certains_de_mes_vêtements" style="width:inherit;height:inherit"></a><div class="title bottom-right">Comment j’ai constru...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:389.8px;top:2936.8px;z-index:10.0"><a href="http://strabic.fr/Henri-le-hacker" style="width:inherit;height:inherit"><img src="img/Henri_le_hacker" alt="Henri_le_hacker" style="width:inherit;height:inherit"></a><div class="title top-left">Henri le hacker</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3676.0px;top:4360.7px;z-index:10.0"><a href="http://strabic.fr/URBA-SIO-NISME-ou-l-architecture" style="width:inherit;height:inherit"><img src="img/URBA(SIO)NISME_ou_l'architecture_au_profit_de_la_guerre" alt="URBA(SIO)NISME_ou_l'architecture_au_profit_de_la_guerre" style="width:inherit;height:inherit"></a><div class="title bottom-left">URBA(SIO)NISME ou l'ar...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4414.7px;top:2447.5px;z-index:10.0"><a href="http://strabic.fr/Interfaces-buissonnieres" style="width:inherit;height:inherit"><img src="img/Interfaces_buissonnières" alt="Interfaces_buissonnières" style="width:inherit;height:inherit"></a><div class="title top-left">Interfaces buissonnières</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3526.1px;top:3683.6px;z-index:10.0"><a href="http://strabic.fr/Il-y-a-un-soldat-en-chacun-de-nous" style="width:inherit;height:inherit"><img src="img/Il_y_a_un_soldat_en_chacun_de_nous" alt="Il_y_a_un_soldat_en_chacun_de_nous" style="width:inherit;height:inherit"></a><div class="title top-right">Il y a un soldat en ch...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:467.6px;top:1183.7px;z-index:10.0"><a href="http://strabic.fr/Patrick-Bouchain-Ma-voisine-cette" style="width:inherit;height:inherit"><img src="img/2" alt="2" style="width:inherit;height:inherit"></a><div class="title bottom-left">Patrick Bouchain : ma ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:244.0px;top:1460.6px;z-index:10.0"><a href="http://strabic.fr/Le-consommateur-aux-commandes" style="width:inherit;height:inherit"><img src="img/Le_consommateur_aux_commandes" alt="Le_consommateur_aux_commandes" style="width:inherit;height:inherit"></a><div class="title bottom-right">Le consommateur aux co...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4617.6px;top:2907.8px;z-index:10.0"><a href="http://strabic.fr/L-emulation-c-est-pas-un-peu-vieux" style="width:inherit;height:inherit"><img src="img/L’émulation,_c’est_pas_un_peu_vieux_jeu_?" alt="L’émulation,_c’est_pas_un_peu_vieux_jeu_?" style="width:inherit;height:inherit"></a><div class="title top-left">L’émulation, c’es...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3332.8px;top:2255.2px;z-index:10.0"><a href="http://strabic.fr/Octave-De-Gaulle-Distiller" style="width:inherit;height:inherit"><img src="img/Octave_De_Gaulle_:_Distiller" alt="Octave_De_Gaulle_:_Distiller" style="width:inherit;height:inherit"></a><div class="title top-left">Octave De Gaulle : Dis...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1776.7px;top:3005.3px;z-index:10.0"><a href="http://strabic.fr/MindMapping" style="width:inherit;height:inherit"><img src="img/MindMapping" alt="MindMapping" style="width:inherit;height:inherit"></a><div class="title top-left">MindMapping</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2981.0px;top:1013.7px;z-index:10.0"><a href="http://strabic.fr/Constructions-de-l-etrange" style="width:inherit;height:inherit"><img src="img/Constructions_de_l'étrange" alt="Constructions_de_l'étrange" style="width:inherit;height:inherit"></a><div class="title bottom-left">Constructions de l'ét...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2300.0px;top:2075.4px;z-index:10.0"><a href="http://strabic.fr/Felipe-Ribon-le-genre-des-objets" style="width:inherit;height:inherit"><img src="img/Felipe_Ribon_:_le_genre_des_objets" alt="Felipe_Ribon_:_le_genre_des_objets" style="width:inherit;height:inherit"></a><div class="title top-right">Felipe Ribon : le genr...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:806.7px;top:964.6px;z-index:10.0"><a href="http://strabic.fr/La-theorie-des-complices" style="width:inherit;height:inherit"><img src="img/La_théorie_des_complices" alt="La_théorie_des_complices" style="width:inherit;height:inherit"></a><div class="title top-left">La théorie des complices</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3156.7px;top:2914.8px;z-index:10.0"><a href="http://strabic.fr/La-Paillasse" style="width:inherit;height:inherit"><img src="img/La_Paillasse" alt="La_Paillasse" style="width:inherit;height:inherit"></a><div class="title bottom-right">La Paillasse</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4217.4px;top:2629.0px;z-index:10.0"><a href="http://strabic.fr/Digital-Folklore-le-livre" style="width:inherit;height:inherit"><img src="img/Digital_Folklore_(le_livre)" alt="Digital_Folklore_(le_livre)" style="width:inherit;height:inherit"></a><div class="title top-right">Digital Folklore (le l...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4047.0px;top:2394.9px;z-index:10.0"><a href="http://strabic.fr/Cluny-III-en-3D" style="width:inherit;height:inherit"><img src="img/Cluny_III_en_3D" alt="Cluny_III_en_3D" style="width:inherit;height:inherit"></a><div class="title bottom-left">Cluny III en 3D</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1021.2px;top:3810.0px;z-index:10.0"><a href="http://strabic.fr/California-Design-Modernite" style="width:inherit;height:inherit"><img src="img/California_Design" alt="California_Design" style="width:inherit;height:inherit"></a><div class="title bottom-right">California Design</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3947.1px;top:1279.4px;z-index:10.0"><a href="http://strabic.fr/Typographie-du-skatepark" style="width:inherit;height:inherit"><img src="img/Typographie_du_skatepark" alt="Typographie_du_skatepark" style="width:inherit;height:inherit"></a><div class="title top-left">Typographie du skatepark</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1786.6px;top:2553.7px;z-index:10.0"><a href="http://strabic.fr/edito-4-Subjectivite-cartographiee" style="width:inherit;height:inherit"><img src="img/édito_#4_:_Subjectivité_cartographiée" alt="édito_#4_:_Subjectivité_cartographiée" style="width:inherit;height:inherit"></a><div class="title bottom-right">édito #4 : Subjectivi...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3073.1px;top:2677.6px;z-index:10.0"><a href="http://strabic.fr/Philippe-Fernandez-un-univers-en" style="width:inherit;height:inherit"><img src="img/Philippe_Fernandez_:_un_univers_en_expansion" alt="Philippe_Fernandez_:_un_univers_en_expansion" style="width:inherit;height:inherit"></a><div class="title bottom-left">Philippe Fernandez : u...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1259.0px;top:2590.4px;z-index:10.0"><a href="http://strabic.fr/Google-Street-Sound-une-fiction" style="width:inherit;height:inherit"><img src="img/Google_Street_Sound,_une_fiction_?" alt="Google_Street_Sound,_une_fiction_?" style="width:inherit;height:inherit"></a><div class="title top-right">Google Street Sound, u...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2764.4px;top:3688.1px;z-index:10.0"><a href="http://strabic.fr/Turkish-Art-Now" style="width:inherit;height:inherit"><img src="img/Turkish_Art_Now" alt="Turkish_Art_Now" style="width:inherit;height:inherit"></a><div class="title top-right">Turkish Art Now</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4493.0px;top:2275.4px;z-index:10.0"><a href="http://strabic.fr/Le-sport-en-salle-la-technologie" style="width:inherit;height:inherit"><img src="img/Le_sport_en_salle_:_la_technologie_au_secours_de_l’imaginaire_!" alt="Le_sport_en_salle_:_la_technologie_au_secours_de_l’imaginaire_!" style="width:inherit;height:inherit"></a><div class="title top-left">Le sport en salle : la...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1819.8px;top:4743.8px;z-index:10.0"><a href="http://strabic.fr/Celia-Gondol-Cages,470" style="width:inherit;height:inherit"><img src="img/Célia_Gondol_:_Cages" alt="Célia_Gondol_:_Cages" style="width:inherit;height:inherit"></a><div class="title bottom-right">Célia Gondol : Cages</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3397.5px;top:3991.0px;z-index:10.0"><a href="http://strabic.fr/Un-livre-Une-histoire-du" style="width:inherit;height:inherit"><img src="img/Un_livre_:_Une_histoire_du_bombardement" alt="Un_livre_:_Une_histoire_du_bombardement" style="width:inherit;height:inherit"></a><div class="title bottom-right">Un livre : Une histoir...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3847.0px;top:4347.6px;z-index:10.0"><a href="http://strabic.fr/Emeric-Lhuisset-et-la-chaise" style="width:inherit;height:inherit"><img src="img/Émeric_Lhuisset_et_la_chaise_Kandahar_:_le_confort_du_combattant" alt="Émeric_Lhuisset_et_la_chaise_Kandahar_:_le_confort_du_combattant" style="width:inherit;height:inherit"></a><div class="title top-right">Émeric Lhuisset et la...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1726.4px;top:768.1px;z-index:10.0"><a href="http://strabic.fr/ULTRALOCAL" style="width:inherit;height:inherit"><img src="img/ULTRALOCAL" alt="ULTRALOCAL" style="width:inherit;height:inherit"></a><div class="title top-left">ULTRALOCAL</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2653.8px;top:3480.7px;z-index:10.0"><a href="http://strabic.fr/Sarp-Sozdinler" style="width:inherit;height:inherit"><img src="img/Sarp_Sozdinler" alt="Sarp_Sozdinler" style="width:inherit;height:inherit"></a><div class="title top-left">Sarp Sozdinler</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4710.0px;top:2784.5px;z-index:10.0"><a href="http://strabic.fr/The-Cat-the-Reverend-and-the-Slave" style="width:inherit;height:inherit"><img src="img/The_Cat,_the_Reverend_and_the_Slave" alt="The_Cat,_the_Reverend_and_the_Slave" style="width:inherit;height:inherit"></a><div class="title top-left">The Cat, the Reverend ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1551.3px;top:3277.9px;z-index:10.0"><a href="http://strabic.fr/Hendrik-Sturm-l-infatigable" style="width:inherit;height:inherit"><img src="img/Hendrik_Sturm,_l’infatigable_marcheur-sculpteur_d’espace" alt="Hendrik_Sturm,_l’infatigable_marcheur-sculpteur_d’espace" style="width:inherit;height:inherit"></a><div class="title top-right">Hendrik Sturm, l’inf...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2947.0px;top:4556.4px;z-index:10.0"><a href="http://strabic.fr/Le-kayak-anthropometrique" style="width:inherit;height:inherit"><img src="img/Le_kayak_anthropométrique" alt="Le_kayak_anthropométrique" style="width:inherit;height:inherit"></a><div class="title bottom-left">Le kayak anthropométr...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2691.6px;top:3925.7px;z-index:10.0"><a href="http://strabic.fr/Inside-Taksim" style="width:inherit;height:inherit"><img src="img/Inside_Taksim" alt="Inside_Taksim" style="width:inherit;height:inherit"></a><div class="title top-right">Inside Taksim</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1595.0px;top:3109.5px;z-index:10.0"><a href="http://strabic.fr/Soft-Manhattan" style="width:inherit;height:inherit"><img src="img/Soft_Manhattan" alt="Soft_Manhattan" style="width:inherit;height:inherit"></a><div class="title top-left">Soft Manhattan</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1818.1px;top:1244.6px;z-index:10.0"><a href="http://strabic.fr/La-Folie-Kilometre" style="width:inherit;height:inherit"><img src="img/La_Folie_Kilomètre" alt="La_Folie_Kilomètre" style="width:inherit;height:inherit"></a><div class="title bottom-right">La Folie Kilomètre</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1222.2px;top:3076.7px;z-index:10.0"><a href="http://strabic.fr/Florent-Chavouet-Cartomaniaque" style="width:inherit;height:inherit"><img src="img/Florent_Chavouet_:_Cartomaniaque" alt="Florent_Chavouet_:_Cartomaniaque" style="width:inherit;height:inherit"></a><div class="title top-left">Florent Chavouet : Car...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1494.6px;top:996.9px;z-index:10.0"><a href="http://strabic.fr/Casa-do-vapor" style="width:inherit;height:inherit"><img src="img/Casa_do_vapor" alt="Casa_do_vapor" style="width:inherit;height:inherit"></a><div class="title top-left">Casa do vapor</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2980.6px;top:347.9px;z-index:10.0"><a href="http://strabic.fr/yyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" style="width:inherit;height:inherit"><img src="img/yyyyyyyyyy__DNSEP_30.05.11" alt="yyyyyyyyyy__DNSEP_30.05.11" style="width:inherit;height:inherit"></a><div class="title top-left">yyyyyyyyyy  DNSEP 30.0...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:648.2px;top:2149.9px;z-index:10.0"><a href="http://strabic.fr/Willem-Sandberg-precurseur" style="width:inherit;height:inherit"><img src="img/Willem_Sandberg" alt="Willem_Sandberg" style="width:inherit;height:inherit"></a><div class="title top-right">Willem Sandberg</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2761.0px;top:2368.3px;z-index:10.0"><a href="http://strabic.fr/Vacances-galactiques" style="width:inherit;height:inherit"><img src="img/Vacances_galactiques" alt="Vacances_galactiques" style="width:inherit;height:inherit"></a><div class="title bottom-left">Vacances galactiques</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1879.5px;top:897.3px;z-index:10.0"><a href="http://strabic.fr/Arquitectura-Social" style="width:inherit;height:inherit"><img src="img/Arquitectura_Social" alt="Arquitectura_Social" style="width:inherit;height:inherit"></a><div class="title bottom-right">Arquitectura Social</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3594.0px;top:3880.7px;z-index:10.0"><a href="http://strabic.fr/L-enseignement-de-la-Seconde" style="width:inherit;height:inherit"><img src="img/L'enseignement_de_la_Seconde_Guerre_mondiale" alt="L'enseignement_de_la_Seconde_Guerre_mondiale" style="width:inherit;height:inherit"></a><div class="title top-left">L'enseignement de la S...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4410.9px;top:2614.5px;z-index:10.0"><a href="http://strabic.fr/Realite-augmentee-humanite" style="width:inherit;height:inherit"><img src="img/Réalité_augmentée,_humanité_diminuée_?" alt="Réalité_augmentée,_humanité_diminuée_?" style="width:inherit;height:inherit"></a><div class="title bottom-right">Réalité augmentée, ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2085.1px;top:3788.9px;z-index:10.0"><a href="http://strabic.fr/Garaj-Kamyon-Kuafor" style="width:inherit;height:inherit"><img src="img/Garaj,_Kamyon_&_Kuaför" alt="Garaj,_Kamyon_&_Kuaför" style="width:inherit;height:inherit"></a><div class="title bottom-left">Garaj, Kamyon & Kuaför</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1933.4px;top:2958.8px;z-index:10.0"><a href="http://strabic.fr/Cartographier-le-pouvoir-supreme" style="width:inherit;height:inherit"><img src="img/Cartographier,_le_pouvoir_suprême" alt="Cartographier,_le_pouvoir_suprême" style="width:inherit;height:inherit"></a><div class="title bottom-right">Cartographier, le pouv...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2247.3px;top:3632.0px;z-index:10.0"><a href="http://strabic.fr/L-ecume-des-villes" style="width:inherit;height:inherit"><img src="img/L’écume_des_villes" alt="L’écume_des_villes" style="width:inherit;height:inherit"></a><div class="title top-right">L’écume des villes</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1339.7px;top:1214.3px;z-index:10.0"><a href="http://strabic.fr/Devenez-ruches" style="width:inherit;height:inherit"><img src="img/Devenez_ruches_!" alt="Devenez_ruches_!" style="width:inherit;height:inherit"></a><div class="title bottom-left">Devenez ruches !</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1774.3px;top:3193.7px;z-index:10.0"><a href="http://strabic.fr/La-pensee-a-l-oeuvre" style="width:inherit;height:inherit"><img src="img/La_pensée_à_l’œuvre" alt="La_pensée_à_l’œuvre" style="width:inherit;height:inherit"></a><div class="title bottom-right">La pensée à l’œuvre</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4065.2px;top:2713.5px;z-index:10.0"><a href="http://strabic.fr/edito-3-Imaginaires-technologiques" style="width:inherit;height:inherit"><img src="img/édito_#3_:_Imaginaires_technologiques" alt="édito_#3_:_Imaginaires_technologiques" style="width:inherit;height:inherit"></a><div class="title bottom-left">édito #3 : Imaginaire...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2785.5px;top:2767.8px;z-index:10.0"><a href="http://strabic.fr/Cape-Canaveral-L-attraction-spatiale" style="width:inherit;height:inherit"><img src="img/Cape_Canaveral_:_L’attraction_spatiale" alt="Cape_Canaveral_:_L’attraction_spatiale" style="width:inherit;height:inherit"></a><div class="title top-right">Cape Canaveral : L’a...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4001.3px;top:4252.2px;z-index:10.0"><a href="http://strabic.fr/Will-Eisner-et-le-M16" style="width:inherit;height:inherit"><img src="img/Will_Eisner_et_le_M16" alt="Will_Eisner_et_le_M16" style="width:inherit;height:inherit"></a><div class="title top-right">Will Eisner et le M16</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:656.5px;top:1347.9px;z-index:10.0"><a href="http://strabic.fr/EDITO-1" style="width:inherit;height:inherit"><img src="img/édito_#1" alt="édito_#1" style="width:inherit;height:inherit"></a><div class="title bottom-right">édito #1</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:423.4px;top:1581.9px;z-index:10.0"><a href="http://strabic.fr/L-usager-cet-autre-concepteur" style="width:inherit;height:inherit"><img src="img/L'usager,_cet_autre_concepteur" alt="L'usager,_cet_autre_concepteur" style="width:inherit;height:inherit"></a><div class="title top-right">L'usager, cet autre co...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:659.7px;top:3262.9px;z-index:10.0"><a href="http://strabic.fr/Hype-r-Olds-plutot-geeks-que-memes" style="width:inherit;height:inherit"><img src="img/Hype(r)Olds_:_plutôt_geeks_que_mémés" alt="Hype(r)Olds_:_plutôt_geeks_que_mémés" style="width:inherit;height:inherit"></a><div class="title top-right">Hype(r)Olds : plutôt ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:418.9px;top:3226.7px;z-index:10.0"><a href="http://strabic.fr/La-Maison-des-vieux-artistes" style="width:inherit;height:inherit"><img src="img/La_Maison_des_(vieux)_artistes" alt="La_Maison_des_(vieux)_artistes" style="width:inherit;height:inherit"></a><div class="title bottom-left">La Maison des (vieux) ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2787.2px;top:590.4px;z-index:10.0"><a href="http://strabic.fr/Symphonie-a-fleur-de-peau" style="width:inherit;height:inherit"><img src="img/Symphonie_à_fleur_de_peau" alt="Symphonie_à_fleur_de_peau" style="width:inherit;height:inherit"></a><div class="title bottom-left">Symphonie à fleur de ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4307.0px;top:2298.4px;z-index:10.0"><a href="http://strabic.fr/Autres-odyssees-de-l-espace" style="width:inherit;height:inherit"><img src="img/Autres_odyssées_de_l’espace" alt="Autres_odyssées_de_l’espace" style="width:inherit;height:inherit"></a><div class="title bottom-right">Autres odyssées de l�...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1367.6px;top:3208.2px;z-index:10.0"><a href="http://strabic.fr/Attoma-Design-Cartographier-la" style="width:inherit;height:inherit"><img src="img/Attoma_:_Cartographier_la_mobilité." alt="Attoma_:_Cartographier_la_mobilité." style="width:inherit;height:inherit"></a><div class="title bottom-left">Attoma : Cartographier...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2832.8px;top:423.6px;z-index:10.0"><a href="http://strabic.fr/OO-OOO-Le-graphisme-une-collection" style="width:inherit;height:inherit"><img src="img/OO.OOO_Le_graphisme,_une_collection,_l'heure_de_l'inventaire" alt="OO.OOO_Le_graphisme,_une_collection,_l'heure_de_l'inventaire" style="width:inherit;height:inherit"></a><div class="title top-right">OO.OOO Le graphisme, u...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:89.4px;top:2990.8px;z-index:10.0"><a href="http://strabic.fr/edito-8-Granny-Design" style="width:inherit;height:inherit"><img src="img/édito_#8_:_Granny_Design" alt="édito_#8_:_Granny_Design" style="width:inherit;height:inherit"></a><div class="title top-right">édito #8 : Granny Design</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3162.7px;top:1007.5px;z-index:10.0"><a href="http://strabic.fr/Department-21" style="width:inherit;height:inherit"><img src="img/Department_21" alt="Department_21" style="width:inherit;height:inherit"></a><div class="title top-right">Department 21</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3684.8px;top:3629.6px;z-index:10.0"><a href="http://strabic.fr/Jean-Yves-Jouannais-et-L,336" style="width:inherit;height:inherit"><img src="img/2" alt="2" style="width:inherit;height:inherit"></a><div class="title top-right">Jean-Yves Jouannais et...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:835.1px;top:1182.1px;z-index:10.0"><a href="http://strabic.fr/Patrick-Bouchain-ma-voisine-cette,48" style="width:inherit;height:inherit"><img src="img/2" alt="2" style="width:inherit;height:inherit"></a><div class="title bottom-left">Patrick Bouchain : ma ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:195.3px;top:2515.3px;z-index:10.0"><a href="http://strabic.fr/Le-Style-du-Stedelijk" style="width:inherit;height:inherit"><img src="img/Stedelijk_:_un_scandale_stylé" alt="Stedelijk_:_un_scandale_stylé" style="width:inherit;height:inherit"></a><div class="title top-right">Stedelijk : un scandal...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2414.3px;top:3447.9px;z-index:10.0"><a href="http://strabic.fr/Grafik-Tasarim-641" style="width:inherit;height:inherit"><img src="img/Grafik_Tasarım" alt="Grafik_Tasarım" style="width:inherit;height:inherit"></a><div class="title bottom-right">Grafik Tasarım</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1927.2px;top:2751.3px;z-index:10.0"><a href="http://strabic.fr/L-entre-nous-par-carte" style="width:inherit;height:inherit"><img src="img/L’entre-nous_par_carte" alt="L’entre-nous_par_carte" style="width:inherit;height:inherit"></a><div class="title bottom-right">L’entre-nous par carte</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1563.4px;top:2638.4px;z-index:10.0"><a href="http://strabic.fr/Geographie-subjective-conception" style="width:inherit;height:inherit"><img src="img/"Géographie_subjective"" alt=""Géographie_subjective"" style="width:inherit;height:inherit"></a><div class="title bottom-right">"Géographie subjective"</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3118.6px;top:598.0px;z-index:10.0"><a href="http://strabic.fr/Organes-a-composer" style="width:inherit;height:inherit"><img src="img/Organes_à_composer" alt="Organes_à_composer" style="width:inherit;height:inherit"></a><div class="title bottom-left">Organes à composer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3185.1px;top:782.5px;z-index:10.0"><a href="http://strabic.fr/Dixlexies-parce-que-onze-c-est" style="width:inherit;height:inherit"><img src="img/Dixlexies_(parce_que_onze_c'est_trop_!)" alt="Dixlexies_(parce_que_onze_c'est_trop_!)" style="width:inherit;height:inherit"></a><div class="title bottom-left">Dixlexies (parce que o...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4692.4px;top:2247.1px;z-index:10.0"><a href="http://strabic.fr/Mathematiques-et-Architecture" style="width:inherit;height:inherit"><img src="img/Mathématiques_et_Architecture" alt="Mathématiques_et_Architecture" style="width:inherit;height:inherit"></a><div class="title bottom-right">Mathématiques et Arch...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3308.3px;top:2768.9px;z-index:10.0"><a href="http://strabic.fr/Don-t-panic" style="width:inherit;height:inherit"><img src="img/Don’t_panic_!" alt="Don’t_panic_!" style="width:inherit;height:inherit"></a><div class="title bottom-right">Don’t panic !</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2996.9px;top:739.7px;z-index:10.0"><a href="http://strabic.fr/Le-paysage-aveuglement" style="width:inherit;height:inherit"><img src="img/Le_paysage,_aveuglément" alt="Le_paysage,_aveuglément" style="width:inherit;height:inherit"></a><div class="title bottom-right">Le paysage, aveuglément</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2447.8px;top:3999.3px;z-index:10.0"><a href="http://strabic.fr/Christopher-Colak" style="width:inherit;height:inherit"><img src="img/Christopher_Çolak" alt="Christopher_Çolak" style="width:inherit;height:inherit"></a><div class="title bottom-left">Christopher Çolak</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:650.9px;top:851.0px;z-index:10.0"><a href="http://strabic.fr/Territoire-partage" style="width:inherit;height:inherit"><img src="img/Territoire_partagé" alt="Territoire_partagé" style="width:inherit;height:inherit"></a><div class="title top-left">Territoire partagé</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4791.0px;top:2652.7px;z-index:10.0"><a href="http://strabic.fr/Un-livre-Design-generatif" style="width:inherit;height:inherit"><img src="img/Design_génératif" alt="Design_génératif" style="width:inherit;height:inherit"></a><div class="title top-left">Design génératif</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4305.1px;top:2935.4px;z-index:10.0"><a href="http://strabic.fr/MetaDeSIGN" style="width:inherit;height:inherit"><img src="img/MetaDeSIGN" alt="MetaDeSIGN" style="width:inherit;height:inherit"></a><div class="title bottom-right">MetaDeSIGN</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3462.9px;top:588.5px;z-index:10.0"><a href="http://strabic.fr/Nelly-Zagury_Parure" style="width:inherit;height:inherit"><img src="img/Parure" alt="Parure" style="width:inherit;height:inherit"></a><div class="title top-left">Parure</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:442.5px;top:2089.5px;z-index:10.0"><a href="http://strabic.fr/Gerrit-Rietveld-Academie-l" style="width:inherit;height:inherit"><img src="img/Gerrit_Rietveld_Academie_:_l'effervescente" alt="Gerrit_Rietveld_Academie_:_l'effervescente" style="width:inherit;height:inherit"></a><div class="title top-right">Gerrit Rietveld Academ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1691.5px;top:283.0px;z-index:10.0"><a href="http://strabic.fr/Vers-un-college-collegial" style="width:inherit;height:inherit"><img src="img/Vers_un_collège_collégial_?" alt="Vers_un_collège_collégial_?" style="width:inherit;height:inherit"></a><div class="title top-right">Vers un collège coll�...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:166.5px;top:3361.1px;z-index:10.0"><a href="http://strabic.fr/Le-vieux-est-a-la-mode" style="width:inherit;height:inherit"><img src="img/Le_vieux_est_à_la_mode" alt="Le_vieux_est_à_la_mode" style="width:inherit;height:inherit"></a><div class="title top-right">Le vieux est à la mode</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2844.5px;top:751.7px;z-index:10.0"><a href="http://strabic.fr/Hauteur-variable" style="width:inherit;height:inherit"><img src="img/Hauteur_variable" alt="Hauteur_variable" style="width:inherit;height:inherit"></a><div class="title top-left">Hauteur variable</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1917.6px;top:232.8px;z-index:10.0"><a href="http://strabic.fr/Black-Mountain-College" style="width:inherit;height:inherit"><img src="img/Vers_un_collège_expérimental" alt="Vers_un_collège_expérimental" style="width:inherit;height:inherit"></a><div class="title top-right">Vers un collège expé...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3791.8px;top:4178.9px;z-index:10.0"><a href="http://strabic.fr/Bucky-in-the-Navy" style="width:inherit;height:inherit"><img src="img/Bucky_in_the_Navy" alt="Bucky_in_the_Navy" style="width:inherit;height:inherit"></a><div class="title bottom-right">Bucky in the Navy</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2513.0px;top:1898.2px;z-index:10.0"><a href="http://strabic.fr/Histoire_de_la_Villa_Medicis" style="width:inherit;height:inherit"><img src="img/Villa_Médicis" alt="Villa_Médicis" style="width:inherit;height:inherit"></a><div class="title top-left">Villa Médicis</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2777.6px;top:4405.4px;z-index:10.0"><a href="http://strabic.fr/Anatomie-en-plastique" style="width:inherit;height:inherit"><img src="img/Anatomie_(en)_plastique" alt="Anatomie_(en)_plastique" style="width:inherit;height:inherit"></a><div class="title top-left">Anatomie (en) plastique</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1607.6px;top:2875.5px;z-index:10.0"><a href="http://strabic.fr/Concevoir-une-carte-de-l-inconnu" style="width:inherit;height:inherit"><img src="img/Concevoir_une_carte_de_l’inconnu" alt="Concevoir_une_carte_de_l’inconnu" style="width:inherit;height:inherit"></a><div class="title top-left">Concevoir une carte de...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3459.5px;top:736.1px;z-index:10.0"><a href="http://strabic.fr/A-un-moment-donne" style="width:inherit;height:inherit"><img src="img/À_un_moment_donné..." alt="À_un_moment_donné..." style="width:inherit;height:inherit"></a><div class="title top-right">À un moment donné...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1881.8px;top:4520.3px;z-index:10.0"><a href="http://strabic.fr/Trois-zoos-humains" style="width:inherit;height:inherit"><img src="img/Trois_zoos_humains" alt="Trois_zoos_humains" style="width:inherit;height:inherit"></a><div class="title bottom-left">Trois zoos humains</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3347.1px;top:811.5px;z-index:10.0"><a href="http://strabic.fr/Plastiques-alternatifs" style="width:inherit;height:inherit"><img src="img/Plastiques_alternatifs" alt="Plastiques_alternatifs" style="width:inherit;height:inherit"></a><div class="title top-right">Plastiques alternatifs</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2681.6px;top:380.5px;z-index:10.0"><a href="http://strabic.fr/Valso" style="width:inherit;height:inherit"><img src="img/Valso" alt="Valso" style="width:inherit;height:inherit"></a><div class="title top-left">Valso</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2638.8px;top:528.1px;z-index:10.0"><a href="http://strabic.fr/A-comme-Alzheimer-autonomie-et" style="width:inherit;height:inherit"><img src="img/A_comme_Alzheimer,_autonomie_et_aide" alt="A_comme_Alzheimer,_autonomie_et_aide" style="width:inherit;height:inherit"></a><div class="title bottom-left">A comme Alzheimer, aut...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2219.2px;top:1692.7px;z-index:10.0"><a href="http://strabic.fr/Ramy-Fischler-une-Villa-des" style="width:inherit;height:inherit"><img src="img/Ramy_Fischler_:_une_Villa,_des_inventaires" alt="Ramy_Fischler_:_une_Villa,_des_inventaires" style="width:inherit;height:inherit"></a><div class="title top-left">Ramy Fischler : une Vi...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4563.7px;top:1353.5px;z-index:10.0"><a href="http://strabic.fr/Sumos-et-robots-meme-combat" style="width:inherit;height:inherit"><img src="img/Sumos_et_robots,_même_combat_?" alt="Sumos_et_robots,_même_combat_?" style="width:inherit;height:inherit"></a><div class="title top-left">Sumos et robots, même...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4056.4px;top:1065.5px;z-index:10.0"><a href="http://strabic.fr/Le-golfeur-et-la-cheerleader" style="width:inherit;height:inherit"><img src="img/Le_golfeur_et_la_cheerleader" alt="Le_golfeur_et_la_cheerleader" style="width:inherit;height:inherit"></a><div class="title bottom-left">Le golfeur et la cheer...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2601.2px;top:4924.1px;z-index:10.0"><a href="http://strabic.fr/cuisine-et-architecture-catherine-clarisse" style="width:inherit;height:inherit"><img src="img/La_cuisine_et_l’architecte" alt="La_cuisine_et_l’architecte" style="width:inherit;height:inherit"></a><div class="title top-left">La cuisine et l’arch...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4189.1px;top:1394.3px;z-index:10.0"><a href="http://strabic.fr/Les-architectes-au-mini-golf" style="width:inherit;height:inherit"><img src="img/Les_architectes_au_mini-golf" alt="Les_architectes_au_mini-golf" style="width:inherit;height:inherit"></a><div class="title bottom-left">Les architectes au min...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:580.0px;top:3046.5px;z-index:10.0"><a href="http://strabic.fr/Arthrose-et-ecchymoses" style="width:inherit;height:inherit"><img src="img/Arthrose_et_ecchymoses" alt="Arthrose_et_ecchymoses" style="width:inherit;height:inherit"></a><div class="title top-left">Arthrose et ecchymoses</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4327.1px;top:2775.9px;z-index:10.0"><a href="http://strabic.fr/Pourquoi-Lady-Gaga-veut-elle-etre-un-cyborg" style="width:inherit;height:inherit"><img src="img/Pourquoi_Lady_Gaga_veut-elle_tellement_être_un_cyborg_?" alt="Pourquoi_Lady_Gaga_veut-elle_tellement_être_un_cyborg_?" style="width:inherit;height:inherit"></a><div class="title bottom-left">Pourquoi Lady Gaga veu...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1946.2px;top:1112.3px;z-index:10.0"><a href="http://strabic.fr/WORKSHOPPER" style="width:inherit;height:inherit"><img src="img/YA+K,_workshoppers" alt="YA+K,_workshoppers" style="width:inherit;height:inherit"></a><div class="title bottom-left">YA+K, workshoppers</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2933.5px;top:202.2px;z-index:10.0"><a href="http://strabic.fr/L-espace-des-reves" style="width:inherit;height:inherit"><img src="img/L'espace_des_rêves" alt="L'espace_des_rêves" style="width:inherit;height:inherit"></a><div class="title top-right">L'espace des rêves</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:30.3px;top:2031.2px;z-index:10.0"><a href="http://strabic.fr/Werkplaats-Typografie-bien-en" style="width:inherit;height:inherit"><img src="img/Werkplaats_Typografie_:_bien_en_mesure" alt="Werkplaats_Typografie_:_bien_en_mesure" style="width:inherit;height:inherit"></a><div class="title top-left">Werkplaats Typografie ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3527.2px;top:4301.8px;z-index:10.0"><a href="http://strabic.fr/Betes-de-guerres-un-inventaire" style="width:inherit;height:inherit"><img src="img/Bêtes_de_guerres,_un_inventaire_illustré" alt="Bêtes_de_guerres,_un_inventaire_illustré" style="width:inherit;height:inherit"></a><div class="title top-left">Bêtes de guerres, un ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:190.4px;top:3555.1px;z-index:10.0"><a href="http://strabic.fr/Object-looking-for-an-old-person" style="width:inherit;height:inherit"><img src="img/Object_looking_for_an_old_person" alt="Object_looking_for_an_old_person" style="width:inherit;height:inherit"></a><div class="title bottom-right">Object looking for an ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2466.3px;top:1592.9px;z-index:10.0"><a href="http://strabic.fr/Pascal-Gautrand-Do-as-Romans-do" style="width:inherit;height:inherit"><img src="img/Pascal_Gautrand_:_Do_as_Romans_do_!" alt="Pascal_Gautrand_:_Do_as_Romans_do_!" style="width:inherit;height:inherit"></a><div class="title top-left">Pascal Gautrand : Do a...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:613.7px;top:4076.7px;z-index:10.0"><a href="http://strabic.fr/La-Chambre-d-amour-d-Anglet" style="width:inherit;height:inherit"><img src="img/La_Chambre_d'amour_d'Anglet" alt="La_Chambre_d'amour_d'Anglet" style="width:inherit;height:inherit"></a><div class="title bottom-right">La Chambre d'amour d'A...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1392.6px;top:4677.6px;z-index:10.0"><a href="http://strabic.fr/Vincent-Broquaire-475" style="width:inherit;height:inherit"><img src="img/Vincent_Broquaire" alt="Vincent_Broquaire" style="width:inherit;height:inherit"></a><div class="title bottom-left">Vincent Broquaire</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:249.7px;top:3087.0px;z-index:10.0"><a href="http://strabic.fr/Madame-reve-d-aeroport" style="width:inherit;height:inherit"><img src="img/Madame_rêve_d'aéroport" alt="Madame_rêve_d'aéroport" style="width:inherit;height:inherit"></a><div class="title bottom-left">Madame rêve d'aéroport</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4161.7px;top:2841.2px;z-index:10.0"><a href="http://strabic.fr/Un-livre-La-Gaite-du-lyrique-au" style="width:inherit;height:inherit"><img src="img/La_Gaîté_:_du_lyrique_au_numérique." alt="La_Gaîté_:_du_lyrique_au_numérique." style="width:inherit;height:inherit"></a><div class="title top-right">La Gaîté : du lyriqu...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1336.0px;top:795.1px;z-index:10.0"><a href="http://strabic.fr/Cohabitation-des-sens" style="width:inherit;height:inherit"><img src="img/Cohabitation_des_sens" alt="Cohabitation_des_sens" style="width:inherit;height:inherit"></a><div class="title top-right">Cohabitation des sens</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4577.4px;top:2138.6px;z-index:10.0"><a href="http://strabic.fr/Peter-Szendy-radiographie-de-l" style="width:inherit;height:inherit"><img src="img/Peter_Szendy_:_radiographie_de_l'iPod" alt="Peter_Szendy_:_radiographie_de_l'iPod" style="width:inherit;height:inherit"></a><div class="title bottom-left">Peter Szendy : radiogr...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4391.4px;top:954.9px;z-index:10.0"><a href="http://strabic.fr/Street-Fighter-vs-King-of-Fighter" style="width:inherit;height:inherit"><img src="img/Street_Fighter_vs_King_of_Fighter" alt="Street_Fighter_vs_King_of_Fighter" style="width:inherit;height:inherit"></a><div class="title top-right">Street Fighter vs King...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3410.1px;top:3819.8px;z-index:10.0"><a href="http://strabic.fr/marine-nationale-j-ai-teste-le-recrutement" style="width:inherit;height:inherit"><img src="img/J’ai_testé_pour_vous…_le_recrutement_dans_la_Marine_nationale" alt="J’ai_testé_pour_vous…_le_recrutement_dans_la_Marine_nationale" style="width:inherit;height:inherit"></a><div class="title top-left">J’ai testé pour vou...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4.7px;top:2239.6px;z-index:10.0"><a href="http://strabic.fr/Werkman-et-The-Next-Call" style="width:inherit;height:inherit"><img src="img/Werkman_et_The_Next_Call" alt="Werkman_et_The_Next_Call" style="width:inherit;height:inherit"></a><div class="title bottom-left">Werkman et The Next Call</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3412.7px;top:4163.3px;z-index:10.0"><a href="http://strabic.fr/edito-5-Le-design-nerf-de-la" style="width:inherit;height:inherit"><img src="img/édito_#5_:_Le_design,_nerf_de_la_guerre" alt="édito_#5_:_Le_design,_nerf_de_la_guerre" style="width:inherit;height:inherit"></a><div class="title bottom-left">édito #5 : Le design,...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1754.4px;top:2743.5px;z-index:10.0"><a href="http://strabic.fr/Quand-Internet-remplacera-nos-psys" style="width:inherit;height:inherit"><img src="img/Quand_Internet_remplacera_nos_psys" alt="Quand_Internet_remplacera_nos_psys" style="width:inherit;height:inherit"></a><div class="title bottom-right">Quand Internet remplac...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1227.4px;top:3930.3px;z-index:10.0"><a href="http://strabic.fr/edito-6-Modernite-caliente" style="width:inherit;height:inherit"><img src="img/édito_#6_:_Modernité_caliente" alt="édito_#6_:_Modernité_caliente" style="width:inherit;height:inherit"></a><div class="title top-right">édito #6 : Modernité...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:40.3px;top:3218.6px;z-index:10.0"><a href="http://strabic.fr/Colle-de-poisson" style="width:inherit;height:inherit"><img src="img/Colle_de_poisson" alt="Colle_de_poisson" style="width:inherit;height:inherit"></a><div class="title top-right">Colle de poisson</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2750.9px;top:1735.2px;z-index:10.0"><a href="http://strabic.fr/Fanette-Mellier-Cosmos-Carabine-et" style="width:inherit;height:inherit"><img src="img/Fanette_Mellier_:_Cosmos,_Carabine_et_Confetti" alt="Fanette_Mellier_:_Cosmos,_Carabine_et_Confetti" style="width:inherit;height:inherit"></a><div class="title bottom-left">Fanette Mellier : Cosm...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3091.1px;top:208.6px;z-index:10.0"><a href="http://strabic.fr/Garder-le-fil" style="width:inherit;height:inherit"><img src="img/Garder_le_fil" alt="Garder_le_fil" style="width:inherit;height:inherit"></a><div class="title top-right">Garder le fil</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3793.7px;top:3800.6px;z-index:10.0"><a href="http://strabic.fr/Journalisme-de-guerre-et-immersion" style="width:inherit;height:inherit"><img src="img/Journalisme_de_guerre_et_immersion" alt="Journalisme_de_guerre_et_immersion" style="width:inherit;height:inherit"></a><div class="title top-left">Journalisme de guerre ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3347.0px;top:2551.6px;z-index:10.0"><a href="http://strabic.fr/Technologue-en-packaging" style="width:inherit;height:inherit"><img src="img/Du_packaging_à_l’Agence_Spatiale_Européenne" alt="Du_packaging_à_l’Agence_Spatiale_Européenne" style="width:inherit;height:inherit"></a><div class="title top-right">Du packaging à l’Ag...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:622.5px;top:1591.6px;z-index:10.0"><a href="http://strabic.fr/vers_un_design_libre" style="width:inherit;height:inherit"><img src="img/Vers_un_design_libre" alt="Vers_un_design_libre" style="width:inherit;height:inherit"></a><div class="title bottom-left">Vers un design libre</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:970.1px;top:4377.7px;z-index:10.0"><a href="http://strabic.fr/On-a-teste-pour-vous-camper-a-la" style="width:inherit;height:inherit"><img src="img/On_a_testé_pour_vous..._camper_à_la_Grande-Motte" alt="On_a_testé_pour_vous..._camper_à_la_Grande-Motte" style="width:inherit;height:inherit"></a><div class="title bottom-right">On a testé pour vous....</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2721.2px;top:841.4px;z-index:10.0"><a href="http://strabic.fr/Human-Tea" style="width:inherit;height:inherit"><img src="img/Human_Tea" alt="Human_Tea" style="width:inherit;height:inherit"></a><div class="title top-left">Human Tea</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1403.5px;top:2484.0px;z-index:10.0"><a href="http://strabic.fr/Le-dessous-des-cartes" style="width:inherit;height:inherit"><img src="img/Le_dessous_des_cartes" alt="Le_dessous_des_cartes" style="width:inherit;height:inherit"></a><div class="title bottom-right">Le dessous des cartes</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2654.9px;top:690.8px;z-index:10.0"><a href="http://strabic.fr/Objectomie" style="width:inherit;height:inherit"><img src="img/Objectomie" alt="Objectomie" style="width:inherit;height:inherit"></a><div class="title bottom-left">Objectomie</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3588.0px;top:4109.7px;z-index:10.0"><a href="http://strabic.fr/La-mode-sous-l-Occupation" style="width:inherit;height:inherit"><img src="img/La_mode_sous_l’Occupation" alt="La_mode_sous_l’Occupation" style="width:inherit;height:inherit"></a><div class="title top-left">La mode sous l’Occup...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3193.6px;top:2404.5px;z-index:10.0"><a href="http://strabic.fr/Les-Etats-de-la-Lune" style="width:inherit;height:inherit"><img src="img/Les_États_de_la_Lune" alt="Les_États_de_la_Lune" style="width:inherit;height:inherit"></a><div class="title bottom-left">Les États de la Lune</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4023.3px;top:4100.5px;z-index:10.0"><a href="http://strabic.fr/Elsa-Fauconnet-la-Colline-du" style="width:inherit;height:inherit"><img src="img/Elsa_Fauconnet_:_la_Colline_du_Diable" alt="Elsa_Fauconnet_:_la_Colline_du_Diable" style="width:inherit;height:inherit"></a><div class="title bottom-left">Elsa Fauconnet : la Co...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4190.2px;top:876.4px;z-index:10.0"><a href="http://strabic.fr/Va-y-avoir-du-sport" style="width:inherit;height:inherit"><img src="img/Il_va_y_avoir_du_sport" alt="Il_va_y_avoir_du_sport" style="width:inherit;height:inherit"></a><div class="title top-right">Il va y avoir du sport</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:908.6px;top:4082.5px;z-index:10.0"><a href="http://strabic.fr/Stratigraphie-des-chateaux-de" style="width:inherit;height:inherit"><img src="img/Stratigraphie_des_châteaux_de_sable" alt="Stratigraphie_des_châteaux_de_sable" style="width:inherit;height:inherit"></a><div class="title top-right">Stratigraphie des châ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2975.7px;top:2473.1px;z-index:10.0"><a href="http://strabic.fr/Des-couches-minces-dans-l-espace" style="width:inherit;height:inherit"><img src="img/Des_couches_minces_dans_l’espace" alt="Des_couches_minces_dans_l’espace" style="width:inherit;height:inherit"></a><div class="title top-right">Des couches minces dan...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4510.1px;top:2780.0px;z-index:10.0"><a href="http://strabic.fr/JOSEPHINE-IS-SURFING" style="width:inherit;height:inherit"><img src="img/JOSÉPHINE_IS_SURFING" alt="JOSÉPHINE_IS_SURFING" style="width:inherit;height:inherit"></a><div class="title top-left">JOSÉPHINE IS SURFING</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:412.3px;top:3440.5px;z-index:10.0"><a href="http://strabic.fr/Le-viager-c-est-risque" style="width:inherit;height:inherit"><img src="img/Le_viager,_c'est_risqué" alt="Le_viager,_c'est_risqué" style="width:inherit;height:inherit"></a><div class="title bottom-right">Le viager, c'est risqué</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2749.7px;top:4668.3px;z-index:10.0"><a href="http://strabic.fr/Bach-y-Rita" style="width:inherit;height:inherit"><img src="img/Bach-y-Rita" alt="Bach-y-Rita" style="width:inherit;height:inherit"></a><div class="title top-left">Bach-y-Rita</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:772.8px;top:3887.1px;z-index:10.0"><a href="http://strabic.fr/Candilis-face-a-la-mer" style="width:inherit;height:inherit"><img src="img/Candilis_face_à_la_mer" alt="Candilis_face_à_la_mer" style="width:inherit;height:inherit"></a><div class="title top-right">Candilis face à la mer</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1699.4px;top:1021.8px;z-index:10.0"><a href="http://strabic.fr/BAZAR-URBAIN" style="width:inherit;height:inherit"><img src="img/BAZAR_URBAIN" alt="BAZAR_URBAIN" style="width:inherit;height:inherit"></a><div class="title bottom-right">BAZAR URBAIN</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1444.9px;top:317.1px;z-index:10.0"><a href="http://strabic.fr/1-societe-100-ecoles" style="width:inherit;height:inherit"><img src="img/1_société,_100_écoles" alt="1_société,_100_écoles" style="width:inherit;height:inherit"></a><div class="title top-right">1 société, 100 écoles</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1427.6px;top:2999.1px;z-index:10.0"><a href="http://strabic.fr/Debord-er-la-carte" style="width:inherit;height:inherit"><img src="img/Debord(er)_la_carte" alt="Debord(er)_la_carte" style="width:inherit;height:inherit"></a><div class="title top-right">Debord(er) la carte</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:628.1px;top:3479.1px;z-index:10.0"><a href="http://strabic.fr/La-vieille-femme-et-l-artiste" style="width:inherit;height:inherit"><img src="img/La_vieille_femme_et_l'artiste" alt="La_vieille_femme_et_l'artiste" style="width:inherit;height:inherit"></a><div class="title bottom-right">La vieille femme et l'...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4464.1px;top:2952.5px;z-index:10.0"><a href="http://strabic.fr/1024-architecture-in-between" style="width:inherit;height:inherit"><img src="img/1024_architecture,_in_between" alt="1024_architecture,_in_between" style="width:inherit;height:inherit"></a><div class="title bottom-left">1024 architecture, in ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4159.0px;top:4011.7px;z-index:10.0"><a href="http://strabic.fr/Jean-Yves-Jouannais-et-L" style="width:inherit;height:inherit"><img src="img/2" alt="2" style="width:inherit;height:inherit"></a><div class="title top-right">Jean-Yves Jouannais et...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1169.6px;top:2757.5px;z-index:10.0"><a href="http://strabic.fr/Street-Views-ou-sont-passees-les" style="width:inherit;height:inherit"><img src="img/Street_Views_-_où_sont_passées_les_Google_cars_?" alt="Street_Views_-_où_sont_passées_les_Google_cars_?" style="width:inherit;height:inherit"></a><div class="title bottom-left">Street Views - où son...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:315.4px;top:1061.6px;z-index:10.0"><a href="http://strabic.fr/L-esprit-Castor-Mythe-et-realites" style="width:inherit;height:inherit"><img src="img/L’esprit_Castor_:_Mythe_et_réalités" alt="L’esprit_Castor_:_Mythe_et_réalités" style="width:inherit;height:inherit"></a><div class="title bottom-left">L’esprit Castor : My...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2993.0px;top:4770.9px;z-index:10.0"><a href="http://strabic.fr/Fritz_Kahn_images_du_corps" style="width:inherit;height:inherit"><img src="img/Il_était_une_fois…_Fritz_Kahn" alt="Il_était_une_fois…_Fritz_Kahn" style="width:inherit;height:inherit"></a><div class="title bottom-left">Il était une fois… ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3866.9px;top:3629.3px;z-index:10.0"><a href="http://strabic.fr/Marion-Fayolle-panser-l-apres-guerre" style="width:inherit;height:inherit"><img src="img/Marion_Fayolle_:_panser_l'après-guerre" alt="Marion_Fayolle_:_panser_l'après-guerre" style="width:inherit;height:inherit"></a><div class="title top-left">Marion Fayolle : panse...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2852.0px;top:932.0px;z-index:10.0"><a href="http://strabic.fr/La-ville-comme-potentiel-agricole" style="width:inherit;height:inherit"><img src="img/Agriculture_urbaine" alt="Agriculture_urbaine" style="width:inherit;height:inherit"></a><div class="title bottom-left">Agriculture urbaine</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3989.3px;top:1490.4px;z-index:10.0"><a href="http://strabic.fr/La-silhouette-sportive-c-est-le-chic" style="width:inherit;height:inherit"><img src="img/«_La_silhouette_sportive,_c’est_le_chic_absolu_»" alt="«_La_silhouette_sportive,_c’est_le_chic_absolu_»" style="width:inherit;height:inherit"></a><div class="title top-right">« La silhouette sport...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:401.0px;top:3638.8px;z-index:10.0"><a href="http://strabic.fr/Granny-City" style="width:inherit;height:inherit"><img src="img/Granny_City" alt="Granny_City" style="width:inherit;height:inherit"></a><div class="title top-right">Granny City</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4595.9px;top:2419.9px;z-index:10.0"><a href="http://strabic.fr/2525-if-man-is-still-alive" style="width:inherit;height:inherit"><img src="img/2525,_if_man_is_still_alive" alt="2525,_if_man_is_still_alive" style="width:inherit;height:inherit"></a><div class="title bottom-left">2525, if man is still ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2220.5px;top:3976.4px;z-index:10.0"><a href="http://strabic.fr/Okay-Karadayilar" style="width:inherit;height:inherit"><img src="img/Okay_Karadayilar" alt="Okay_Karadayilar" style="width:inherit;height:inherit"></a><div class="title top-left">Okay Karadayilar</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4039.4px;top:2553.5px;z-index:10.0"><a href="http://strabic.fr/Vincent-Broquaire-Screen-to-screen" style="width:inherit;height:inherit"><img src="img/Vincent_Broquaire_:_Screen_to_screen,_écran_géant_multitouch" alt="Vincent_Broquaire_:_Screen_to_screen,_écran_géant_multitouch" style="width:inherit;height:inherit"></a><div class="title top-right">Vincent Broquaire : Sc...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3441.5px;top:449.3px;z-index:10.0"><a href="http://strabic.fr/Moment-s-d-absence-s" style="width:inherit;height:inherit"><img src="img/Moment(s)_d'absence(s)" alt="Moment(s)_d'absence(s)" style="width:inherit;height:inherit"></a><div class="title bottom-left">Moment(s) d'absence(s)</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3351.3px;top:327.0px;z-index:10.0"><a href="http://strabic.fr/Decroissance-organisee" style="width:inherit;height:inherit"><img src="img/Décroissance_organisée" alt="Décroissance_organisée" style="width:inherit;height:inherit"></a><div class="title bottom-left">Décroissance organisée</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1287.9px;top:996.4px;z-index:10.0"><a href="http://strabic.fr/Maudit-collectif" style="width:inherit;height:inherit"><img src="img/Maudit_collectif_?" alt="Maudit_collectif_?" style="width:inherit;height:inherit"></a><div class="title bottom-right">Maudit collectif ?</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:753.2px;top:4282.7px;z-index:10.0"><a href="http://strabic.fr/Dalida-a-Royan" style="width:inherit;height:inherit"><img src="img/Dalida_à_Royan" alt="Dalida_à_Royan" style="width:inherit;height:inherit"></a><div class="title top-left">Dalida à Royan</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4406.5px;top:2121.8px;z-index:10.0"><a href="http://strabic.fr/AntiVJ-Label-lumiere" style="width:inherit;height:inherit"><img src="img/AntiVJ_:_Label_lumière" alt="AntiVJ_:_Label_lumière" style="width:inherit;height:inherit"></a><div class="title bottom-right">AntiVJ : Label lumière</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1565.2px;top:1249.2px;z-index:10.0"><a href="http://strabic.fr/P-R-O-J-E-T" style="width:inherit;height:inherit"><img src="img/P.R.O.J.E.T." alt="P.R.O.J.E.T." style="width:inherit;height:inherit"></a><div class="title bottom-left">P.R.O.J.E.T.</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:588.5px;top:2358.3px;z-index:10.0"><a href="http://strabic.fr/edito-7-Grafiek" style="width:inherit;height:inherit"><img src="img/édito_#7_:_Grafiek" alt="édito_#7_:_Grafiek" style="width:inherit;height:inherit"></a><div class="title top-left">édito #7 : Grafiek</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:807.4px;top:1573.8px;z-index:10.0"><a href="http://strabic.fr/Un-livre-Design-des-politiques" style="width:inherit;height:inherit"><img src="img/Un_livre_:_Design_des_politiques_publiques" alt="Un_livre_:_Design_des_politiques_publiques" style="width:inherit;height:inherit"></a><div class="title top-left">Un livre : Design des ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3059.0px;top:889.6px;z-index:10.0"><a href="http://strabic.fr/edito-2" style="width:inherit;height:inherit"><img src="img/édito_#2" alt="édito_#2" style="width:inherit;height:inherit"></a><div class="title bottom-left">édito #2</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:865.1px;top:1388.5px;z-index:10.0"><a href="http://strabic.fr/Adobe-Le-creatif-au-pouvoir" style="width:inherit;height:inherit"><img src="img/Adobe" alt="Adobe" style="width:inherit;height:inherit"></a><div class="title top-left">Adobe</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4782.0px;top:2375.4px;z-index:10.0"><a href="http://strabic.fr/Un-livre-Circumnavigations-L" style="width:inherit;height:inherit"><img src="img/Circumnavigations" alt="Circumnavigations" style="width:inherit;height:inherit"></a><div class="title bottom-right">Circumnavigations</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2945.4px;top:2894.4px;z-index:10.0"><a href="http://strabic.fr/Joseph-Popper-The-One-Way-Ticket" style="width:inherit;height:inherit"><img src="img/Joseph_Popper_:_The_One_Way_Ticket" alt="Joseph_Popper_:_The_One_Way_Ticket" style="width:inherit;height:inherit"></a><div class="title top-right">Joseph Popper : The On...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4598.1px;top:2623.2px;z-index:10.0"><a href="http://strabic.fr/Vehicule-electrique-vs-smartphone" style="width:inherit;height:inherit"><img src="img/Véhicule_électrique_vs._smartphone" alt="Véhicule_électrique_vs._smartphone" style="width:inherit;height:inherit"></a><div class="title bottom-left">Véhicule électrique ...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:640.1px;top:1083.7px;z-index:10.0"><a href="http://strabic.fr/Design-par-congregation" style="width:inherit;height:inherit"><img src="img/Design_par_congrégation" alt="Design_par_congrégation" style="width:inherit;height:inherit"></a><div class="title bottom-left">Design par congrégation</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2561.8px;top:4419.8px;z-index:10.0"><a href="http://strabic.fr/Pour-une-ethique-du-corps-visqueux" style="width:inherit;height:inherit"><img src="img/Pour_une_éthique_du_corps_visqueux" alt="Pour_une_éthique_du_corps_visqueux" style="width:inherit;height:inherit"></a><div class="title top-right">Pour une éthique du c...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1340.6px;top:4476.4px;z-index:10.0"><a href="http://strabic.fr/Corentin_Perrichot_zoo_Gaza" style="width:inherit;height:inherit"><img src="img/le_Zoo_de_Gaza" alt="le_Zoo_de_Gaza" style="width:inherit;height:inherit"></a><div class="title top-left">le Zoo de Gaza</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3145.3px;top:2145.2px;z-index:10.0"><a href="http://strabic.fr/Couture-Future" style="width:inherit;height:inherit"><img src="img/Couture_Future" alt="Couture_Future" style="width:inherit;height:inherit"></a><div class="title top-right">Couture Future</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1402.4px;top:2748.9px;z-index:10.0"><a href="http://strabic.fr/Cartes-d-atmospheres" style="width:inherit;height:inherit"><img src="img/Cartes_d’atmosphères" alt="Cartes_d’atmosphères" style="width:inherit;height:inherit"></a><div class="title top-right">Cartes d’atmosphères</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4216.4px;top:2452.7px;z-index:10.0"><a href="http://strabic.fr/Outils-numeriques-artisanalement" style="width:inherit;height:inherit"><img src="img/Outils_numériques_artisanalement_modifiés" alt="Outils_numériques_artisanalement_modifiés" style="width:inherit;height:inherit"></a><div class="title bottom-left">Outils numériques art...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1658.7px;top:4141.6px;z-index:10.0"><a href="http://strabic.fr/Les-simulacreries" style="width:inherit;height:inherit"><img src="img/Les_simulacreries" alt="Les_simulacreries" style="width:inherit;height:inherit"></a><div class="title bottom-left">Les simulacreries</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1604.9px;top:4756.2px;z-index:10.0"><a href="http://strabic.fr/TYPOZOO" style="width:inherit;height:inherit"><img src="img/3O_ZOO_TYPO" alt="3O_ZOO_TYPO" style="width:inherit;height:inherit"></a><div class="title top-left">3O ZOO TYPO</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1831.5px;top:4296.6px;z-index:10.0"><a href="http://strabic.fr/Matthias-Malingrey-Porno-Panda" style="width:inherit;height:inherit"><img src="img/Porno_Panda" alt="Porno_Panda" style="width:inherit;height:inherit"></a><div class="title bottom-right">Porno Panda</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1430.7px;top:73.9px;z-index:10.0"><a href="http://strabic.fr/No-school-is-an-island" style="width:inherit;height:inherit"><img src="img/No_school_is_an_island" alt="No_school_is_an_island" style="width:inherit;height:inherit"></a><div class="title bottom-right">No school is an island</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3273.8px;top:472.5px;z-index:10.0"><a href="http://strabic.fr/Traite-illustre-de-physique" style="width:inherit;height:inherit"><img src="img/Traité_illustré_de_physique_fondamentale" alt="Traité_illustré_de_physique_fondamentale" style="width:inherit;height:inherit"></a><div class="title top-right">Traité illustré de p...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:4743.7px;top:2516.3px;z-index:10.0"><a href="http://strabic.fr/Spacesuit-Les-dessous-d-Aldrin" style="width:inherit;height:inherit"><img src="img/Spacesuit_:_Les_dessous_d’Aldrin" alt="Spacesuit_:_Les_dessous_d’Aldrin" style="width:inherit;height:inherit"></a><div class="title top-right">Spacesuit : Les dessou...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:234.3px;top:2010.4px;z-index:10.0"><a href="http://strabic.fr/PrintRoom-invites-you" style="width:inherit;height:inherit"><img src="img/PrintRoom_invites_you" alt="PrintRoom_invites_you" style="width:inherit;height:inherit"></a><div class="title bottom-right">PrintRoom invites you</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2816.5px;top:4899.6px;z-index:10.0"><a href="http://strabic.fr/Georges-Demeny" style="width:inherit;height:inherit"><img src="img/Georges_Demenÿ" alt="Georges_Demenÿ" style="width:inherit;height:inherit"></a><div class="title top-right">Georges Demenÿ</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3294.2px;top:634.9px;z-index:10.0"><a href="http://strabic.fr/Balade-quantique" style="width:inherit;height:inherit"><img src="img/Balade_quantique" alt="Balade_quantique" style="width:inherit;height:inherit"></a><div class="title top-right">Balade quantique</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:3950.2px;top:3930.2px;z-index:10.0"><a href="http://strabic.fr/Des-militaires-a-l-ESADSE" style="width:inherit;height:inherit"><img src="img/Des_militaires_à_l'ESADSE" alt="Des_militaires_à_l'ESADSE" style="width:inherit;height:inherit"></a><div class="title top-left">Des militaires à l'ES...</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:0.0px;top:2448.6px;z-index:10.0"><a href="http://strabic.fr/Niessen-de-Vries-interview" style="width:inherit;height:inherit"><img src="img/Niessen_&_de_Vries" alt="Niessen_&_de_Vries" style="width:inherit;height:inherit"></a><div class="title top-left">Niessen & de Vries</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1770.6px;top:1424.1px;z-index:10.0"><a href="http://strabic.fr/Faire-le-mur" style="width:inherit;height:inherit"><img src="img/Faire_le_mur" alt="Faire_le_mur" style="width:inherit;height:inherit"></a><div class="title top-left">Faire le mur</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:2728.5px;top:2578.1px;z-index:10.0"><a href="http://strabic.fr/Spacewalk-630" style="width:inherit;height:inherit"><img src="img/Spacewalk" alt="Spacewalk" style="width:inherit;height:inherit"></a><div class="title top-right">Spacewalk</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:471.0px;top:924.7px;z-index:10.0"><a href="http://strabic.fr/Terrain-d-entente" style="width:inherit;height:inherit"><img src="img/Terrain_d'entente" alt="Terrain_d'entente" style="width:inherit;height:inherit"></a><div class="title top-right">Terrain d'entente</div>
+</div>
+<div class="nodeStyle" style="position:absolute;left:1253.5px;top:2906.3px;z-index:10.0"><a href="http://strabic.fr/Aspen-Interactive-Movie-Map" style="width:inherit;height:inherit"><img src="img/Aspen_Interactive_Movie_Map" alt="Aspen_Interactive_Movie_Map" style="width:inherit;height:inherit"></a><div class="title bottom-left">Aspen Interactive Movi...</div>
+</div>
+
+<script type="text/javascript">
+  /* Scroll middle page */
+ 	var height = $(document).height();
+ 	var width = $(document).width();
+  $(document).scrollTop(height/4);
+  $(document).scrollLeft(width/4);
+</script>
+</body>
+</html>
