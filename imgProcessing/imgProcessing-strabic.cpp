@@ -28,7 +28,7 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
 	return written;
 }
 
-void downloadFile(std::string path)
+void downloadFile(std::string path, std::string fileName = "")
 {
 	CURL *curl;
 	FILE *fp;
@@ -36,7 +36,14 @@ void downloadFile(std::string path)
 	
 	std::stringstream sstm;
 	// Assigning the output path in tmp directory
-	sstm << "tmp/" << path.substr(path.find_last_of("/") + 1);
+	if(fileName == "")
+	{
+		sstm << "tmp/" << path.substr(path.find_last_of("/") + 1);
+	}
+	else
+	{
+		sstm << "tmp/" << fileName;
+	}
 	std::string sTemp = sstm.str();
 	char *output = (char *) sTemp.c_str();
 	char *url = (char *)path.c_str();
@@ -170,22 +177,24 @@ void extractImageFromWebPage(std::string path)
 			{
 				std::string line;				
 				boost::regex exp_src(".*(src=('|\"))([a-zA-Z0-9_/ .-]*)(\"|').*", boost::regex::extended);
-				boost::regex exp_alt(".*(alt=('|\"))([a-zA-Z0-9_/ #&;.!?:,()+=*-]*)('|\").*", boost::regex::extended);
+				boost::regex exp_href(".*(href=('|\"))([a-zA-Z0-9_/ #&;.!?:,()+=*-]*)('|\").*", boost::regex::extended);
 				std::string previousLine = "";
+				std::string memo_href;
 				while(getline(webPage, line))
 				{		
-					boost::cmatch result_src, result_alt;
-					if(previousLine == "<img" && boost::regex_match(line.c_str(), result_src, exp_src))
+					std::stringstream sstm;
+					sstm << "http://strabic.fr/";
+					boost::cmatch result_src, result_href;
+					if(previousLine == "<a" && boost::regex_match(line.c_str(), result_href, exp_href))
 					{
-						std::cout << result_src[3];
-						if(boost::regex_match(line.c_str(), result_alt, exp_alt))
-						{
-							std::cout << " <- " << result_alt[3] << std::endl;
-						}
-						else
-						{
-							std::cout << std::endl;
-						}
+						memo_href = result_href[3];
+					}
+					else if(previousLine == "<img" && boost::regex_match(line.c_str(), result_src, exp_src))
+					{
+						std:: string pathImg = result_src[3];
+						sstm << pathImg;
+						std::string extension = pathImg.substr(pathImg.find_last_of("."));
+						downloadFile(sstm.str(), memo_href + extension);
 					}
 					else
 					{
@@ -200,7 +209,7 @@ void extractImageFromWebPage(std::string path)
 			}
 			boost::filesystem::remove("tmp/" + pageCurrent);
 		}
-		boost::filesystem::remove("tmp");
+		//boost::filesystem::remove("tmp");
 	}
 	else
 	{
