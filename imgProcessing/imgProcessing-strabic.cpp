@@ -169,14 +169,23 @@ void extractImageFromWebPage(std::string path)
 			if(webPage)
 			{
 				std::string line;				
-				boost::regex exp_src(".*(src=\")([a-zA-Z0-9_/.-]*)(\").*", boost::regex::extended|boost::regex::icase);
+				boost::regex exp_src(".*(src=('|\"))([a-zA-Z0-9_/ .-]*)(\"|').*", boost::regex::extended);
+				boost::regex exp_alt(".*(alt=('|\"))([a-zA-Z0-9_/ #&;.!?:,()+=*-]*)('|\").*", boost::regex::extended);
 				std::string previousLine = "";
 				while(getline(webPage, line))
 				{		
-					boost::cmatch result;
-					if(previousLine == "<img" &&  boost::regex_match(line.c_str(), result, exp_src))
+					boost::cmatch result_src, result_alt;
+					if(previousLine == "<img" && boost::regex_match(line.c_str(), result_src, exp_src))
 					{
-						std::cout << result[2] << std::endl;
+						std::cout << result_src[3];
+						if(boost::regex_match(line.c_str(), result_alt, exp_alt))
+						{
+							std::cout << " <- " << result_alt[3] << std::endl;
+						}
+						else
+						{
+							std::cout << std::endl;
+						}
 					}
 					else
 					{
@@ -189,9 +198,9 @@ void extractImageFromWebPage(std::string path)
 			{
 				std::cout << "Can't open the online file !" << std::endl;
 			}
-			//boost::filesystem::remove("tmp/" + pageCurrent);
+			boost::filesystem::remove("tmp/" + pageCurrent);
 		}
-		//boost::filesystem::remove("tmp");
+		boost::filesystem::remove("tmp");
 	}
 	else
 	{
