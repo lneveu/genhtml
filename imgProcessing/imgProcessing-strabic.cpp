@@ -3,19 +3,24 @@
  *	@author: Brieuc DANIEL - ESIR2 IN
  *	@date: 2015
  */
-
+#include <boost/filesystem.hpp>
+#include <boost/regex.hpp>
 #include <curl/curl.h>
 #include <fstream>
+#include <ios>
 #include <iostream>
 #include <opencv2/opencv.hpp>
 #include <opencv2/core/core.hpp>
 #include <sstream>
 #include <string>
 #include <stdio.h>
+#include <sys/stat.h>
 
-using namespace cv;
-using namespace std;
-
+/**
+ *	###########################################
+ *	######     DOWNLOADIMG FUNCTIONS     ######
+ *	###########################################
+ */
 size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
 	size_t written;
@@ -23,92 +28,215 @@ size_t write_data(void *ptr, size_t size, size_t nmemb, FILE *stream)
 	return written;
 }
 
-void downloadImg(string path)
+void downloadFile(std::string path)
 {
 	CURL *curl;
 	FILE *fp;
 	CURLcode imgRes;
 	
-	stringstream sstm;
+	std::stringstream sstm;
+	// Assigning the output path in tmp directory
 	sstm << "tmp/" << path.substr(path.find_last_of("/") + 1);
-	string sTemp = sstm.str();
+	std::string sTemp = sstm.str();
 	char *output = (char *) sTemp.c_str();
 	char *url = (char *)path.c_str();
 
 	curl = curl_easy_init();
 	if(curl)
 	{
-		cout << output << endl;
+		std::cout << output << std::endl;
+		// Open image and give the write permission
 		fp = fopen(output, "w+");
 		curl_easy_setopt(curl, CURLOPT_URL, url);
 		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
 		curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
 		imgRes = curl_easy_perform(curl);
-		// Cleanup !!!
+		// Cleanup
 		curl_easy_cleanup(curl); 
 		fclose(fp);
 	}
 }
+/* ---------------------------------------------------------------------------- */
 
-void processImg(string filePath)
+/**
+ *	#########################################
+ *	######     PROCESSIMG FUNCTION     ######
+ *	#########################################
+ */
+void processImg(std::string filePath)
 {
-	Mat imgSource = imread(filePath, CV_LOAD_IMAGE_GRAYSCALE);
-	Mat imgOutput;
+	cv::Mat imgSource = cv::imread(filePath, CV_LOAD_IMAGE_GRAYSCALE);
+	cv::Mat imgOutput;
+	imshow("Test", imgSource);
 	int h_source = imgSource.rows;
 	int w_source = imgSource.cols;
 	int origin; 
+	// Horizontal crop
 	if(h_source > w_source)
 	{
 		origin = (h_source - w_source) / 2;
 		resize(imgSource, imgOutput, cvSize(200, 200));
 	}
+	// Vertical crop
 	else if(h_source < w_source)
 	{
 		origin = (w_source - h_source) / 2;
 		resize(imgSource, imgOutput, cvSize(200, 200));
 	}
+	// No crop
 	else
 	{
 		resize(imgSource, imgOutput, cvSize(200,200));
 	}
-	vector<int> compression_params;
+	// Iniatializing image compression
+	cv::vector<int> compression_params;
 	compression_params.push_back(CV_IMWRITE_PNG_COMPRESSION);
 	compression_params.push_back(9);
 	// Substract the initial extension
 	int extIndex = filePath.find_last_of(".");
-	string newPath = filePath.substr(0, extIndex);
+	std::string newPath = filePath.substr(0, extIndex);
+	// Writing image as png
 	imwrite("img/" + filePath.substr(filePath.find_last_of("/") + 1), imgOutput, compression_params);
 }
 
-int main(int argc, char *argv[])
-{ 	
-	// Loop extract url from .txt
-	ifstream file(argv[1], ios::in);
-	if(file)
+/**
+ *	############################################
+ *	######    PROCESSFROMURL FUNCTION     ######
+ *	############################################
+ */
+void processFromURL(std::string path)
+{
+	std::ifstream fileImg(path, std::ios::in);
+	// File Opening
+	if(fileImg)
 	{
-		string imgPath;
-		while(getline(file, imgPath))
+		std::string imgPath;
+		int nb_error = 0;
+		// Create directories
+		boost::filesystem::create_directory("tmp");
+		boost::filesystem::create_directory("img");
+		// Scan all lines in the file
+		while(getline(fileImg, imgPath))
 		{
-			// Download the image
-			downloadImg(imgPath);
+			// Dowload the image
+			downloadFile(imgPath);
 			// Processing the image
-			if((string) imgPath.substr(imgPath.find_last_of(".") + 1) != "gif")
+			if((std::string)imgPath.substr(imgPath.find_last_of(".") + 1) != "gif")
 			{
 				processImg("tmp/" + imgPath.substr(imgPath.find_last_of("/") + 1));
 			}
 			else
 			{
-				cout << "Sorry can't process 'gif' files !" << endl;
+				std::cout << "Sorry can't process 'gif' files !" << std::endl;
+				nb_error++;
 			}
+			boost::filesystem::remove("tmp/" + imgPath.substr(imgPath.find_last_of("/") + 1));
 		}
-		cout << "Download succesfully done !" << endl;
-		file.close();
+		std::cout << "Download Finish (" << nb_error << " errors) !" << std::endl;
+		fileImg.close();
+		boost::filesystem::remove("tmp");
 	}
 	else
 	{
-		cout << "Error: Can't open the file !";
+		std::cout << "Error can't open the file !" << std::endl;
 	}
+}
 
+/**
+ *	######################################################
+ *	######     EXTRACTIMAGEFROMWEBPAGE FUNCTION     ######
+ *	######################################################
+ */
 
-	return 0;
+void extractImageFromWebPage(std::string path)
+{
+	std::ifstream pageFile(path, std::ios::in);
+	if(pageFile)
+	{
+		std::string pagePath;
+		// Create directories
+		boost::filesystem::create_directory("tmp");
+		boost::filesystem::create_directory("img");
+		while(getline(pageFile, pagePath))
+		{
+			pagePath = pagePath.substr(0, pagePath.size() - 1);
+			// Download the html file
+			downloadFile(pagePath);
+			// Opening the local html file
+			std::string pageCurrent;
+			pageCurrent = pagePath.substr(pagePath.find_last_of("/") + 1);
+			std::ifstream webPage("tmp/" + pageCurrent, std::ios::in);
+			if(webPage)
+			{
+				std::string line;				
+				boost::regex exp_src(".*(src=\")([a-zA-Z0-9_/.-]*)(\").*", boost::regex::extended|boost::regex::icase);
+				std::string previousLine = "";
+				while(getline(webPage, line))
+				{		
+					boost::cmatch result;
+					if(previousLine == "<img" &&  boost::regex_match(line.c_str(), result, exp_src))
+					{
+						std::cout << result[2] << std::endl;
+					}
+					else
+					{
+						previousLine = line;
+					}
+				}
+				std::cout << std::endl;
+			}
+			else
+			{
+				std::cout << "Can't open the online file !" << std::endl;
+			}
+			//boost::filesystem::remove("tmp/" + pageCurrent);
+		}
+		//boost::filesystem::remove("tmp");
+	}
+	else
+	{
+		std::cout << "Can't open the file !" << std::endl;
+	}
+}
+
+/**	
+ *	###################################
+ *	######     MAIN FUNCTION     ######
+ *	###################################
+ */
+int main(int argc, char *argv[])
+{ 	
+	std::cout << "#### Strabic Image Processing MENU ####" << std::endl;
+	int choice = 1;
+	while(choice != 0)
+	{
+		std::cout << "1. Process images from URL in a file .txt" << std::endl;
+		std::cout << "2. Extract images from a webpage (.html)" << std::endl;
+		std::cout << "0. Exit program" << std::endl;
+		std::cout << std::endl << "Please select a process (number) : ";
+		std::cin >> choice;
+		// Selecting the file to process
+		std::string filePath;
+		if(choice != 0)
+		{
+			std::cout << "Enter the .txt file with the urls" << std::endl;
+			std::cin >> filePath;
+		}
+		switch(choice)
+		{
+			case 1:
+				processFromURL(filePath);
+			break;
+			case 2:
+				extractImageFromWebPage(filePath);
+			break;
+			case 0:
+				std::cout << "End of programm - Thanks for the use" << std::endl;
+			break;
+			default:
+				std::cout << "Please be sure to make a valid choice !" << std::endl;
+			break;
+		}
+		std::cout << std::endl;
+	}
 }
