@@ -12,6 +12,8 @@
 #include <igraph.h>
 #include <math.h>
 #include <stdbool.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 //Some external
 extern char *itoa(int, char *, int);
@@ -58,6 +60,9 @@ unsigned char outstr[MAX_BUFFERSIZE];
 // Graph generation
 #define IMG_FOLDER "img/"
 #define NAME_FILE_SEASONS "saisons_url.txt"
+#define CMD_PARSER "./parser.pl"
+#define TXTFILE_FOLDER "articles"
+#define HTMLFILE_FOLDER "articles/html/"
 
 // global flag for debug
 int notInLua = 0;
@@ -96,7 +101,9 @@ void generateGrapheView();
 typedef struct g_node{
 	int id;
 	xmlChar * name;
-	xmlChar * name_display;
+	xmlChar * name_alt;
+  xmlChar * path; // /tmp/filename.txt
+  xmlChar * filename; // filename.html
 
 	//html display
 	xmlChar * urlImage;
@@ -136,7 +143,9 @@ g_node * newG_node(int id){
   g_node * n = (g_node *) malloc(sizeof(g_node));
   n->id = id;
   n->name = NULL;
-  n->name_display=NULL;
+  n->name_alt=NULL;
+  n->path = NULL;
+  n->filename = NULL;
   n->urlImage = NULL;
   n->title = NULL;
   n->author = NULL;
@@ -177,7 +186,7 @@ void displayG_node(){
 	int i;
 	for(i=0; i< nb_node ; i++){
 		g_node * cur = nodes[i];
-		printf("Node[id=%d name=%s name_display=%s title=%s author=%s url=%s x=%0.2f y=%0.2f z=%0.2f]\n",cur->id,cur->name,cur->name_display,cur->title,cur->author,cur->urlImage,cur->x,cur->y,cur->z);
+		printf("Node[id=%d name=%s name_alt=%s title=%s author=%s url=%s x=%0.2f y=%0.2f z=%0.2f]\n",cur->id,cur->name,cur->name_alt,cur->title,cur->author,cur->urlImage,cur->x,cur->y,cur->z);
 	}
 }
 
@@ -348,7 +357,7 @@ void parseElement(xmlNode * a_node){
           g_node * p = getG_nodeByName(parent);
 
           if( !xmlStrcmp(key,"name")){
-            p->name_display = value;
+            p->name_alt = value;
             p->urlImage = xmlStrcat(xmlCharStrdup(IMG_FOLDER),value);
           }
 
@@ -367,6 +376,15 @@ void parseElement(xmlNode * a_node){
           if( !xmlStrcmp(key,"saison")){
             p->urlSaison = value;
           }
+
+          if( !xmlStrcmp(key,"filename")){
+            p->path = value;
+            // TODO
+            // get filename from path (remove /tmp/ && .txt)
+            int i = xmlStrlen(value);
+            p->filename = xmlStrsub(value,5,i-5-4);
+            p->filename = xmlStrcat(p->filename,".html");
+          }
         }
       }
 
@@ -375,7 +393,7 @@ void parseElement(xmlNode * a_node){
   }
 }
 
-// Generate constellation (html file)
+// Generate constellation view (html file)
 void generateGrapheView(){
   int i;
 
@@ -387,12 +405,13 @@ void generateGrapheView(){
     fprintf(outfile,"class=\"%s\" ",cur->stylename);
     fprintf(outfile,"style=\"position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1f\">",cur->x,cur->y,cur->z);
 
+    xmlChar * url = xmlStrncatNew(HTMLFILE_FOLDER,cur->filename,-1);
     //link
-    fprintf(outfile,"<a href=\"%s\" style=\"width:inherit;height:inherit\">",cur->url);
+    fprintf(outfile,"<a href=\"%s\" style=\"width:inherit;height:inherit\">",url);
     
     //img
     fprintf(outfile,"<img src=\"%s\" alt=\"%s\" style=\"width:inherit;height:inherit\">",
-     cur->urlImage, cur->name_display);
+     cur->urlImage, cur->name_alt);
     fprintf(outfile,"</a>");
     
 
@@ -438,12 +457,12 @@ void generateGrapheView(){
       fprintf(outfile,"<div ");
       fprintf(outfile,"class=\"%s\" ",cur->stylename);
       fprintf(outfile,"style=\"position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1f\">",cur->x,cur->y,cur->z);
-      fprintf(outfile,"%s",cur->name_display);
+      fprintf(outfile,"%s",cur->name_alt);
       fprintf(outfile,"</div>\n");
     } else {
       //FB
       fprintf(outfile,"<img src=\"%s\" alt=\"%s\" style=\"width:80px;height:80;position:absolute;left:%0.1fpx;top:%0.1fpx;z-index:%0.1fx\">",
-        cur->urlImage, cur->name_display,cur->x,cur->y,cur->z);
+        cur->urlImage, cur->name_alt,cur->x,cur->y,cur->z);
     }*/
 }
   // generation HTML edges
@@ -471,6 +490,7 @@ bool isValueInArray(xmlChar * val, xmlChar **array, int size){
   return false;
 }
 
+// Generate a file that contains url of each season
 void createSeasonsURLFile(){
   xmlChar * seasonsURL[MAX_BUFFERSIZE];
   int i;
@@ -489,6 +509,29 @@ void createSeasonsURLFile(){
     }
   }
   fclose(fileSeasons);
+}
+
+// Generate HTML file for each article
+void generateHTMLFiles(){
+  int i;
+  for(i=0; i< nb_node ; i++){
+    g_node * cur = nodes[i];
+
+    char * src = xmlStrcat(xmlCharStrdup(TXTFILE_FOLDER),cur->path);
+    char * dest = xmlStrcat(xmlCharStrdup(HTMLFILE_FOLDER),cur->filename);
+
+    pid_t pid = fork();
+
+    if(pid == -1){
+      // error, failed to fork()
+    }else if(pid > 0){
+      int status;
+      waitpid(pid,&status,0);
+    }else{
+      // parser.pl
+      execl(CMD_PARSER,CMD_PARSER,src,dest,NULL);
+    }
+  }
 }
 
 /*******************************************/
@@ -1163,7 +1206,7 @@ int genhtml_boxheight(lua_State *L){
   return 1;
 }
 
-// Generate the graph
+// Generate constellation view with HMTL files for each article
 int genhtml_generateconstellation(lua_State *L){
 	const char *Filename = luaL_checkstring(L,1); // get the graphe file
 	xmlDoc *doc = NULL;
@@ -1175,19 +1218,21 @@ int genhtml_generateconstellation(lua_State *L){
   }else{
     root_element = xmlDocGetRootElement(doc);
     
-    // parse le gml, instancie les treenode, met à jour le vecteur edge
+    // parse le fichier graphml, instancie les nodes, met à jour le vecteur edge
     printf("Creating nodes...\n");
     parseElement(root_element);
+    printf("Done!\n");
+    
 
-		//displayG_node();
-		//displayG_edge();
+    // génère les fichiers html des articles à partir des fichiers txt
+    printf("Géneration html files...\n");
+    generateHTMLFiles();
     printf("Done!\n");
 
-		// initialise le tableau d'arretes pour la création du graph
+		// initialise le tableau d'aretes pour la création du graph
     igraph_real_t array_edges[nb_edge*2];
-    createArrayEdges(array_edges);
-
     igraph_vector_t v_edges;
+    createArrayEdges(array_edges);
     igraph_vector_view(&v_edges,array_edges,nb_edge*2);
     
     // creation du graph
@@ -1196,7 +1241,7 @@ int genhtml_generateconstellation(lua_State *L){
 		// generation des coordonées
     generateCoordinates();
 
-		// génère graph html dans finish()
+		// -> génère la vue html dans finish()
 
     xmlFreeDoc(doc);
  }
