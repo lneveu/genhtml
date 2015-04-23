@@ -4,6 +4,7 @@
 <resource id="prologue" type="htmltext"><![CDATA[<html>
 <head>
 <meta charset="UTF-8">
+<base target="_parent">
 <title>strabic test</title> 
 <style type="text/css">
 body {
