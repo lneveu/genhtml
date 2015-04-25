@@ -523,7 +523,7 @@ void generateHTMLFiles(){
     pid_t pid = fork();
 
     if(pid == -1){
-      // error, failed to fork()
+      printf("Error failed to fork");
     }else if(pid > 0){
       int status;
       waitpid(pid,&status,0);
