@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-
+ 
 use strict ;
 use warnings ;
 use Data::Dumper ;
@@ -51,45 +51,78 @@ sub read_file($) {
 		}
 		$date = dateToString($year,$month,$day);
 
+    #Suppression des div
+    $text =~ s/<div.*>//g;
+    $text =~ s/<\/div>//g;
+
+    # Suppression des <br>
+    $text =~ s/<br\s?\/?>//g;
+
+    # Suppression des <youtube...>
+    $text =~ s/<youtube.*>//g;
+
     #Suppression des <note-image>
     $text =~ s/<note-image\d*>//g;
+
+    #Suppression des <note-galerie>
+    $text =~ s/<note-galerie\d*>//g;
 
     # Suppression des <album...>
     $text =~ s/<album.*>//g;
 
-    # Chapo
-    $text =~ s/<chapo>(.*)<\/chapo>/\n\n<div class=\"chapo"><p>$1<\/p><\/div>\n/g;
+    # Suppression des notes de bas de page [[..]]
+    $text =~ s/\[\[.*\]\]//g;
 
-    # Quotes et poesie
-    $text =~ s/<quote>(.*)<\/quote>|<poesie>(.*)<\/poesie>/\n\n<q>$1<\/q>\n/g;
+    # Chapo
+    $text =~ s/<chapo>\n?(.*)<\/chapo>/\n\n<div class=\"chapo"><p>$1<\/p><\/div>\n/g;
+
+    # Quotes
+    $text =~ s/<quote>\n?(.*)<\/quote>/\n\n<q>$1<\/q>\n/g;
+
+    # Poesie
+    $text =~ s/<poesie>\n?(.*)<\/poesie>/\n\n<q>$1<\/q>\n/g;
+
+    # Images
+    $text =~ s/<image=(http:\/\/.*?)>/\n\n<img src=\"$1\" alt=\"#\" class=\"miniature\"\/>\n\n/g;
 
     # <note-texte|texte=...
     $text =~ s/<note-texte\|texte=(.*)>/<div class=\"marge\"><div class=\"inner\"><p>$1<\/p><\/div><\/div>\n\n/g;
 
     # H3 : {{{ }}}
-    $text =~ s/{{{(.*)}}}/<h3>$1<\/h3>/g;
-
+    $text =~ s/{{{\n?(.*?\n*.*?)}}}/<h3>$1<\/h3>/g;
+    
     # Gras : {{ }}
-    $text =~ s/{{(.*)}}/<b>$1<\/b>/g;
+    $text =~ s/{{\n?(.*?\n*.*?)}}/<b>$1<\/b>/g;
 
     # Italique : { }
-    $text =~ s/{(.*?)}/<i>$1<\/i>/g;
+    $text =~ s/{\n?(.*?\n*.*?)}/<i>$1<\/i>/g;
 
     # <li> : -
-    $text =~ s/- (.*)\n/<li>$1<\/li>\n/g;
+    $text =~ s/^- (.*)\n/<li><p>$1<\/p><\/li>\n/mg;
 
     # Rajout des <ul> autour des <li>
     $text =~ s/(<li>(.*<\/li>\n<li>.*)*<\/li>)/<ul>\n$1\n<\/ul>/g;
+    
+    # [couleur]
+    $text =~ s/\[([a-z\s]+)\]/<span class=\"$1\">/g;
+    $text =~ s/\[\/[a-z\s]+\]/<\/span>/g;
 
-    # Images
-    $text =~ s/<image=(http:\/\/.*)>/<img src=\"$1\" alt=\"#\" class=\"miniature\"\/>/g;
+    # Link
+    $text =~ s/\[(.*?)(->)+(.*?)\]/<a href=\"$3\" class=\"link\">$1<\/a>/g;
 
     # Paragraphes
-    $text =~ s/(.*) *\n(?: *\n)+(?:<br ?\/?>)*/<p>$1<\/p>\n\n/g;
+    $text =~ s/(^[^<\n]+.+|.+[^\/\n>]+$)/<p>$1<\/p>\n\n/gm;
 
-    
-    # Link
-    $text =~ s/\[([a-zA-Z0-9\s\/<>]*?)(->)+(.*?)\]/<a href=\"$3\" class=\"link\">$1<\/a>/g;
+    # Paragraphes autour des <b> sur une seule ligne
+    $text =~ s/(^<b>.*?<\/b>$)/<p>$1<\/p>\n\n/gm;
+
+    # Paragraphes autour des <q> sur une seule ligne
+    $text =~ s/(^<q>.*?<\/q>$)/<p>$1<\/p>\n\n/gm;
+
+
+
+
+    #print $text;
 
     #Supprimer les <p> des <ul>, <img>, <h3> et <div marge>
     $text =~ s/<p>(<\/ul>)<\/p>/$1/g;
@@ -97,7 +130,7 @@ sub read_file($) {
     $text =~ s/<p>(<h3>.*?<\/h3>)<\/p>/$1/g;
     $text =~ s/<p>(<div class=\"marge\">.*<\/div>)<\/p>/$1/g;
 
-    #print $text;
+    
     return $title,$subtitle,$date,$author,$text ;
 }
  
@@ -117,10 +150,10 @@ sub print_file($$$$$$) {
 						<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\">  
 
 						<title>".$title."</title>
-						<link rel=\"stylesheet\" href=\"style.css\" type=\"text/css\">
+						<link rel=\"stylesheet\" href=\"ressources/style.css\" type=\"text/css\">
 
 						<script src=\"http://code.jquery.com/jquery-1.11.2.min.js\"></script>
-						<script type=\"text/javascript\" src=\"libjs.js\"></script>
+						<script type=\"text/javascript\" src=\"ressources/libjs.js\"></script>
 
 					</head>
 					<body>
@@ -130,14 +163,12 @@ sub print_file($$$$$$) {
 						<div class=\"container\">
 							<div class=\"top\">
 							<div class=\"header\">
-								<div class=\"author\">".$author." ".$date."</div>
+								<div class=\"author\">".$author." - ".$date."</div>
 								<div class=\"title\">".$title."</div>
 								<div class=\"sub-title\">$subtitle</div>
 							</div>
 							</div>
-							<div class=\"content\">
-								<div class=\"chapo\">
-								</div>";
+							<div class=\"content\">";
 
 
     
