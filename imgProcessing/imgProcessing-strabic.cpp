@@ -74,27 +74,29 @@ void processImg(std::string filePath)
 {
 	cv::Mat imgSource = cv::imread(filePath, CV_LOAD_IMAGE_GRAYSCALE);
 	cv::Mat imgOutput;
-	imshow("Test", imgSource);
+	cv::Mat imgMat;
+	
 	int h_source = imgSource.rows;
 	int w_source = imgSource.cols;
-	int origin; 
+	int origin;
+
 	// Horizontal crop
 	if(h_source > w_source)
 	{
 		origin = (h_source - w_source) / 2;
-		resize(imgSource, imgOutput, cvSize(200, 200));
+		imgMat = cv::Mat(imgSource, cv::Rect(0, origin,  w_source-1, w_source-1));
+		resize(imgMat, imgOutput, cvSize(150, 150));
 	}
 	// Vertical crop
 	else if(h_source < w_source)
 	{
 		origin = (w_source - h_source) / 2;
-		resize(imgSource, imgOutput, cvSize(200, 200));
+		imgMat = cv::Mat(imgSource, cv::Rect(origin, 0,  h_source-1, h_source-1));
 	}
-	// No crop
-	else
-	{
-		resize(imgSource, imgOutput, cvSize(200,200));
-	}
+	
+	// Resizing image
+	resize(imgMat, imgOutput, cvSize(150, 150));
+
 	// Iniatializing image compression
 	cv::vector<int> compression_params;
 	compression_params.push_back(CV_IMWRITE_PNG_COMPRESSION);
@@ -180,6 +182,7 @@ void extractImageFromWebPage(std::string path)
 				boost::regex exp_href(".*(href=('|\"))([a-zA-Z0-9_/ #&;.!?:,()+=*-]*)('|\").*", boost::regex::extended);
 				std::string previousLine = "";
 				std::string memo_href;
+				int nb_error = 0;
 				while(getline(webPage, line))
 				{		
 					std::stringstream sstm;
@@ -195,6 +198,16 @@ void extractImageFromWebPage(std::string path)
 						sstm << pathImg;
 						std::string extension = pathImg.substr(pathImg.find_last_of("."));
 						downloadFile(sstm.str(), memo_href + extension);
+						if((std::string) pathImg.substr(pathImg.find_last_of(".") + 1) != "gif")
+						{
+							processImg("tmp/" + memo_href + extension);
+							boost::filesystem::remove("tmp/" + memo_href + extension);
+						}
+						else
+						{
+							std::cout << "Sorry can't process 'gif' files" << std::endl;
+							nb_error++;
+						}
 					}
 					else
 					{
@@ -209,7 +222,7 @@ void extractImageFromWebPage(std::string path)
 			}
 			boost::filesystem::remove("tmp/" + pageCurrent);
 		}
-		//boost::filesystem::remove("tmp");
+		boost::filesystem::remove("tmp");
 	}
 	else
 	{
@@ -235,7 +248,7 @@ int main(int argc, char *argv[])
 		std::cin >> choice;
 		// Selecting the file to process
 		std::string filePath;
-		if(choice != 0)
+		if(choice == 1 || choice == 2)
 		{
 			std::cout << "Enter the .txt file with the urls" << std::endl;
 			std::cin >> filePath;
