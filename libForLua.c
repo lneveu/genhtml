@@ -358,7 +358,6 @@ void parseElement(xmlNode * a_node){
 
           if( !xmlStrcmp(key,"name")){
             p->name_alt = value;
-            p->urlImage = xmlStrcat(xmlCharStrdup(IMG_FOLDER),value);
           }
 
           if( !xmlStrcmp(key,"url")){
@@ -383,6 +382,10 @@ void parseElement(xmlNode * a_node){
             // get filename from path (remove /tmp/ && .txt)
             int i = xmlStrlen(value);
             p->filename = xmlStrsub(value,5,i-5-4);
+            xmlChar* fileName = xmlStrdup(p->filename);
+            xmlChar* imageName = xmlStrcat(fileName,".png");
+            p->urlImage = xmlStrcat(xmlCharStrdup(IMG_FOLDER),imageName); /* /img/{imageName} */
+
             p->filename = xmlStrcat(p->filename,".html");
           }
         }
@@ -1226,7 +1229,7 @@ int genhtml_generateconstellation(lua_State *L){
 
     // génère les fichiers html des articles à partir des fichiers txt
     printf("Géneration html files...\n");
-    generateHTMLFiles();
+    //generateHTMLFiles();
     printf("Done!\n");
 
 		// initialise le tableau d'aretes pour la création du graph
