@@ -83,7 +83,10 @@ sub read_file($) {
     $text =~ s/<poesie>\n?(.*)<\/poesie>/\n\n<q>$1<\/q>\n/g;
 
     # Images
-    $text =~ s/<image=(http:\/\/.*?)>/\n\n<img src=\"$1\" alt=\"#\" class=\"miniature\"\/>\n\n/g;
+    $text =~ s/<image=(http:\/\/.*?)>/\n\n<div class=\"border\"><img src=\"$1\" alt=\"#\" class=\"miniature\"\/><\/div>\n\n/g;
+
+    # Iframe
+    $text =~ s/<iframe src=\"(.*?)\".*?>.*?<\/iframe>/\n\n<div class=\"iframe-wrapper\"><iframe class=\"iframe-content\" src=\"$1\"><\/iframe><div class=\"iframe-blocker\"><\/div><\/div>\n\n/g;
 
     # <note-texte|texte=...
     $text =~ s/<note-texte\|texte=(.*)>/<div class=\"marge\"><div class=\"inner\"><p>$1<\/p><\/div><\/div>\n\n/g;
@@ -119,10 +122,14 @@ sub read_file($) {
     # Paragraphes autour des <q> sur une seule ligne
     $text =~ s/(^<q>.*?<\/q>$)/<p>$1<\/p>\n\n/gm;
 
-
-
-
     #print $text;
+
+   
+
+    
+
+
+    
 
     #Supprimer les <p> des <ul>, <img>, <h3> et <div marge>
     $text =~ s/<p>(<\/ul>)<\/p>/$1/g;
@@ -158,7 +165,7 @@ sub print_file($$$$$$) {
 					</head>
 					<body>
 						<div class=\"lines\"></div>
-						<div id=\"popup\" class=\"popup\"><img id=\"imgpopup\" class=\"imgpopup\" src=\"\"/></div>
+						<div id=\"popup_img\" class=\"popup\"><img id=\"imgpopup\" class=\"imgpopup\" src=\"\"/></div>
 
 						<div class=\"container\">
 							<div class=\"top\">
