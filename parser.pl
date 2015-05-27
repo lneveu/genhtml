@@ -74,22 +74,22 @@ sub read_file($) {
     $text =~ s/\[\[.*\]\]//g;
 
     # Chapo
-    $text =~ s/<chapo>\n?(.*)<\/chapo>/\n\n<div class=\"chapo"><p>$1<\/p><\/div>\n/g;
+    $text =~ s/<chapo>\n?(.*?)<\/chapo>/\n\n<div class=\"chapo"><p>$1<\/p><\/div>\n/g;
 
     # Quotes
-    $text =~ s/<quote>\n?(.*)<\/quote>/\n\n<q>$1<\/q>\n/g;
+    $text =~ s/<quote>\n?(.*?)<\/quote>/\n\n<q>$1<\/q>\n/g;
 
     # Poesie
-    $text =~ s/<poesie>\n?(.*)<\/poesie>/\n\n<q>$1<\/q>\n/g;
+    $text =~ s/<poesie>\n?(.*?)<\/poesie>/\n\n<q>$1<\/q>\n/g;
 
     # Images
     $text =~ s/<image=(http:\/\/.*?)>/\n\n<div class=\"border\"><img src=\"$1\" alt=\"#\" class=\"miniature\"\/><\/div>\n\n/g;
 
     # Iframe
-    $text =~ s/<iframe src=\"(.*?)\".*?>.*?<\/iframe>/\n\n<div class=\"iframe-wrapper\"><iframe class=\"iframe-content\" src=\"$1\"><\/iframe><div class=\"iframe-blocker\"><\/div><\/div>\n\n/g;
-
+    $text =~ s/<iframe.*?src=\"(.*?)\".*?>.*?<\/iframe>/\n\n<div class=\"iframe-wrapper\"><iframe class=\"iframe-content\" src=\"$1\"><\/iframe><div class=\"iframe-blocker\"><\/div><\/div>\n\n/gs;
+   
     # <note-texte|texte=...
-    $text =~ s/<note-texte\|texte=(.*)>/<div class=\"marge\"><div class=\"inner\"><p>$1<\/p><\/div><\/div>\n\n/g;
+    $text =~ s/<note-texte\|texte=(.*?)>/<div class=\"marge\"><div class=\"inner\"><p>$1<\/p><\/div><\/div>\n\n/g;
 
     # H3 : {{{ }}}
     $text =~ s/{{{\n?(.*?\n*.*?)}}}/<h3>$1<\/h3>/g;
